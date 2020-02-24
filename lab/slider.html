@@ -1,0 +1,66 @@
+<?php 
+require_once('../main/auth.php');
+ include('../connect.php');
+ ?>
+ <!DOCTYPE html>
+<html>
+<head>
+	<title>Responsive slider</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="Made with WOW Slider - Create beautiful, responsive image sliders in a few clicks. Awesome skins and animations. Responsive slider" />
+	
+	<!-- Start WOWSlider.com HEAD section --> <!-- add to the <head> of your page -->
+	<link rel="stylesheet" type="text/css" href="engine1/style.css" />
+	<script type="text/javascript" src="engine1/jquery.js"></script>
+	<!-- End WOWSlider.com HEAD section -->
+
+</head>
+<?php include('../main/nav.php'); ?>
+<body style="background-color:#d7d7d7;margin:auto">
+	
+	<!-- Start WOWSlider.com BODY section --> <!-- add to the <body> of your page -->
+	<div id="wowslider-container1">
+	<div class="ws_images"><ul>
+		<li><img src="data1/images/favicon.jpg" alt="favicon" title="favicon" id="wows1_0"/></li>
+		<li><img src="data1/images/valerian_adoyo_12930_0001_99431.jpg" alt="VALERIAN ADOYO_12930_0001_99431" title="VALERIAN ADOYO_12930_0001_99431" id="wows1_1"/></li>
+		<li><img src="data1/images/valerian_adoyo_12930_0002_99433.jpg" alt="VALERIAN ADOYO_12930_0002_99433" title="VALERIAN ADOYO_12930_0002_99433" id="wows1_2"/></li>
+		<li><img src="data1/images/valerian_adoyo_12930_0003_99432.jpg" alt="VALERIAN ADOYO_12930_0003_99432" title="VALERIAN ADOYO_12930_0003_99432" id="wows1_3"/></li>
+		<li><img src="data1/images/valerian_adoyo_12930_0004_99434.jpg" alt="VALERIAN ADOYO_12930_0004_99434" title="VALERIAN ADOYO_12930_0004_99434" id="wows1_4"/></li>
+		<li><img src="data1/images/valerian_adoyo_12930_0005_99435.jpg" alt="VALERIAN ADOYO_12930_0005_99435" title="VALERIAN ADOYO_12930_0005_99435" id="wows1_5"/></li>
+		<li><img src="data1/images/valerian_adoyo_12930_0006_99436.jpg" alt="VALERIAN ADOYO_12930_0006_99436" title="VALERIAN ADOYO_12930_0006_99436" id="wows1_6"/></li>
+		<li><img src="data1/images/valerian_adoyo_12930_0007_99437.jpg" alt="VALERIAN ADOYO_12930_0007_99437" title="VALERIAN ADOYO_12930_0007_99437" id="wows1_7"/></li>
+		<li><img src="data1/images/valerian_adoyo_12930_0008_99438.jpg" alt="VALERIAN ADOYO_12930_0008_99438" title="VALERIAN ADOYO_12930_0008_99438" id="wows1_8"/></li>
+		<li><img src="data1/images/valerian_adoyo_12930_0009_99440.jpg" alt="VALERIAN ADOYO_12930_0009_99440" title="VALERIAN ADOYO_12930_0009_99440" id="wows1_9"/></li>
+		<li><img src="data1/images/valerian_adoyo_12930_0010_99439.jpg" alt="VALERIAN ADOYO_12930_0010_99439" title="VALERIAN ADOYO_12930_0010_99439" id="wows1_10"/></li>
+		<li><img src="data1/images/valerian_adoyo_12930_0011_99441.jpg" alt="VALERIAN ADOYO_12930_0011_99441" title="VALERIAN ADOYO_12930_0011_99441" id="wows1_11"/></li>
+		<li><img src="data1/images/valerian_adoyo_12930_0012_99442.jpg" alt="VALERIAN ADOYO_12930_0012_99442" title="VALERIAN ADOYO_12930_0012_99442" id="wows1_12"/></li>
+		<li><img src="data1/images/valerian_adoyo_12930_0013_99443.jpg" alt="VALERIAN ADOYO_12930_0013_99443" title="VALERIAN ADOYO_12930_0013_99443" id="wows1_13"/></li>
+		<li><a href="http://wowslider.net"><img src="data1/images/valerian_adoyo_12930_0014_99444.jpg" alt="slideshow javascript" title="VALERIAN ADOYO_12930_0014_99444" id="wows1_14"/></a></li>
+		<li><img src="data1/images/valerian_adoyo_12930_0015_99445.jpg" alt="VALERIAN ADOYO_12930_0015_99445" title="VALERIAN ADOYO_12930_0015_99445" id="wows1_15"/></li>
+	</ul></div>
+	<div class="ws_bullets"><div>
+		<a href="#" title="favicon"><span><img src="data1/tooltips/favicon.jpg" alt="favicon"/>1</span></a>
+		<a href="#" title="VALERIAN ADOYO_12930_0001_99431"><span><img src="data1/tooltips/valerian_adoyo_12930_0001_99431.jpg" alt="VALERIAN ADOYO_12930_0001_99431"/>2</span></a>
+		<a href="#" title="VALERIAN ADOYO_12930_0002_99433"><span><img src="data1/tooltips/valerian_adoyo_12930_0002_99433.jpg" alt="VALERIAN ADOYO_12930_0002_99433"/>3</span></a>
+		<a href="#" title="VALERIAN ADOYO_12930_0003_99432"><span><img src="data1/tooltips/valerian_adoyo_12930_0003_99432.jpg" alt="VALERIAN ADOYO_12930_0003_99432"/>4</span></a>
+		<a href="#" title="VALERIAN ADOYO_12930_0004_99434"><span><img src="data1/tooltips/valerian_adoyo_12930_0004_99434.jpg" alt="VALERIAN ADOYO_12930_0004_99434"/>5</span></a>
+		<a href="#" title="VALERIAN ADOYO_12930_0005_99435"><span><img src="data1/tooltips/valerian_adoyo_12930_0005_99435.jpg" alt="VALERIAN ADOYO_12930_0005_99435"/>6</span></a>
+		<a href="#" title="VALERIAN ADOYO_12930_0006_99436"><span><img src="data1/tooltips/valerian_adoyo_12930_0006_99436.jpg" alt="VALERIAN ADOYO_12930_0006_99436"/>7</span></a>
+		<a href="#" title="VALERIAN ADOYO_12930_0007_99437"><span><img src="data1/tooltips/valerian_adoyo_12930_0007_99437.jpg" alt="VALERIAN ADOYO_12930_0007_99437"/>8</span></a>
+		<a href="#" title="VALERIAN ADOYO_12930_0008_99438"><span><img src="data1/tooltips/valerian_adoyo_12930_0008_99438.jpg" alt="VALERIAN ADOYO_12930_0008_99438"/>9</span></a>
+		<a href="#" title="VALERIAN ADOYO_12930_0009_99440"><span><img src="data1/tooltips/valerian_adoyo_12930_0009_99440.jpg" alt="VALERIAN ADOYO_12930_0009_99440"/>10</span></a>
+		<a href="#" title="VALERIAN ADOYO_12930_0010_99439"><span><img src="data1/tooltips/valerian_adoyo_12930_0010_99439.jpg" alt="VALERIAN ADOYO_12930_0010_99439"/>11</span></a>
+		<a href="#" title="VALERIAN ADOYO_12930_0011_99441"><span><img src="data1/tooltips/valerian_adoyo_12930_0011_99441.jpg" alt="VALERIAN ADOYO_12930_0011_99441"/>12</span></a>
+		<a href="#" title="VALERIAN ADOYO_12930_0012_99442"><span><img src="data1/tooltips/valerian_adoyo_12930_0012_99442.jpg" alt="VALERIAN ADOYO_12930_0012_99442"/>13</span></a>
+		<a href="#" title="VALERIAN ADOYO_12930_0013_99443"><span><img src="data1/tooltips/valerian_adoyo_12930_0013_99443.jpg" alt="VALERIAN ADOYO_12930_0013_99443"/>14</span></a>
+		<a href="#" title="VALERIAN ADOYO_12930_0014_99444"><span><img src="data1/tooltips/valerian_adoyo_12930_0014_99444.jpg" alt="VALERIAN ADOYO_12930_0014_99444"/>15</span></a>
+		<a href="#" title="VALERIAN ADOYO_12930_0015_99445"><span><img src="data1/tooltips/valerian_adoyo_12930_0015_99445.jpg" alt="VALERIAN ADOYO_12930_0015_99445"/>16</span></a>
+	</div></div><div class="ws_script" style="position:absolute;left:-99%"><a href="http://wowslider.net">responsive slider</a> by WOWSlider.com v8.8</div>
+	<div class="ws_shadow"></div>
+	</div>	
+	<script type="text/javascript" src="engine1/wowslider.js"></script>
+	<script type="text/javascript" src="engine1/script.js"></script>
+	<!-- End WOWSlider.com BODY section -->
+
+</body>
+</html>

@@ -1,0 +1,143 @@
+.gallery .card {
+  cursor: pointer;
+}
+
+.galleryShadow {
+  display: none;
+  -webkit-transition: ease all .5s;
+  transition: ease all .5s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.galleryModal {
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: ease all .5s;
+  transition: ease all .5s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+.galleryModal .galleryContainer {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+}
+
+.galleryModal .galleryContainer img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  max-width: 100%;
+  max-height: 100%;
+  border: 10px solid #fff;
+  border-radius: 10px;
+}
+
+.galleryModal .galleryContainer .galleryText {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 100%;
+  color: #fff;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.galleryModal .galleryIcon {
+  position: absolute;
+  font-size: 2rem;
+  width: 4rem;
+  height: 4rem;
+  text-align: center;
+  color: #fff;
+}
+
+.galleryModal .gIquit {
+  right: 10px;
+  top: 10px;
+}
+
+.galleryModal .gIleft {
+  top: 50%;
+  left: 10px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.galleryModal .gIright {
+  top: 50%;
+  right: 10px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.close {
+    background: url("../icons/icon-close.png") no-repeat;
+    cursor: pointer;
+}
+.nav-left {
+    background: url("../icons/icon-left.png") no-repeat;
+    cursor: pointer;
+}
+.nav-right {
+    background: url("../icons/icon-right.png") no-repeat;
+    cursor: pointer;
+}
+body{
+    font-family: Arial;
+    width: 100%;
+}
+#image{
+    background-color: lightblue;
+    width: 95%;
+}
+
+.form-row {
+    padding: 20px;
+    border-top: #8aacb7 1px solid;
+}
+
+.button-row {
+    padding: 10px 20px;
+    border-top: #8aacb7 1px solid;
+}
+
+.button-row1 {
+    padding: 10px 0px;
+}
+
+input#submit,input#slideshow {
+    padding: 10px 40px;
+    background: #586e75;
+    border: #485c61 1px solid;
+    color: #FFF;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.file-input {
+    background: #FFF;
+    padding: 5px;
+    margin-top: 5px;
+    border-radius: 2px;
+    border: #8aacb7 1px solid;
+}
+
+#validation_error {
+    color: #cc0000;
+    margin-left: 15px;
+}
