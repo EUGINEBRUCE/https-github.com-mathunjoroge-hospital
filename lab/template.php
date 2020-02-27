@@ -17,7 +17,7 @@
 		<script type="text/javascript">CKEDITOR.replace( 'articleContent', {
     toolbar: [
     
-    { name: 'insert', items: ['Table' ] },
+    { name: 'insert', items: ['Table'] },
     
 ]
 });

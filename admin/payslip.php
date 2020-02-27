@@ -146,7 +146,7 @@ if (isset($alowances)) {
     $total_allowances =0;
   }
     $gross_pay=$basic_salary+$total_allowances;
-         ?>
+           ?>
 
 <table class="table">
 <thead>
@@ -180,20 +180,30 @@ if (isset($alowances)) {
 <th></th>
 </tr>
 </thead>
-<?php   
-        $result = $db->prepare("SELECT * FROM tax WHERE amount<=:a ORDER BY tax_id DESC LIMIT 1");
-        $result->bindParam(':a',$basic_salary);
-        $result->execute();
-  for($i=0; $row = $result->fetch(); $i++){ 
-      $tax = $row['percentage_tax'];
-      
-         ?>
 <tbody>
 <tr>
 <td style="width: 81.5%;">PAYE AUTO</td>
-<td><?php $tax_total=($tax/100)*$gross_pay; echo $tax_total;  ?></td>
-<?php }?>
-
+<td><?php
+if($gross_pay<12298) {
+   $tax_total==0;
+   } 
+ if ($gross_pay>=12298 && $gross_pay<=23885 ){
+  $tax_total=1229.8+(($gross_pay-12298)*0.1);
+ }
+ if ($gross_pay>=23885 && $gross_pay<=35472 ) {
+  $tax_total=1229.8+1738.05+(($gross_pay-23885 )*0.15);
+ }
+ if ($gross_pay>=35472 && $gross_pay<=47059 ) {
+  $tax_total=1229.8+1738.05+2317.4+(($gross_pay-35472 )*0.20);
+ }
+ if ($gross_pay==47059) {
+  $tax_total=1229.8+1738.05+2317.4+2896.75;
+ }
+ if ($gross_pay>47059) {
+  $tax_total=1229.8+1738.05+2317.4+2896.75+(($gross_pay-47059)*0.30);
+ }
+ echo $tax_total;
+  ?></td>
 </tr>
 <tr> 
 </tbody>
@@ -227,10 +237,7 @@ if (isset($alowances)) {
 if (!isset($nhif)) {
    $nhif=0;
  } 
- if (!isset($tax)) {
-   $tax=0;
- }
-$total_deductions=$nhif+(($tax/100)*$gross_pay);
+$total_deductions=$nhif+($tax_total);
  echo($gross_pay)-$total_deductions; ?></b></td>
 </tr>
 <tr> 

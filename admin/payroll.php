@@ -85,19 +85,34 @@ table.resultstable tfoot .links a{
          <body ><div class="container">
           <ol class="breadcrumb primary">
     <li class="breadcrumb-item active" aria-current="page">pay roll allowances & deductions</li>
-    <li style="float:right;"><?php
-        $result = $db->prepare("SELECT status  FROM employees WHERE active=1 LIMIT 1");
+    <?php
+        $a=0;
+        $result = $db->prepare("SELECT* FROM employees WHERE status=:a");
+        $result->bindParam(':a',$a);
         $result->execute();
-  for($i=0; $row = $result->fetch(); $i++){ 
-      $status = $row['status'];
-      if ($status== 0) {
-            # code...
-             
+        $no_activated=$result->rowcount();
+      if ($no_activated>0) { 
+               
       ?>
-      <a href="activate_pay.php?status=1">activate payslips</a><?php } ?><?php
-      if ($status==1) { ?>payslips activated<?php } ?><?php
-      if ($status==2) { ?>salaries paid <a href="activate_pay.php?status=2">reset payslips</a><?php } ?><?php } ?></li>
-    
+      <li style="float: right;">
+      <a href="activate_pay.php?status=1">activate payslips</a></li><?php } ?> 
+      <?php
+      $b=1;
+      $result = $db->prepare("SELECT* FROM employees WHERE active=:b");
+        $result->bindParam(':b',$b);
+        $result->execute();
+        $no_of_employees=$result->rowcount();
+        $c=2;
+        $result = $db->prepare("SELECT* FROM employees WHERE status=:c");
+        $result->bindParam(':c',$c);
+        $result->execute();
+        $no_activated=$result->rowcount();
+      if ($no_activated==$no_of_employees) { 
+               
+      ?>
+      <li style="float: right;">
+        all salaries paid
+      <a href="reset_pay.php?status=0">reset payroll</a></li><?php } ?>    
    </ol>  
    <ol class="breadcrumb primary">
    <li><a rel="facebox" href="add_employee.php">add employee</a></li> 
@@ -111,7 +126,7 @@ table.resultstable tfoot .links a{
 <tr>
 <th> name</th>
 <th>deployment date</th>
-<th>job group</th>
+<th>job group</th>.
 <th>basic salary</th>
 <th>action</th>
 </tr>

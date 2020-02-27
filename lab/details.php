@@ -269,11 +269,12 @@ $result = $db->prepare("SELECT name, template, test,opn,reqby,lab_tests.cost FRO
 </thead>
 <?php
        $patient=$_GET['search'];
-        $result = $db->prepare("SELECT  lab.id AS id,name, test,opn,reqby,template,lab_tests.cost FROM lab RIGHT OUTER JOIN lab_tests ON lab.test=lab_tests.id WHERE opn='$patient' AND served=0");
+        $result = $db->prepare("SELECT  lab.id AS id,lab_tests.id AS test_id,name, test,opn,reqby,template,lab_tests.cost FROM lab RIGHT OUTER JOIN lab_tests ON lab.test=lab_tests.id WHERE opn='$patient' AND served=0");
   $result->execute();
   for($i=0; $row = $result->fetch(); $i++){
      
       $name = $row['name'];
+      $test_id = $row['test_id'];
       $lab_id = $row['id'];
       $reqby = $row['reqby'];
       $cost= $row['cost'];
@@ -290,7 +291,7 @@ $result = $db->prepare("SELECT name, template, test,opn,reqby,lab_tests.cost FRO
   <td><?php if (empty($template)){ ?>no template<?php } ?>
   <?php if (!empty($template)) {
     # code...
-   ?><a rel="facebox" href="template.php?lab_id=<?php echo $lab_id; ?>&patient=<?php echo $search; ?>">view template</a><?php } ?>
+   ?><a rel="facebox" href="template.php?test_id=<?php echo $test_id; ?>&patient=<?php echo $search; ?>&lab_id=<?php echo $lab_id; ?>">view template</a><?php } ?>
    </td>
 
 <?php }?>
