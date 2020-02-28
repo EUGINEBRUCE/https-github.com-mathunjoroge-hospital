@@ -25,6 +25,14 @@ else{
   <script src="../pharmacy/dist/js/bootstrap-select.js"></script>
   <link href="../src/facebox.css" media="screen" rel="stylesheet" type="text/css" />
 <script src="../src/facebox.js" type="text/javascript"></script>
+<script type="text/javascript">
+  jQuery(document).ready(function($) {
+    $('a[rel*=facebox]').facebox({
+      loadingImage : '../src/loading.gif',
+      closeImage   : '../src/closelabel.png'
+    })
+  })
+</script>
 </head>
 <body><header class="header clearfix" style="background-color: #3786d6;">
     <button type="button" id="toggleMenu" class="toggle_menu">
@@ -145,7 +153,50 @@ if (isset($alowances)) {
     # code...
     $total_allowances =0;
   }
-    $gross_pay=$basic_salary+$total_allowances;
+  ?>
+  <a rel="facebox" href="other_allowance.php?employee_id=<?php echo $_GET['employee_id']; ?>">
+  <h4>add other allowances</h4></a>
+  <?php
+   $b=date("Y-m-d");   
+            $result = $db->prepare("SELECT sum(amount) AS total  FROM other_allowances WHERE employee_id=:a AND date(date)=:b");
+   $result->bindParam(':a',$_GET['employee_id']);
+   $result->bindParam(':b',$b);
+   $result->execute();
+  for($i=0; $row = $result->fetch(); $i++){
+      $other_allowances = $row['total'];
+    
+      if (isset($other_allowances)) {      
+  ?>
+  <table class="table" >
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr><?php
+  $result = $db->prepare("SELECT*  FROM other_allowances WHERE employee_id=:a AND date(date)=:b");
+   $result->bindParam(':a',$_GET['employee_id']);
+   $result->bindParam(':b',$b);
+   $result->execute();
+  for($i=0; $row = $result->fetch(); $i++){     
+      $name = $row['name'];
+      $amount = $row['amount']; 
+      ?>
+<td style="width: 81.5%;"><?php echo $name; ?></td>
+<td><?php echo $amount; ?></td>
+</tr> 
+<?php } ?>
+</tbody>
+</table>
+<?php }  ?>
+
+  <?php if (!isset($other_allowances)) {
+    $other_allowances=0;
+  }
+    $gross_pay=$basic_salary+$total_allowances+$other_allowances;
+  }
            ?>
 
 <table class="table">
@@ -160,7 +211,7 @@ if (isset($alowances)) {
         $result->bindParam(':a',$gross_pay);
         $result->execute();
   for($i=0; $row = $result->fetch(); $i++){ 
-      $nhif = $row['deduction'];
+      $nhif =$row['deduction'];
       
          ?>
 <tbody>
