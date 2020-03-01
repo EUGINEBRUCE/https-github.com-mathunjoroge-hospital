@@ -195,7 +195,7 @@ if (isset($alowances)) {
   <?php if (!isset($other_allowances)) {
     $other_allowances=0;
   }
-    $gross_pay=$basic_salary+$total_allowances+$other_allowances;
+    $gross_pay=$basic_salary+$total_allowances+$other_allowances-(200);
   }
            ?>
 
@@ -253,7 +253,7 @@ if($gross_pay<12298) {
  if ($gross_pay>47059) {
   $tax_total=1229.8+1738.05+2317.4+2896.75+(($gross_pay-47059)*0.30);
  }
- echo $tax_total;
+ echo $tax_total-1408;
   ?></td>
 </tr>
 <tr> 
@@ -296,6 +296,7 @@ $total_deductions=$nhif+($tax_total);
 </table>
 <?php if ($status==1) {
   # code...
+	//if tax is 0 then no relief
  ?>
  &nbsp;
  <form class="form-inline" method="GET" action="payslip.php">  
