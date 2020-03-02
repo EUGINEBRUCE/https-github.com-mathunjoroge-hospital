@@ -196,9 +196,9 @@ if (isset($alowances)) {
     $other_allowances=0;
   }
     $gross_pay=$basic_salary+$total_allowances+$other_allowances-(200);
+    
   }
            ?>
-
 <table class="table">
 <thead>
 <tr>
@@ -206,24 +206,63 @@ if (isset($alowances)) {
 <th></th>
 </tr>
 </thead>
-<?php   
-        $result = $db->prepare("SELECT* FROM nhif WHERE net_salary=:a ORDER BY ABS(net_salary - @input )");
-        $result->bindParam(':a',$gross_pay);
-        $result->execute();
-  for($i=0; $row = $result->fetch(); $i++){ 
-      $nhif =$row['deduction'];
-      
-         ?>
 <tbody>
 <tr>
+  <?php   
+         $result = $db->prepare("SELECT* FROM nhif WHERE net_salary<=$gross_pay ORDER BY id DESC LIMIT 1");
+        $result->execute();
+  for($i=0; $row = $result->fetch(); $i++){ 
+      $nhif =$row['deduction'];      
+         ?>
 <td style="width: 81.5%;">nhif</td>
 <td><?php echo $nhif; ?></td>
-<?php }?>
 
 </tr>
 <tr> 
 </tbody>
 </table>
+<?php } ?>
+<a rel="facebox" href="other_deductions.php?employee_id=<?php echo $_GET['employee_id']; ?>">
+  <h4>add other deductions</h4></a>
+  <?php
+   $b=date("Y-m-d");   
+            $result = $db->prepare("SELECT sum(amount) AS total  FROM other_deductions WHERE employee_id=:a AND date(date)=:b");
+   $result->bindParam(':a',$_GET['employee_id']);
+   $result->bindParam(':b',$b);
+   $result->execute();
+  for($i=0; $row = $result->fetch(); $i++){
+      $other_deductions = $row['total'];
+    
+      if (isset($other_deductions)) {      
+  ?>
+  <table class="table" >
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr><?php
+  $result = $db->prepare("SELECT*  FROM other_deductions WHERE employee_id=:a AND date(date)=:b");
+   $result->bindParam(':a',$_GET['employee_id']);
+   $result->bindParam(':b',$b);
+   $result->execute();
+  for($i=0; $row = $result->fetch(); $i++){     
+      $name = $row['name'];
+      $amount = $row['amount']; 
+      ?>
+<td style="width: 81.5%;"><?php echo $name; ?></td>
+<td><?php echo $amount; ?></td>
+</tr> 
+<?php } ?>
+</tbody>
+</table>
+<?php }  ?>
+
+  <?php if (!isset($other_deductions)) {
+    $other_deductions=0;
+  } } ?>
 <table class="table">
 <thead>
 <tr>
@@ -259,6 +298,29 @@ if($gross_pay<12298) {
 <tr> 
 </tbody>
 </table>
+<?php
+if ($tax_total>=1229.8) {
+  $tax_relief=1408;
+}
+else{
+  $tax_relief=0;
+}
+?>
+<table class="table">
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="width: 81.5%;"><b>tax relief</b></td>
+<td><b><?php echo($tax_relief); ?></b></td>
+</tr>
+<tr> 
+</tbody>
+</table>
 <table class="table">
 <thead>
 <tr>
@@ -289,7 +351,7 @@ if (!isset($nhif)) {
    $nhif=0;
  } 
 $total_deductions=$nhif+($tax_total);
- echo($gross_pay)-$total_deductions; ?></b></td>
+ echo($gross_pay)-($total_deductions+$other_deductions)+$tax_relief; ?></b></td>
 </tr>
 <tr> 
 </tbody>
