@@ -76,22 +76,21 @@ else{
 <th></th>
 </tr>
 </thead>
-<?php  
-       $result = $db->prepare("SELECT*  FROM employees  JOIN job_groups ON employees.jg_id=job_groups.jg_id WHERE employee_id=:a");
+<?php  $b=date('Y-m-d');
+       $result = $db->prepare("SELECT*  FROM salaries_payments WHERE employee_id=:a AND date(date)=:b");
         $result->bindParam(':a',$employee_id);
+        $result->bindParam(':b',$b);
         $result->execute();
   for($i=0; $row = $result->fetch(); $i++){ 
-      $employee_id = $row['employee_id'];    
-      $name = $row['employee_name'];
-      $deployed_date=$row['date_deployed'];
-      $jg = $row['jg_name'];
-      $basic_salary = $row['basic_salary']*$nfdw;
+      $basic_salary = $row['amount'];
+      $gross_pay = $row['gross_pay'];
+      $$nfdw = $row['dw']/30;
 
          ?>
 <tbody>
 <tr>
-<td style="width: 81.5%;">basic salary</td>
-<td><?php echo $basic_salary; ?></td>
+<td style="width: 81.5%;">gross pay</td>
+<td><?php echo $gross_pay; ?></td>
 <?php }?>
 </tr>
 <tr> 
@@ -149,6 +148,41 @@ if (isset($alowances)) {
   }
     $gross_pay=$basic_salary+$total_allowances;
          ?>
+          <?php
+   $b=date("Y-m-d");   
+            $result = $db->prepare("SELECT sum(amount) AS total  FROM other_allowances WHERE employee_id=:a AND date(date)=:b");
+   $result->bindParam(':a',$_GET['employee_id']);
+   $result->bindParam(':b',$b);
+   $result->execute();
+  for($i=0; $row = $result->fetch(); $i++){
+      $other_allowances = $row['total'];
+    
+      if (isset($other_allowances)) {      
+  ?>
+  <table class="table" >
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr><?php
+  $result = $db->prepare("SELECT*  FROM other_allowances WHERE employee_id=:a AND date(date)=:b");
+   $result->bindParam(':a',$_GET['employee_id']);
+   $result->bindParam(':b',$b);
+   $result->execute();
+  for($i=0; $row = $result->fetch(); $i++){     
+      $name = $row['name'];
+      $amount = $row['amount']; 
+      ?>
+<td style="width: 81.5%;"><?php echo $name; ?></td>
+<td><?php echo $amount; ?></td>
+</tr> 
+<?php } ?>
+</tbody>
+</table>
+<?php }  ?>
 
 <table class="table">
 <thead>
@@ -158,12 +192,11 @@ if (isset($alowances)) {
 </tr>
 </thead>
 <?php   
-        $result = $db->prepare("SELECT* FROM nhif WHERE net_salary=:a ORDER BY ABS(net_salary - @input )");
-        $result->bindParam(':a',$gross_pay);
+        $result = $db->prepare("SELECT* FROM nhif WHERE net_salary<=$gross_pay ORDER BY id DESC LIMIT 1");
         $result->execute();
   for($i=0; $row = $result->fetch(); $i++){ 
-      $nhif = $row['deduction'];
-      
+      $nhif =$row['deduction'];
+
          ?>
 <tbody>
 <tr>
@@ -183,19 +216,43 @@ if (isset($alowances)) {
 </tr>
 </thead>
 <?php   
-        $result = $db->prepare("SELECT * FROM tax WHERE amount<=:a ORDER BY tax_id DESC LIMIT 1");
-        $result->bindParam(':a',$basic_salary);
-        $result->execute();
+    $result = $db->prepare("SELECT* FROM tax_paid, WHERE employee_id=:a AND date(date)=:b");
+   $result->bindParam(':a',$_GET['employee_id']);
+   $result->bindParam(':b',$b);
+   $result->execute();
   for($i=0; $row = $result->fetch(); $i++){ 
-      $tax = $row['percentage_tax'];
+      $tax_total = $row['amount'];
       
          ?>
 <tbody>
 <tr>
 <td style="width: 81.5%;">PAYE AUTO</td>
-<td><?php $tax_total=($tax/100)*$gross_pay; echo $tax_total;  ?></td>
+<td><?php  echo $tax_total;  ?></td>
 <?php }?>
 
+</tr>
+<tr> 
+</tbody>
+</table>
+<?php
+if ($tax_total>=1229.8) {
+  $tax_relief=1408;
+}
+else{
+  $tax_relief=0;
+}
+?>
+<table class="table">
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="width: 81.5%;"><b>tax relief</b></td>
+<td><b><?php echo($tax_relief); ?></b></td>
 </tr>
 <tr> 
 </tbody>
@@ -209,8 +266,8 @@ if (isset($alowances)) {
 </thead>
 <tbody>
 <tr>
-<td style="width: 81.5%;"><b>gross pay</b></td>
-<td><b><?php echo($gross_pay); ?></b></td>
+<td style="width: 81.5%;"><b>nett pay</b></td>
+<td><b><?php echo($basic_salary); ?></b></td>
 </tr>
 <tr> 
 </tbody>
@@ -232,8 +289,7 @@ if (!isset($nhif)) {
  if (!isset($tax)) {
    $tax=0;
  }
-$total_deductions=$nhif+(($tax/100)*$gross_pay);
- echo($gross_pay)-$total_deductions; ?></b></td>
+ echo $basic_salary; ?></b></td>
 </tr>
 <tr> 
 </tbody>

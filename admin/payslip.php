@@ -351,7 +351,8 @@ if (!isset($nhif)) {
    $nhif=0;
  } 
 $total_deductions=$nhif+($tax_total);
- echo($gross_pay)-($total_deductions+$other_deductions)+$tax_relief; ?></b></td>
+$net_pay=($gross_pay)-($total_deductions+$other_deductions)+$tax_relief;
+ echo  $net_pay; ?></b></td>
 </tr>
 <tr> 
 </tbody>
@@ -371,7 +372,7 @@ $total_deductions=$nhif+($tax_total);
 </form>
 <form action="paysalary.php" method="POST">
   
-  <input type="hidden" name="salary" value="<?php echo $basic_salary; ?>"></br>
+  <input type="hidden" name="salary" value="<?php echo $net_pay; ?>"></br>
   <?php
   if (isset($employee_allowances)) {
     # code...
