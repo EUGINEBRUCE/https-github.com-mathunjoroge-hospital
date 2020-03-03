@@ -1,14 +1,6 @@
 <?php 
 require_once('../main/auth.php');
 include ('../connect.php');
-if (isset($_GET["nfdw"])) {
-    $nfdw=($_GET["nfdw"]/30);
-  # code...
-}
-else{
-     $nfdw=1;
-}
-
  ?>
  <!DOCTYPE html>
 <html>
@@ -84,7 +76,7 @@ else{
   for($i=0; $row = $result->fetch(); $i++){ 
       $basic_salary = $row['amount'];
       $gross_pay = $row['gross_pay'];
-      $$nfdw = $row['dw']/30;
+      $nfdw = $row['dw']/30;
 
          ?>
 <tbody>
@@ -216,7 +208,7 @@ if (isset($alowances)) {
 </tr>
 </thead>
 <?php   
-    $result = $db->prepare("SELECT* FROM tax_paid, WHERE employee_id=:a AND date(date)=:b");
+    $result = $db->prepare("SELECT* FROM tax_paid WHERE employee_id=:a AND date(date)=:b");
    $result->bindParam(':a',$_GET['employee_id']);
    $result->bindParam(':b',$b);
    $result->execute();
@@ -272,28 +264,7 @@ else{
 <tr> 
 </tbody>
 </table>
-<table class="table">
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="width: 81.5%;"><b>net pay</b></td>
-<td><b><?php
-if (!isset($nhif)) {
-   $nhif=0;
- } 
- if (!isset($tax)) {
-   $tax=0;
- }
- echo $basic_salary; ?></b></td>
-</tr>
-<tr> 
-</tbody>
-</table>
+
 </div>
 <div><button value="content" id="goback" onclick="javascript:printDiv('content')">print payslip</button></div>
 <script type="text/javascript">
@@ -318,6 +289,6 @@ if (!isset($nhif)) {
 
 </script>
 </div>
-
+<?php } ?>
 </body>
 </html>
