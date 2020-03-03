@@ -18,15 +18,6 @@ include ('../connect.php'); ?>
   <script src="../main/jquery-1.12.4.js"></script>
   <script src="../main/jquery-ui.js"></script>
   <link href="../src/facebox.css" media="screen" rel="stylesheet" type="text/css" />
-<script src="../src/facebox.js" type="text/javascript"></script>
-<script type="text/javascript">
-  jQuery(document).ready(function($) {
-    $('a[rel*=facebox]').facebox({
-      loadingImage : '../src/loading.gif',
-      closeImage   : '../src/closelabel.png'
-    })
-  })
-</script>
   <style type="text/css">
     table.resultstable {
   border: 1px solid #1C6EA4;
@@ -111,10 +102,7 @@ if (isset($_GET['response'])) {
 <?php } ?>
 <div class="container">
 <label>generate payrol bank copy</label> 
-<form action="bank.php" method="GET">
-  
-  from: <input type="text" id="mydate"  name="d1" autocomplete="off" placeholder="pick start date" required="true"/> to: <input type="text" id="mydat"  name="d2" autocomplete="off" placeholder="pick end date" required="true"/>
-   <button class="btn btn-success"><i class="icon icon-save icon-large"></i>submit</button></span>
+<form action="bank.php" method="GET"><input type="text" id="mydate"  name="d1" autocomplete="off" placeholder="pick date" required/><button class="btn btn-success"><i class="icon icon-save icon-large"></i>submit</button></span>
 
 </form>
 </hr> 
@@ -126,21 +114,19 @@ if (isset($_GET['d1'])) {
 <table class="table">
   <tr>
     <th>date</th>
-    <th>employee name</th>
+    <th>account name</th>
     <th>account number</th>
     <th>bank</th>
-    <th>processing fee</th>
-    <th> net amount</th>
+    <th>gross pay</th>
+    <th>total deductions</th>
+    <th> net pay</th>
   </tr>
   <tr>
  <?php
- $d1=$_GET['d1']." 00:00:00"; 
-       $d2=$_GET['d2']." 23:59:59";
-       $date1=date("Y-m-d H:i:s", strtotime($d1));
-       $date2=date("Y-m-d H:i:s", strtotime($d2));
- $result = $db->prepare("SELECT* FROM salaries_payments  RIGHT OUTER JOIN employees ON employees.employee_id=salaries_payments.employee_id WHERE date>=:a AND date<=:b ");
-        $result->bindParam(':a',$date1);
-        $result->bindParam(':b',$date2);     
+ $d1=$_GET['d1']; 
+       $date1=date("Y-m-d", strtotime($d1));
+ $result = $db->prepare("SELECT* FROM salaries_payments  RIGHT OUTER JOIN employees ON employees.employee_id=salaries_payments.employee_id WHERE date(date)=:a");
+        $result->bindParam(':a',$date1);   
   $result->execute();
   for($i=0; $row = $result->fetch(); $i++){      
    ?>
@@ -148,8 +134,9 @@ if (isset($_GET['d1'])) {
    <td><?php echo $row['employee_name']; ?></td>
     <td><?php echo $row['account_number']; ?></td>
      <td><?php echo $row['bank']; ?></td>
-     <td><?php echo 90; ?></td>
-    <td><?php echo $row['amount']-(90); ?></td>
+      <td><?php echo $row['gross_pay']; ?></td>
+     <td><?php echo ($row['gross_pay']-$row['amount']); ?></td>
+    <td><?php echo $row['amount']; ?></td>
     </tr>
     <?php
     } ?>
