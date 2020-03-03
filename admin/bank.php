@@ -18,15 +18,6 @@ include ('../connect.php'); ?>
   <script src="../main/jquery-1.12.4.js"></script>
   <script src="../main/jquery-ui.js"></script>
   <link href="../src/facebox.css" media="screen" rel="stylesheet" type="text/css" />
-<script src="../src/facebox.js" type="text/javascript"></script>
-<script type="text/javascript">
-  jQuery(document).ready(function($) {
-    $('a[rel*=facebox]').facebox({
-      loadingImage : '../src/loading.gif',
-      closeImage   : '../src/closelabel.png'
-    })
-  })
-</script>
   <style type="text/css">
     table.resultstable {
   border: 1px solid #1C6EA4;
@@ -111,10 +102,7 @@ if (isset($_GET['response'])) {
 <?php } ?>
 <div class="container">
 <label>generate payrol bank copy</label> 
-<form action="bank.php" method="GET">
-  
-  from: <input type="text" id="mydate"  name="d1" autocomplete="off" placeholder="pick start date" required="true"/> to: <input type="text" id="mydat"  name="d2" autocomplete="off" placeholder="pick end date" required="true"/>
-   <button class="btn btn-success"><i class="icon icon-save icon-large"></i>submit</button></span>
+<form action="bank.php" method="GET"><input type="text" id="mydate"  name="d1" autocomplete="off" placeholder="pick date" required/><button class="btn btn-success"><i class="icon icon-save icon-large"></i>submit</button></span>
 
 </form>
 </hr> 
