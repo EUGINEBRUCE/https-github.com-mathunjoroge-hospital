@@ -146,9 +146,8 @@ if (isset($_GET['d1'])) {
        <th style="width:85.5%;"></th>
      </tr>
    <?php 
-   $result = $db->prepare("SELECT sum(amount) AS total FROM salaries_payments  WHERE date>=:a AND date<=:b ");
-        $result->bindParam(':a',$date1);
-        $result->bindParam(':b',$date2);     
+   $result = $db->prepare("SELECT sum(amount) AS total FROM salaries_payments  WHERE date(date)=:a");
+        $result->bindParam(':a',$date1);     
   $result->execute();
   for($i=0; $row = $result->fetch(); $i++){ 
   $total_expenses=$row['total']; 
