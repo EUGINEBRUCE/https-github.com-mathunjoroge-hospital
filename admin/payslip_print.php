@@ -53,151 +53,129 @@ include ('../connect.php');
       $name = $row['employee_name'];
       $deployed_date=$row['date_deployed'];
       $jg = $row['jg_name'];
-      $basic_salary = $row['basic_salary'];
-       $status = $row['status'];
+      $basic_pay = $row['basic_salary'];
+      $status = $row['status'];
          ?>
          <ol class="breadcrumb">
     <li class="breadcrumb-item active" aria-current="page">payslip</li>
     <li class="breadcrumb-item active" aria-current="page"><?php echo $name;  ?></li>
     <li class="breadcrumb-item active" aria-current="page">job group:</b> <?php echo $jg;  ?></li>
    </ol><?php } ?>
-     <table class="table" >
+<table class="table" >
 <thead>
 <tr>
 <th></th>
 <th></th>
 </tr>
 </thead>
-<?php  $b=date('Y-m-d');
-       $result = $db->prepare("SELECT*  FROM salaries_payments WHERE employee_id=:a AND date(date)=:b");
+<?php  
+		$period = date('Y-m');
+		$result = $db->prepare("SELECT*  FROM salaries_payments WHERE employee_id=:a AND CONCAT(YEAR(date),'-',RIGHT(CONCAT('0',MONTH(DATE)),2))=:b");
         $result->bindParam(':a',$employee_id);
-        $result->bindParam(':b',$b);
+        $result->bindParam(':b',$period);
         $result->execute();
-  for($i=0; $row = $result->fetch(); $i++){ 
-      $basic_salary = $row['amount'];
-      $gross_pay = $row['gross_pay'];
-      $nfdw = $row['dw']/30;
+		$row = $result->fetch(); 
+		$net_pay = $row['amount'];
+		$gross_pay = $row['gross_pay'];
+		$nfdw = $row['dw']/30;
 
          ?>
 <tbody>
 <tr>
-<td style="width: 81.5%;">gross pay</td>
+<td style="width: 81.5%;">Basic pay</td>
+<td><?php echo $basic_pay; ?></td>
+</tr>
+</tbody>
+</table>
+
+<table class="table" >
+<thead>
+<tr>
+<th>Allowances</th>
+<th></th>
+</tr>
+</thead>
+<?php  
+        $result = $db->prepare("SELECT *  FROM other_allowances  WHERE employee_id=:a AND CONCAT(YEAR(date),'-',RIGHT(CONCAT('0',MONTH(DATE)),2))=:b");
+        $result->bindParam(':a',$employee_id);
+        $result->bindParam(':b',$period);
+        $result->execute();
+		for($i=0; $row = $result->fetch(); $i++){ 
+			$amount = $row['amount'];
+			$name = $row['name'];		
+?>
+<tr>
+<td style="width: 81.5%;"><?php echo $name; ?></td>
+<td><?php echo $amount; ?></td>
+</tr>
+
+<?PHP
+		}
+?>
+<tbody>
+</tbody>
+</table>
+
+
+<table class="table" >
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tr> 
+<tr>
+<td style="width: 81.5%;">Gross pay</td>
 <td><?php echo $gross_pay; ?></td>
-<?php }?>
 </tr>
 <tr> 
 </tbody>
 </table>
-  <?php
-        $result = $db->prepare("SELECT*  FROM employee_allowances  WHERE employee_id=:a");
-        $result->bindParam(':a',$employee_id);
-        $result->execute();
-  for($i=0; $row = $result->fetch(); $i++){ 
-      $alowances = $row['allowance_ids'];    
-     $employee_allowances=str_replace(","," OR all_id=",$alowances);
-   }
-         ?>
-     <table class="table" >
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<?php
-if (isset($alowances)) {
-  # code...
 
-        $result = $db->prepare("SELECT*  FROM alowances WHERE all_id=$employee_allowances");
-  $result->execute();
-  for($i=0; $row = $result->fetch(); $i++){
-     
-      $name = $row['name'];
-      $amount = $row['amount']*$nfdw;
-       
-     
-         ?>
-<tbody>
-<tr>
-<td style="width: 81.5%;"><?php echo $name; ?></td>
-<td><?php echo $amount; ?></td>
-<?php } ?>
-</tr>
-<tr> 
-</tbody>
-</table>
- <?php
-        $result = $db->prepare("SELECT sum(amount) AS amount FROM alowances WHERE all_id=$employee_allowances");
-  $result->execute();
-  for($i=0; $row = $result->fetch(); $i++){
-      $total_allowances = $row['amount']*$nfdw; 
-      
-    }
-  }
-  if (!isset($total_allowances)) {
-    # code...
-    $total_allowances =0;
-  }
-    $gross_pay=$basic_salary+$total_allowances;
-         ?>
-          <?php
-   $b=date("Y-m-d");   
-            $result = $db->prepare("SELECT sum(amount) AS total  FROM other_allowances WHERE employee_id=:a AND date(date)=:b");
-   $result->bindParam(':a',$_GET['employee_id']);
-   $result->bindParam(':b',$b);
-   $result->execute();
-  for($i=0; $row = $result->fetch(); $i++){
-      $other_allowances = $row['total'];
-    
-      if (isset($other_allowances)) {      
-  ?>
-  <table class="table" >
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr><?php
-  $result = $db->prepare("SELECT*  FROM other_allowances WHERE employee_id=:a AND date(date)=:b");
-   $result->bindParam(':a',$_GET['employee_id']);
-   $result->bindParam(':b',$b);
-   $result->execute();
-  for($i=0; $row = $result->fetch(); $i++){     
-      $name = $row['name'];
-      $amount = $row['amount']; 
-      ?>
-<td style="width: 81.5%;"><?php echo $name; ?></td>
-<td><?php echo $amount; ?></td>
-</tr> 
-<?php } ?>
-</tbody>
-</table>
-<?php }  ?>
 
 <table class="table">
 <thead>
 <tr>
-<th></th>
+<th>Deductions</th>
 <th></th>
 </tr>
 </thead>
 <?php   
-        $result = $db->prepare("SELECT* FROM nhif WHERE net_salary<=$gross_pay ORDER BY id DESC LIMIT 1");
+        $result = $db->prepare("SELECT* FROM nhif_payments WHERE employee_id=$employee_id AND CONCAT(YEAR(date),'-',RIGHT(CONCAT('0',MONTH(DATE)),2))=:a");
+        $result->bindParam(':a',$period);
         $result->execute();
-  for($i=0; $row = $result->fetch(); $i++){ 
-      $nhif =$row['deduction'];
-
+		$nhif =$result->fetch()['amount'];
+		$nssf = 200;
          ?>
 <tbody>
 <tr>
-<td style="width: 81.5%;">nhif</td>
+<td style="width: 81.5%;">NHIF</td>
 <td><?php echo $nhif; ?></td>
-<?php }?>
-
+</tr>
+<tr>
+<td style="width: 81.5%;">NSSF</td>
+<td><?php echo $nssf; ?></td>
 </tr>
 <tr> 
+<?PHP 
+
+$result = $db->prepare("SELECT*  FROM other_deductions WHERE employee_id=:a AND CONCAT(YEAR(date),'-',RIGHT(CONCAT('0',MONTH(DATE)),2))=:b");
+$result->bindParam(':a',$employee_id);
+$result->bindParam(':b',$period);
+$result->execute();
+
+for($i=0; $row = $result->fetch(); $i++){ 
+		$amount = $row['amount'];
+		$name = $row['name'];
+?>
+<tr>
+	<td><?PHP echo $name?></td>
+	<td><?PHP echo $amount?></td>
+<tr> 
+<?PHP 
+}
+?>
 </tbody>
 </table>
 <table class="table">
@@ -208,45 +186,21 @@ if (isset($alowances)) {
 </tr>
 </thead>
 <?php   
-    $result = $db->prepare("SELECT* FROM tax_paid WHERE employee_id=:a AND date(date)=:b");
+    $result = $db->prepare("SELECT* FROM tax_paid WHERE employee_id=:a AND CONCAT(YEAR(date),'-',RIGHT(CONCAT('0',MONTH(DATE)),2))=:b");
    $result->bindParam(':a',$_GET['employee_id']);
-   $result->bindParam(':b',$b);
+   $result->bindParam(':b',$period);
    $result->execute();
   for($i=0; $row = $result->fetch(); $i++){ 
-      $tax_total = $row['amount'];
+      $paye = $row['amount'];
       
          ?>
 <tbody>
 <tr>
 <td style="width: 81.5%;">PAYE AUTO</td>
-<td><?php  echo $tax_total;  ?></td>
+<td><?php  echo $paye;  ?></td>
 <?php }?>
 
 </tr>
-<tr> 
-</tbody>
-</table>
-<?php
-if ($tax_total>=1229.8) {
-  $tax_relief=1408;
-}
-else{
-  $tax_relief=0;
-}
-?>
-<table class="table">
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="width: 81.5%;"><b>tax relief</b></td>
-<td><b><?php echo($tax_relief); ?></b></td>
-</tr>
-<tr> 
 </tbody>
 </table>
 <table class="table">
@@ -258,15 +212,15 @@ else{
 </thead>
 <tbody>
 <tr>
-<td style="width: 81.5%;"><b>nett pay</b></td>
-<td><b><?php echo($basic_salary); ?></b></td>
+<td style="width: 81.5%;"><b>Net pay</b></td>
+<td><b><?php echo($net_pay); ?></b></td>
 </tr>
 <tr> 
 </tbody>
 </table>
 
 </div>
-<div><button value="content" id="goback" onclick="javascript:printDiv('content')">print payslip</button></div>
+<div><button value="content" id="goback" onclick="javascript:printDiv('content')">Print Payslip</button></div>
 <script type="text/javascript">
    function printDiv(content) {
             //Get the HTML of div
@@ -289,6 +243,5 @@ else{
 
 </script>
 </div>
-<?php } ?>
 </body>
 </html>

@@ -2,9 +2,19 @@
 session_start();
 include('../connect.php');
 $a=$_POST["employee"];
-$b=$_POST["salary"];
-$cs=explode(",",$_POST["all_id"]);  //allowance ids for future ref
-$ds=explode(",",$_POST["alowances"]);//amounts for the allwance
+$b=$_POST["net_pay"];
+
+if (isset($_POST["all_id"])) {
+	$cs=explode(",",$_POST["all_id"]);  //allowance ids for future ref
+} else {
+	$cs = 0;
+}
+if (isset($_POST["alowances"])) {
+	$ds=explode(",",$_POST["alowances"]);//amounts for the allwance
+} else {
+	$ds = 0;
+}
+	
 $e=$_POST["nhif"];//amount paid for nhif
 $f=$_POST["tax"];//amount posted for tax note autocalculated
 $g=$_POST["nssf"];//amount posted for nssf
@@ -12,14 +22,13 @@ $date=date("Y-m-d H:i:s");
 $dw=$_POST["dw"];
 $gross_pay=$_POST["gross_pay"];
 if (isset($cs)) {
-	# code...
-
-foreach (array_combine($cs, $ds) as $c => $d){
-//insert allowances
-$sql = "INSERT INTO allowance_payments (employee_id,all_id,amount,date) VALUES (:a,:b,:c,:d)";
-$q = $db->prepare($sql);
-$q->execute(array(':a'=>$a,':b'=>$c,':c'=> $d,':d'=> $date));
-}
+		# code...
+	foreach (array_combine($cs, $ds) as $c => $d){
+		//insert allowances
+		$sql = "INSERT INTO allowance_payments (employee_id,all_id,amount,date) VALUES (:a,:b,:c,:d)";
+		$q = $db->prepare($sql);
+		$q->execute(array(':a'=>$a,':b'=>$c,':c'=> $d,':d'=> $date));
+	}
 }
 //insert basic salaries
 $sql = "INSERT INTO salaries_payments (employee_id,amount,date,dw,gross_pay) VALUES (:a,:b,:c,:d,:e)";
