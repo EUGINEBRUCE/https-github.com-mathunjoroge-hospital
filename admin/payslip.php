@@ -1,4 +1,6 @@
 <?php 
+ini_set('error_reporting', E_ALL);
+
 require_once('../main/auth.php');
 include ('../connect.php');
 if (isset($_GET["nfdw"])) {
@@ -92,7 +94,8 @@ else{
       $deployed_date=$row['date_deployed'];
       $jg = $row['jg_name'];
       $basic_salary = $row['basic_salary']*$nfdw;
-
+	
+	$nssf = 200;
          ?>
 <tbody>
 <tr>
@@ -195,10 +198,24 @@ if (isset($alowances)) {
   <?php if (!isset($other_allowances)) {
     $other_allowances=0;
   }
-    $gross_pay=$basic_salary+$total_allowances+$other_allowances-(200);
-    
+    $gross_pay=$basic_salary+$total_allowances+$other_allowances;
   }
            ?>
+<table class="table">
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="width: 81.5%;"><b>gross pay</b></td>
+<td><b><?php echo($gross_pay); ?></b></td>
+</tr>
+</tbody>
+</table>
+
 <table class="table">
 <thead>
 <tr>
@@ -216,6 +233,11 @@ if (isset($alowances)) {
          ?>
 <td style="width: 81.5%;">nhif</td>
 <td><?php echo $nhif; ?></td>
+
+</tr>
+<tr>
+<td style="width: 81.5%;">nssf</td>
+<td><?php echo $nssf; ?></td>
 
 </tr>
 <tr> 
@@ -274,37 +296,91 @@ if (isset($alowances)) {
 <tr>
 <td style="width: 81.5%;">PAYE AUTO</td>
 <td><?php
-if($gross_pay<12298) {
-   $tax_total==0;
-   } 
- if ($gross_pay>=12298 && $gross_pay<=23885 ){
-  $tax_total=1229.8+(($gross_pay-12298)*0.1);
- }
- if ($gross_pay>=23885 && $gross_pay<=35472 ) {
-  $tax_total=1229.8+1738.05+(($gross_pay-23885 )*0.15);
- }
- if ($gross_pay>=35472 && $gross_pay<=47059 ) {
-  $tax_total=1229.8+1738.05+2317.4+(($gross_pay-35472 )*0.20);
- }
- if ($gross_pay==47059) {
-  $tax_total=1229.8+1738.05+2317.4+2896.75;
- }
- if ($gross_pay>47059) {
-  $tax_total=1229.8+1738.05+2317.4+2896.75+(($gross_pay-47059)*0.30);
- }
- echo $tax_total-1408;
+$net_taxable_pay = $gross_pay - $nssf;
+$personal_relief = 1408;
+$tax_relief = $personal_relief;
+$tax_total =0;
+$taxable_pay = $net_taxable_pay;
+
+$tax_band = 1;
+while ($taxable_pay>0 && $tax_band<=5) {
+	if ($tax_band == 1) {
+		$tax_rate = 0.1;
+		$taxable_limit = 12298;
+		 if ($taxable_pay<=$taxable_limit){
+			 $tax_total+=$taxable_pay*$tax_rate;
+			 $taxable_pay = 0;
+		 } else {
+			 $tax_total+=$taxable_limit*$tax_rate;
+			 $taxable_pay = $taxable_pay-$taxable_limit;
+		 }
+	}
+	
+	if ($tax_band == 2) {
+		$tax_rate = 0.15;
+		$taxable_limit = 11587;
+		 if ($taxable_pay<=$taxable_limit){
+			 $tax_total+=$taxable_pay*$tax_rate;
+			 $taxable_pay = 0;
+		 } else {
+			 $tax_total+=$taxable_limit*$tax_rate;
+			 $taxable_pay = $taxable_pay-$taxable_limit;
+		 }
+	}
+	
+	if ($tax_band == 3) {
+		$tax_rate = 0.20;
+		$taxable_limit = 11587;
+		 if ($taxable_pay<=$taxable_limit){
+			 $tax_total+=$taxable_pay*$tax_rate;
+			 $taxable_pay = 0;
+		 } else {
+			 $tax_total+=$taxable_limit*$tax_rate;
+			 $taxable_pay = $taxable_pay-$taxable_limit;
+		 }
+	}
+	
+	if ($tax_band == 4) {
+		$tax_rate = 0.25;
+		$taxable_limit = 11587;
+		 if ($taxable_pay<=$taxable_limit){
+			 $tax_total+=$taxable_pay*$tax_rate;
+			 $taxable_pay = 0;
+		 } else {
+			 $tax_total+=$taxable_limit*$tax_rate;
+			 $taxable_pay = $taxable_pay-$taxable_limit;
+		 }
+	}
+	
+	if ($tax_band == 5) {
+		$tax_rate = 0.3;
+		$tax_total+=$taxable_pay*$tax_rate;
+		$taxable_pay = 0;
+	}
+
+	$tax_band++;
+}
+
+
+if ($tax_total<=$personal_relief) {
+  $paye=0;
+}
+else{
+  $paye = $tax_total - $personal_relief;
+}
+echo $paye
+
   ?></td>
 </tr>
 <tr> 
 </tbody>
 </table>
 <?php
-if ($tax_total>=1229.8) {
-  $tax_relief=1408;
-}
-else{
-  $tax_relief=0;
-}
+if (!isset($nhif)) {
+   $nhif=0;
+ } 
+$total_deductions=$nhif+$nssf+$paye+$other_deductions;
+
 ?>
 <table class="table">
 <thead>
@@ -315,8 +391,8 @@ else{
 </thead>
 <tbody>
 <tr>
-<td style="width: 81.5%;"><b>tax relief</b></td>
-<td><b><?php echo($tax_relief); ?></b></td>
+<td style="width: 81.5%;"><b>Total deductions</b></td>
+<td><b><?php echo($total_deductions); ?></b></td>
 </tr>
 <tr> 
 </tbody>
@@ -330,10 +406,9 @@ else{
 </thead>
 <tbody>
 <tr>
-<td style="width: 81.5%;"><b>gross pay</b></td>
-<td><b><?php echo($gross_pay); ?></b></td>
-</tr>
-<tr> 
+<td style="width: 81.5%;"><b>Taxable pay</b></td>
+<td><b><?php echo($net_taxable_pay); ?></b></td>
+</tr><tr> 
 </tbody>
 </table>
 <table class="table">
@@ -347,11 +422,7 @@ else{
 <tr>
 <td style="width: 81.5%;"><b>net pay</b></td>
 <td><b><?php
-if (!isset($nhif)) {
-   $nhif=0;
- } 
-$total_deductions=$nhif+($tax_total);
-$net_pay=($gross_pay)-($total_deductions+$other_deductions)+$tax_relief;
+$net_pay=($gross_pay)-($total_deductions);
  echo  $net_pay; ?></b></td>
 </tr>
 <tr> 
@@ -390,9 +461,10 @@ $net_pay=($gross_pay)-($total_deductions+$other_deductions)+$tax_relief;
   <input type="hidden" name="alowances" value="<?php echo ($all_amount); ?>"></br>
   <?php } ?>    
   <input type="hidden" name="nhif" value="<?php echo $nhif; ?>"></br>
-  <input type="hidden" name="tax" value="<?php echo $tax_total; ?>"></br>
+  <input type="hidden" name="tax" value="<?php echo $paye; ?>"></br>
   <input type="hidden" name="gross_pay" value="<?php echo $gross_pay; ?>"></br>
-  <input type="hidden" name="nssf" value="0"></br>
+  <input type="hidden" name="nssf" value="<?PHP echo $nssf ?>"></br>
+  <input type="hidden" name="net_pay" value="<?PHP echo $net_pay ?>"></br>
   <?php
   if (isset($_GET["nfdw"])) {
     $dw=($_GET["nfdw"]);
