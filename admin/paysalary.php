@@ -3,7 +3,6 @@ session_start();
 include('../connect.php');
 $a=$_POST["employee"];
 $b=$_POST["net_pay"];
-
 if (isset($_POST["all_id"])) {
 	$cs=explode(",",$_POST["all_id"]);  //allowance ids for future ref
 } else {

@@ -129,10 +129,8 @@ if (isset($_GET['d1'])) {
   </tr>
   <tr>
  <?php
- $d1=$_GET['d1']." 00:00:00"; 
-       $d2=$_GET['d2']." 23:59:59";
-       $date1=date("Y-m-d H:i:s", strtotime($d1));
-       $date2=date("Y-m-d H:i:s", strtotime($d2));
+ $d1=$_GET['d1']." 00:00:00";       
+      $date1=date("Y-m-d H:i:s", strtotime($d1));
 	   $period = date("Y-m");
 	   $sql = "SELECT 
 				CONCAT(YEAR(s.date),'-',RIGHT(CONCAT('0',MONTH(s.DATE)),2)) AS Period,

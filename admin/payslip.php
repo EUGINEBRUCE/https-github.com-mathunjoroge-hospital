@@ -428,10 +428,6 @@ $net_pay=($gross_pay)-($total_deductions);
 <tr> 
 </tbody>
 </table>
-<?php if ($status==1) {
-  # code...
-	//if tax is 0 then no relief
- ?>
  &nbsp;
  <form class="form-inline" method="GET" action="payslip.php">  
   <div class="form-group mx-sm-3 mb-2">
@@ -477,7 +473,7 @@ else{
 <input type="hidden" name="dw" value="<?php echo $dw; ?>"></br></div>
   <button class="btn btn-success">post salary details</button>
 </form>
-<?php }  ?>
+
 </div>
 </body>
 </html>
