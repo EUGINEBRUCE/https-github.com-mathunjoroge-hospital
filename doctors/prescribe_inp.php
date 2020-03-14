@@ -197,7 +197,12 @@ $result->BindParam(':o', $code);
      </tr>
      <?php 
      $code=$_GET['code'];
-     $result = $db->prepare("SELECT ActiveIngredient, DrugName,duration,frequency,code,prescribed_meds.id AS id,prescribed_meds.strength AS strength,roa FROM prescribed_meds RIGHT OUTER JOIN meds ON prescribed_meds.drug=meds.id  WHERE code=:o");
+	   if ($useFdaDrugsList == 1) {
+			$result = $db->prepare("SELECT ActiveIngredient, DrugName,duration,frequency,code,prescribed_meds.id AS id,prescribed_meds.strength AS strength,roa FROM prescribed_meds RIGHT OUTER JOIN meds ON prescribed_meds.drug=meds.id  WHERE code=:o");
+	   }
+		else {
+			$result = $db->prepare("SELECT generic_name AS ActiveIngredient, brand_name AS DrugName,duration,frequency,code,prescribed_meds.id AS id,prescribed_meds.strength AS strength,roa FROM prescribed_meds RIGHT OUTER JOIN drugs as meds ON prescribed_meds.drug=meds.drug_id  WHERE code=:o");
+		}
 $result->BindParam(':o', $code);
         $result->execute();
         for($i=0; $row = $result->fetch(); $i++){
