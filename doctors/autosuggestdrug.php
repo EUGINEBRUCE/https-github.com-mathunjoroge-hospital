@@ -11,8 +11,11 @@
 			$queryString = $db->real_escape_string($_POST['queryString']);
 			
 			if(strlen($queryString) >0) {
-
-				$query = $db->query("SELECT* FROM meds WHERE ActiveIngredient LIKE '$queryString%' OR DrugName LIKE '$queryString%'  LIMIT 20");
+				if ($useFdaDrugsList == 1) {
+					$query = $db->query("SELECT* FROM meds WHERE ActiveIngredient LIKE '$queryString%' OR DrugName LIKE '$queryString%'  LIMIT 20");
+				} else {
+					$query = $db->query("SELECT drug_id as id, generic_name as ActiveIngredient, brand_name AS DrugName, '' AS Form, '' AS Strength  FROM drugs WHERE generic_name LIKE '$queryString%' OR brand_name LIKE '$queryString%'  LIMIT 20");					
+				}
 				if($query) {
 				echo '<ul>';
 					while ($result = $query ->fetch_object()) {

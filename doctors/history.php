@@ -349,8 +349,20 @@ $result->BindParam(':o', $search);
        <th>frequency</th>
        <th>duration</th>
        <th>status</th>
-     </tr><?php $result = $db->prepare("SELECT ActiveIngredient, DrugName,duration,frequency,code,prescribed_meds.id AS id,prescribed_meds.dispensed AS dispensed,prescribed_meds.strength AS strength,roa FROM prescribed_meds RIGHT OUTER JOIN meds ON prescribed_meds.drug=meds.id  WHERE patient=:b");
-      $result->BindParam(':b', $search);
+     </tr>
+	 <?php 
+	   if ($useFdaDrugsList == 1) {
+		$result = $db->prepare("SELECT ActiveIngredient, DrugName,duration,frequency,code,prescribed_meds.id AS id,prescribed_meds.dispensed AS dispensed,prescribed_meds.strength AS strength,roa FROM prescribed_meds RIGHT OUTER JOIN meds ON prescribed_meds.drug=meds.id  WHERE patient=:b");
+	   } else {
+		$result = $db->prepare("
+		SELECT generic_name AS ActiveIngredient, brand_name AS DrugName,duration,frequency,code,prescribed_meds.id AS id,prescribed_meds.dispensed AS dispensed,prescribed_meds.strength AS strength,roa FROM prescribed_meds RIGHT OUTER JOIN drugs as meds ON prescribed_meds.drug=meds.drug_id  WHERE patient=:b AND date> :c 
+		UNION 
+		SELECT ActiveIngredient, DrugName,duration,frequency,code,prescribed_meds.id AS id,prescribed_meds.dispensed AS dispensed,prescribed_meds.strength AS strength,roa FROM prescribed_meds RIGHT OUTER JOIN meds ON prescribed_meds.drug=meds.id  WHERE patient=:b AND date<= :c
+		");
+	   }
+		$date = '2020-03-14'; // This is the date when these configuration changes were adopted. Meant to cater for historical prescriptions whose drugs were by default being referenced from the meds table. 
+		$result->BindParam(':b', $search); 
+		$result->BindParam(':c', $date);
         $result->execute();
         for($i=0; $row = $result->fetch(); $i++){
         $genericname=$row['ActiveIngredient'];
