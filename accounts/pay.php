@@ -66,7 +66,7 @@
 <option value="2">Mpesa</option>
 <option value="3">Insurance</option> 
 </select></td>
-<td id="mpe"><input name="mobile" placeholder="enter mpesa code" id="mpesa" pattern="[0-9]{5}"></td>
+<td id="mpe"><input name="mobile" placeholder="enter mpesa code" id="mpesa"></td>
 <td id="ins"><select id="insurance" name="insurance">
   <option></option>
   <option>Choose insurance company</option>

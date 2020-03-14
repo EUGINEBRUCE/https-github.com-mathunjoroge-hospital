@@ -24,7 +24,6 @@ include('../db_connect.php');
 if (!$con) {
     die('Could not connect: ' . mysqli_error($con));
 }
-mysqli_select_db($con,"ajax_demo");
 $sql="SELECT drug_id AS drug,pharm_qty, price*mark_up AS price FROM drugs WHERE drug_id = '".$q."'";
 $result = mysqli_query($con,$sql);
 while($row = mysqli_fetch_array($result)) {
