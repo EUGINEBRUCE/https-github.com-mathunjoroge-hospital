@@ -272,7 +272,11 @@ $result->BindParam(':o', $search);
      </tr>
      <?php 
      $served=0;
-     $result = $db->prepare("SELECT ActiveIngredient, DrugName,duration,frequency,code,prescribed_meds.id AS id,prescribed_meds.strength AS strength,roa FROM prescribed_meds RIGHT OUTER JOIN meds ON prescribed_meds.drug=meds.id  WHERE dispensed=:a AND patient=:b");
+	   if ($useFdaDrugsList == 1) {
+		$result = $db->prepare("SELECT ActiveIngredient, DrugName,duration,frequency,code,prescribed_meds.id AS id,prescribed_meds.strength AS strength,roa FROM prescribed_meds RIGHT OUTER JOIN meds ON prescribed_meds.drug=meds.id  WHERE dispensed=:a AND patient=:b");
+	   } else {
+		$result = $db->prepare("SELECT generic_name AS ActiveIngredient, brand_name AS DrugName,duration,frequency,code,prescribed_meds.id AS id,prescribed_meds.strength AS strength,roa FROM prescribed_meds RIGHT OUTER JOIN drugs as meds ON prescribed_meds.drug=meds.drug_id  WHERE dispensed=:a AND patient=:b");		   
+	   }
       $result->BindParam(':a', $served);
       $result->BindParam(':b', $search);
         $result->execute();
@@ -372,6 +376,7 @@ if ($frequency==0) {
 <?php
        $patient=$_GET['search'];
        $token=$_GET['token'];
+
         $result = $db->prepare("SELECT drugs.drug_id AS drug,generic_name,brand_name,price*drugs.mark_up AS price,dispense_id,dispensed_drugs.quantity FROM dispensed_drugs RIGHT OUTER JOIN drugs ON drugs.drug_id=dispensed_drugs.drug_id WHERE patient='$patient' AND cashed_by='' AND token='$token'");
   $result->execute();
   for($i=0; $row = $result->fetch(); $i++){
