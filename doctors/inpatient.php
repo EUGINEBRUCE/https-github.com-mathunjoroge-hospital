@@ -42,26 +42,49 @@ require_once('../main/auth.php');
 
 </style>
 <script>
-function suggest(inputString){
+function suggestPatientName(inputString){
         if(inputString.length == 0) {
             $('#suggestions').fadeOut();
         } else {
-        $('#country').addClass('load');
+        $('#patient').addClass('load');
             $.post("autosuggestname.php", {queryString: ""+inputString+""}, function(data){
                 if(data.length >0) {
                     $('#suggestions').fadeIn();
                     $('#suggestionsList').html(data);
-                    $('#country').removeClass('load');
+                    $('#patient').removeClass('load');
                 }
             });
         }
     }
 
-    function fill(thisValue) {
-        $('#country').val(thisValue);
+    function fillPatientName(thisValue) {
+        $('#patient').val(thisValue);
         setTimeout("$('#suggestions').fadeOut();", 600);
     }
 
+</script>
+<script>
+function showDisease(str) {
+    if (str == "") {
+        document.getElementById("texxtHint").innerHTML = "";
+        return;
+    } else { 
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("texxtHint").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET","get_disease.php?q="+str,true);
+        xmlhttp.send();
+    }
+}
 </script>
   
    <style type="text/css">
@@ -158,9 +181,9 @@ if ($age>=1) {
     # code...
   } ?>, &nbsp;  <?php echo $c; ?></li><?php } ?> </ol>
 </nav>	<h3>search patient</h3>
-         <body onLoad="document.getElementById('country').focus();">
+         <body onLoad="document.getElementById('patient').focus();">
 <form action="inpatient.php?" method="GET">
-  <span><input type="text" size="25" value="" name="search" id="country" onkeyup="suggest(this.value);" onblur="fill();" class="" autocomplete="off" placeholder="Enter patient Name" style="width: 40%; height:30px;" />
+  <span><input type="text" size="25" value="" name="search" id="patient" onkeyup="suggestPatientName(this.value);" onblur="fillPatientName();" class="" autocomplete="off" placeholder="Enter patient Name" style="width: 40%; height:30px;" />
   <input type="hidden" name="response" value="0"> <button class="btn btn-success"><i class="icon icon-save icon-large"></i>submit</button></span>     
       <div class="suggestionsBox" id="suggestions" style="display: none;">
         <div class="suggestionList" id="suggestionsList"> &nbsp; </div>
