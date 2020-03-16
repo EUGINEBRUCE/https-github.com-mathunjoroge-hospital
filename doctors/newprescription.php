@@ -241,6 +241,7 @@ if ($frequency==0) {
     echo "STAT";
 } else {
     echo $frequency."&nbsp; times daily";
+    // just making chnges to push to github
 }
 ?></td>
        <td><?php echo $duration."&nbsp; days"; ?> </td>

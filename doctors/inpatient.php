@@ -176,6 +176,7 @@ if ($age>=1) {
   echo $age." Years";
    # code...
  }
+ //get if age is less than one year show months
  if ($age<1) {
   echo $age*12; echo "&nbsp;"."Months";
     # code...
