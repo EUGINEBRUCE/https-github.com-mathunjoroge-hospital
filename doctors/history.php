@@ -360,7 +360,7 @@ $result->BindParam(':o', $search);
 		SELECT ActiveIngredient, DrugName,duration,frequency,code,prescribed_meds.id AS id,prescribed_meds.dispensed AS dispensed,prescribed_meds.strength AS strength,roa FROM prescribed_meds RIGHT OUTER JOIN meds ON prescribed_meds.drug=meds.id  WHERE patient=:b AND date<= :c
 		");
 	   }
-		$date = '2020-03-14'; // This is the date when these configuration changes were adopted. Meant to cater for historical prescriptions whose drugs were by default being referenced from the meds table. 
+		$date = '2020-03-18'; // This is the date when these configuration changes were adopted. Meant to cater for historical prescriptions whose drugs were by default being referenced from the meds table. 
 		$result->BindParam(':b', $search); 
 		$result->BindParam(':c', $date);
         $result->execute();
