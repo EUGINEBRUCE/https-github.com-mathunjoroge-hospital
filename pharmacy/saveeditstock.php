@@ -7,9 +7,9 @@ include('../connect.php');
     $c=$_POST['c'];
     $d=$_POST['d'];
     $e=$_POST['e'];
-    $f=$_POST['f'];
-    $gg=$_POST['g'];
-    $g=($gg+100)/100;
+    $f=$_POST['f'];// buying price mark_up=(((selling price-buying price)*100)+1) 
+    $gg=$_POST['g'];//selling price
+    $g=((($gg-$f)*100)+1)
     $h=$_POST['h'];
     $j=$_POST['j'];
     $id=$_POST['k'];

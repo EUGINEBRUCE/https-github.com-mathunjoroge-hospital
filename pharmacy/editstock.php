@@ -13,7 +13,7 @@
       $e= $row['pharm_qty'];
       $f= $row['price'];
       $gg = $row['mark_up'];
-      $g = ($gg-1)*100;
+      $g =$f*$gg;
       $h= $row['reorder_ph'];
       $j= $row['reorder_st'];
      
@@ -60,7 +60,7 @@ $result = $db->prepare("SELECT * FROM drug_category");
 <tr>
 
 <th>buying price</th>
-<th>mark up</th>
+<th>selling price</th>
 <th>reoder pharm</th>
 <th>reoder store</th>
 
