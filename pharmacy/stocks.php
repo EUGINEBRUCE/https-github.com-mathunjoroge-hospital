@@ -264,7 +264,7 @@ table.blueTable tfoot .links a{
       $brand = $row['brand_name'];
       $value= $row['value'];
       $qty= $row['quantity'];
-      $price= $row['price'];
+      $price= round($row['price']);
       $qtyp= $row['pharm_qty'];
          ?>
 <tbody>
@@ -274,7 +274,7 @@ table.blueTable tfoot .links a{
 <td ><?php echo $qty; ?></td>
 <td ><?php echo $qtyp; ?></td>
 <td><?php echo $price; ?></td>
-<td ><?php  echo $value; ?></td>
+<td ><?php  echo round($value); ?></td>
 <td><a rel="facebox" href="editstock.php?id=<?php echo $row['drug_id']; ?>&qty=<?php echo $qty; ?>&gname=<?php echo $drug; ?>&bname=<?php echo $brand; ?>"><button class="btn btn-success" style="height: 5px;" title="Click to edit quantity"></button></a> <a href="delete_drug.php?id=<?php echo $row['drug_id']; ?>"><button onclick="return confirm('Are you sure you want to delete this item?');" class="btn btn-danger" style="height: 5px;" title="Click to Delete"></button></a> </td><?php }?>
 </tr>
 <tr> 
