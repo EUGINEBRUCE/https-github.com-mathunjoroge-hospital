@@ -43,7 +43,7 @@ $result = $db->prepare("SELECT * FROM drug_category");
 <tr>
 
 <th>buying price</th>
-<th>mark up</th>
+<th>selling price</th>
 <th>reoder pharm</th>
 <th>reoder store</th>
 
@@ -54,7 +54,7 @@ $result = $db->prepare("SELECT * FROM drug_category");
 <tr>
 
 <td><input type="text" name="price"></td>
-<td><input type="text" name="markup" placeholder="as %"></td>
+<td><input type="text" name="selling" ></td>
 <td><input type="text" name="reorderph" ></td>
 <td><input type="text" name="reorderst" ></td>
 

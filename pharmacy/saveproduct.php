@@ -11,8 +11,8 @@ $c = $_POST['brand'];
 $d = $_POST['qty'];
 $e = $_POST['price'];
 $f = $_POST['category'];
-$k= $_POST['markup']+100;
-$g=$k/100;
+$k= $_POST['selling'];
+$g=(($k-$e)/$e)+1;
 $h = $_POST['reorderph'];
 $j = $_POST['reorderst'];
 
