@@ -13,6 +13,10 @@ foreach ($aas as $aa) {
        $sql = "INSERT INTO `clinic_fees` (`clinic_id`, `patient`) VALUES ( '$aa', '$id')";
        $q = $db->prepare($sql);
        $q->execute();
+       //save data into visits table
+$sql = "INSERT INTO visits (patient) VALUES (:h)";
+$q = $db->prepare($sql);
+$q->execute(array(':h'=>$id));
 
  ?>
 </p>

@@ -13,6 +13,10 @@ $dept = $_POST['dept'];
 $sql = "INSERT INTO patients (name,contact,age,next_of_kin,sex,nokcontact,address,opno) VALUES (:a,:b,:c,:d,:e,:f,:g,:h)";
 $q = $db->prepare($sql);
 $q->execute(array(':a'=>$a,':b'=>$b,':c'=>$c,':d'=>$d,':e'=>$e,':f'=>$f,':g'=>$g,':h'=>$h)); 
+//record to visits table
+$sql = "INSERT INTO visits (patient) VALUES (:h)";
+$q = $db->prepare($sql);
+$q->execute(array(':h'=>$h)); 
 ?>
 
 <P><?php
