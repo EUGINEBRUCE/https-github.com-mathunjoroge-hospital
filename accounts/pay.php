@@ -21,6 +21,9 @@
       $("#insurance").hide();
       $("#ins").hide();
       $("#insu").hide();
+      $("#ban").hide();
+      $("#bank").hide();
+      $("#banki").hide();
       $("#insurance").value="";
     }
     else if($(this).val() == 3){
@@ -30,8 +33,26 @@
       $("#mpesa").hide();
       $("#mpe").hide();
       $("#mpes").hide();
+      $("#ban").hide();
+      $("#bank").hide();
+      $("#banki").hide();
+    }
+    else if($(this).val() == 4){
+      $("#ban").show();
+      $("#bank").show();
+      $("#banki").show();
+      $("#insurance").hide();
+      $("#ins").hide();
+      $("#insu").hide();
+      $("#mpesa").hide();
+      $("#mpe").hide();
+      $("#mpes").hide();
+      $("#insurance").value="";
     }
     else{
+      $("#ban").hide();
+      $("#bank").hide();
+      $("#banki").hide();
       $("#mpesa").hide();
       $("#mpe").hide();
       $("#mpes").hide();
@@ -53,6 +74,7 @@
 <th>payment mode</th>
 <th id="mpes">Mpesa</th>
 <th id="insu">Insurance</th>
+<th id="ban">bank</th>
 <th></th>
 </tr>
 </thead>
@@ -65,8 +87,10 @@
 <option value="1">cash</option>
 <option value="2">Mpesa</option>
 <option value="3">Insurance</option> 
+<option value="4">bank</option> 
 </select></td>
 <td id="mpe"><input name="mobile" placeholder="enter mpesa code" id="mpesa"></td>
+<td id="ban"><input name="bank" placeholder="enter bank conf code" id="banki"></td>
 <td id="ins"><select id="insurance" name="insurance">
   <option></option>
   <option>Choose insurance company</option>

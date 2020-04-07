@@ -14,6 +14,13 @@ $result = $db->prepare("SELECT * FROM receipts");
         else{
           $mobile="";
         }
+          if (isset($_POST['bank'])) {
+          $bank=$_POST['bank'];
+          # code...
+        }
+        else{
+          $bank="";
+        }
         if (isset($_POST['insurance'])) {
           $insurance=$_POST['insurance'];
           # code...
@@ -26,7 +33,10 @@ $result = $db->prepare("SELECT * FROM receipts");
     $payer=$mobile;
 } elseif($_POST['payment_mode']==3){
     $payer=$insurance;
-} else {
+} 
+elseif($_POST['payment_mode']==4){
+    $payer=$bank;
+}else {
     $payer=1;
 } 
 
@@ -36,12 +46,12 @@ $result = $db->prepare("SELECT * FROM receipts");
         $result->bindParam(':a',$_POST['insurance']);       
         $result->execute();
   for($i=0; $row = $result->fetch(); $i++){     
-      $mark_up = $row['mark_up']; }
+      $mark_up = $row['mark_up']; 
+    }
 } else {
     $mark_up=1;
 }
 #------->
-
     $med_amount=$_POST['med_amount'];
     $clinic=$_POST['clinic'];
     $fees=$_POST['fees'];
@@ -166,4 +176,5 @@ else{
 }
 
 header("location: receipt.php?search=$id&response=0&cash=$tender&ward=$ward&token=$token&receipt=$receipt&insurance=$insurance&mode=$mode"); 
+
  ?>

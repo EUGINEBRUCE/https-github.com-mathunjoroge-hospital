@@ -69,32 +69,7 @@ $result->BindParam(':o', $search);
         $d=$row['opno'];
 
  ?>
- <script type="text/javascript">
-   $(document).ready(function(){
-
-  
-var element = $("#html-content-holder"); // global variable
-var getCanvas; // global variable
  
-    $("#btn-Preview-Image").on('click', function () {
-         html2canvas(element, {
-         onrendered: function (canvas) {
-                $("#previewImage").append(canvas);
-                getCanvas = canvas;
-             }
-         });
-    });
-
-  $("#btn-Convert-Html2Image").on('click', function () {
-    var imgageData = getCanvas.toDataURL("image/png");
-    // Now browser starts downloading it instead of just showing it
-    var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
-    $("#btn-Convert-Html2Image").attr("download", "your_pic_name.png").attr("href", newData);
-  });
-
-});
-
- </script>
   <script type="text/javascript">
    function printDiv(content) {
             //Get the HTML of div
@@ -118,13 +93,9 @@ var getCanvas; // global variable
 </script>
       <button class="btn btn-success btn-large" style="margin-left: 45%;" value="content" id="goback" onclick="javascript:printDiv('content')" >print receipt</button>
 <div class="jumbotron" >
-<div id="html-content-holder"> 
+<div id="content"> 
 <div class="container" align="center"> 
-  <input id="btn-Preview-Image" type="button" value="Preview"/>
-    <a id="btn-Convert-Html2Image" href="#">Download</a>
-    <br/>
-    <div id="previewImage">
-    </div>
+  
   <?php
    $result = $db->prepare("SELECT * FROM settings");
 $result->BindParam(':o', $search);
@@ -152,9 +123,12 @@ if ($mode==2) {
 }
 if ($mode==3) {
   echo "insurance"."</br>";
+  }
+
+if ($mode==4) {
+  echo "bank"."</br>";
   # code...
 }
-
  ?></label></br>
 <?php
 
@@ -177,7 +151,8 @@ if (!isset($ins_mark_up)) {
 </div>
   <?php 
 $patient=$_GET['search'];
-$result = $db->prepare("SELECT drugs.drug_id,generic_name,brand_name,price*drugs.mark_up*dispensed_drugs.mark_up AS price,dispense_id,dispensed_drugs.quantity FROM dispensed_drugs RIGHT OUTER JOIN drugs ON drugs.drug_id=dispensed_drugs.drug_id WHERE patient='$patient' AND receipt_no='$receipt'");
+$result = $db->prepare("SELECT drugs.drug_id,generic_name,brand_name,price*drugs.mark_up*dispensed_drugs.mark_up AS price,dispense_id,dispensed_drugs.quantity FROM dispensed_drugs RIGHT OUTER JOIN drugs ON drugs.drug_id=dispensed_drugs.drug_id WHERE receipt_no=:a");
+        $result->bindParam(':a',$receipt);
         $result->execute();
         $med_count = $result->rowcount();  
   //Check whether the query was successful or not
@@ -195,7 +170,8 @@ $result = $db->prepare("SELECT drugs.drug_id,generic_name,brand_name,price*drugs
 </thead>
 <?php
        $patient=$_GET['search'];
-        $result = $db->prepare("SELECT drugs.drug_id,token,generic_name,brand_name,price*drugs.mark_up  AS price,dispense_id,dispensed_drugs.quantity FROM dispensed_drugs RIGHT OUTER JOIN drugs ON drugs.drug_id=dispensed_drugs.drug_id WHERE patient='$patient' AND receipt_no='$receipt'");
+        $result = $db->prepare("SELECT drugs.drug_id,token,generic_name,brand_name,price*drugs.mark_up  AS price,dispense_id,dispensed_drugs.quantity FROM dispensed_drugs RIGHT OUTER JOIN drugs ON drugs.drug_id=dispensed_drugs.drug_id WHERE receipt_no=:a");
+        $result->bindParam(':a',$receipt);
   $result->execute();
   for($i=0; $row = $result->fetch(); $i++){     
       $drug = $row['generic_name'];
@@ -214,7 +190,8 @@ $result = $db->prepare("SELECT drugs.drug_id,generic_name,brand_name,price*drugs
 <td ><?php  echo $qty*$price; ?></td><?php } ?>
 </tr>
 <tr> <?php $patient=$_GET['search'];
-        $result = $db->prepare("SELECT sum(price*dispensed_drugs.quantity*drugs.mark_up) as total FROM dispensed_drugs RIGHT OUTER JOIN drugs ON drugs.drug_id =dispensed_drugs.drug_id WHERE patient='$patient' AND receipt_no='$receipt'");
+        $result = $db->prepare("SELECT sum(price*dispensed_drugs.quantity*drugs.mark_up) as total FROM dispensed_drugs RIGHT OUTER JOIN drugs ON drugs.drug_id =dispensed_drugs.drug_id WHERE receipt_no=:a");
+        $result->bindParam(':a',$receipt);
   $result->execute();
   for($i=0; $row = $result->fetch(); $i++){
    ?>
@@ -234,9 +211,9 @@ $result = $db->prepare("SELECT drugs.drug_id,generic_name,brand_name,price*drugs
   ?>
 
 <?php } ?>
-<?php 
-$patient=$_GET['search'];
-$result = $db->prepare("SELECT name, test,opn,reqby,lab_tests.cost FROM lab RIGHT OUTER JOIN lab_tests ON lab.test=lab_tests.id WHERE opn='$patient' AND  receipt_no='$receipt'");
+<?php
+$result = $db->prepare("SELECT name, test,opn,reqby,lab_tests.cost FROM lab RIGHT OUTER JOIN lab_tests ON lab.test=lab_tests.id WHERE  receipt_no=:a");
+        $result->bindParam(':a',$receipt);
         $result->execute();
         $lab_count = $result->rowcount();
   
@@ -254,8 +231,9 @@ $result = $db->prepare("SELECT name, test,opn,reqby,lab_tests.cost FROM lab RIGH
 </thead>
 <?php
        $patient=$_GET['search'];
-        $result = $db->prepare("SELECT name,updated_at, test,opn,reqby,lab_tests.cost FROM lab RIGHT OUTER JOIN lab_tests ON lab.test=lab_tests.id WHERE opn='$patient' AND  receipt_no='$receipt' ");
-  $result->execute();
+        $result = $db->prepare("SELECT name,updated_at, test,opn,reqby,lab_tests.cost FROM lab RIGHT OUTER JOIN lab_tests ON lab.test=lab_tests.id WHERE  receipt_no=:a");
+        $result->bindParam(':a',$receipt);
+        $result->execute();
   for($i=0; $row = $result->fetch(); $i++){
      
       $name = $row['name'];
@@ -272,7 +250,8 @@ $result = $db->prepare("SELECT name, test,opn,reqby,lab_tests.cost FROM lab RIGH
 <?php }?>
 </tr>
 <tr> <?php $patient=$_GET['search'];
-        $result = $db->prepare("SELECT sum(lab_tests.cost) as total FROM lab RIGHT OUTER JOIN lab_tests ON lab.test=lab_tests.id WHERE opn='$patient' AND receipt_no='$receipt'");
+        $result = $db->prepare("SELECT sum(lab_tests.cost) as total FROM lab RIGHT OUTER JOIN lab_tests ON lab.test=lab_tests.id WHERE receipt_no=:a");
+        $result->bindParam(':a',$receipt);
   $result->execute();
   for($i=0; $row = $result->fetch(); $i++){ ?>
       <th> </th>
@@ -292,8 +271,8 @@ $result = $db->prepare("SELECT name, test,opn,reqby,lab_tests.cost FROM lab RIGH
 <?php } ?> 
 <?php 
 $patient=$_GET['search'];
-$result = $db->prepare("SELECT clinic_name, cost FROM clinics RIGHT OUTER JOIN clinic_fees ON clinic_fees.clinic_id=clinics.clinic_id WHERE patient='$patient' AND receipt_no='$receipt'");
-        $result->execute();
+$result = $db->prepare("SELECT clinic_name, cost FROM clinics RIGHT OUTER JOIN clinic_fees ON clinic_fees.clinic_id=clinics.clinic_id WHERE receipt_no=:a");
+        $result->bindParam(':a',$receipt);
         $clinic_count = $result->rowcount();
   
   //Check whether the query was successful or not
@@ -309,7 +288,8 @@ $result = $db->prepare("SELECT clinic_name, cost FROM clinics RIGHT OUTER JOIN c
 </thead>
 <?php
        $patient=$_GET['search'];
-        $result = $db->prepare("SELECT clinic_name, cost FROM clinics RIGHT OUTER JOIN clinic_fees ON clinic_fees.clinic_id=clinics.clinic_id WHERE patient='$patient' AND receipt_no='$receipt'");
+        $result = $db->prepare("SELECT clinic_name, cost FROM clinics RIGHT OUTER JOIN clinic_fees ON clinic_fees.clinic_id=clinics.clinic_id WHERE receipt_no=:a");
+        $result->bindParam(':a',$receipt);
   $result->execute();
   for($i=0; $row = $result->fetch(); $i++){     
       $name = $row['clinic_name'];
@@ -322,7 +302,8 @@ $result = $db->prepare("SELECT clinic_name, cost FROM clinics RIGHT OUTER JOIN c
 <?php }?>
 </tr>
 <tr> <?php $patient=$_GET['search'];
-        $result = $db->prepare("SELECT sum(clinics.cost) as total FROM clinics RIGHT OUTER JOIN clinic_fees ON clinic_fees.clinic_id=clinics.clinic_id WHERE patient='$patient' AND receipt_no='$receipt'");
+        $result = $db->prepare("SELECT sum(clinics.cost) as total FROM clinics RIGHT OUTER JOIN clinic_fees ON clinic_fees.clinic_id=clinics.clinic_id WHERE receipt_no=:a");
+        $result->bindParam(':a',$receipt);
   $result->execute();
   for($i=0; $row = $result->fetch(); $i++){ ?>
       <th>Total Amount: </th>
@@ -339,11 +320,8 @@ $result = $db->prepare("SELECT clinic_name, cost FROM clinics RIGHT OUTER JOIN c
   ?>
 <?php } ?>
 <?php
-$b=$_GET['search'];
-        $d2=0;
-        $result = $db->prepare("SELECT* FROM collection RIGHT OUTER JOIN fees ON fees.fees_id=collection.fees_id  WHERE paid_by=:a AND paid=:b");
-        $result->bindParam(':a', $b);
-        $result->bindParam(':b', $d2);
+        $result = $db->prepare("SELECT* FROM collection RIGHT OUTER JOIN fees ON fees.fees_id=collection.fees_id  WHERE receipt_no=:a");
+        $result->bindParam(':a',$receipt);
          $result->execute();
         $fees_count = $result->rowcount();
         if ($fees_count<0) {
@@ -365,9 +343,8 @@ $b=$_GET['search'];
       <?php
       $b=$_GET['search'];
         $d2=0;
-        $result = $db->prepare("SELECT* FROM collection RIGHT OUTER JOIN fees ON fees.fees_id=collection.fees_id  WHERE paid_by=:a AND paid=:b");
-        $result->bindParam(':a', $b);
-        $result->bindParam(':b', $d2);
+        $result = $db->prepare("SELECT* FROM collection RIGHT OUTER JOIN fees ON fees.fees_id=collection.fees_id  WHERE receipt_no=:a");
+        $result->bindParam(':a',$receipt);
         $result->execute();
         for($i=0; $row = $result->fetch(); $i++){
                 
@@ -380,9 +357,8 @@ $b=$_GET['search'];
 </table>
 <hr>
 <?php
- $result = $db->prepare("SELECT sum(amount) AS total FROM collection RIGHT OUTER JOIN fees ON fees.fees_id=collection.fees_id  WHERE paid_by=:a AND paid=:b");
-        $result->bindParam(':a', $b);
-        $result->bindParam(':b', $d2);
+ $result = $db->prepare("SELECT sum(amount) AS total FROM collection RIGHT OUTER JOIN fees ON fees.fees_id=collection.fees_id  WHERE receipt_no=:a");
+        $result->bindParam(':a',$receipt);
         $result->execute();
         for($i=0; $row = $result->fetch(); $i++){
  ?>
