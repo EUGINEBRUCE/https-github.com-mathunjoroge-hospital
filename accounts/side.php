@@ -135,6 +135,10 @@
 }
   
 </style>
+<?php
+$d1=date('Y-m-d')." 00:00:00";
+$d2=date('Y-m-d H:i:s');
+ ?>
 <div class="nav-side-menu">
     <div class="brand">&nbsp;</div>
     <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>

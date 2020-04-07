@@ -8,7 +8,6 @@ $d2=date('Y-m-d H:i:s');
 <html>
 <title>total cash</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,500' rel='stylesheet'>
   <link href='../pharmacy/src/vendor/normalize.css/normalize.css' rel='stylesheet'>
   <link href='../pharmacy/src/vendor/fontawesome/css/font-awesome.min.css' rel='stylesheet'>
   <link href="../pharmacy/dist/vertical-responsive-menu.min.css" rel="stylesheet">
@@ -185,37 +184,33 @@ include('side.php'); ?>
        $date2=$_GET['d2'];
        $cashier=$_SESSION['SESS_FIRST_NAME'];
        //get sum amount from pharmacy for the user     
-        $result = $db->prepare("SELECT sum(amount) AS pharmacy_cash FROM cash WHERE (date >=:a AND date <=:b) AND tendered_by=:c");
+        $result = $db->prepare("SELECT sum(amount) AS pharmacy_cash FROM cash WHERE (date >=:a AND date <=:b)");
         $result->bindParam(':a',$date1);
-        $result->bindParam(':b',$date2);
-        $result->bindParam(':c',$cashier);       
+        $result->bindParam(':b',$date2);       
   $result->execute();
   for($i=0; $row = $result->fetch(); $i++){     
       $pharmacy_cash = $row['pharmacy_cash'];
     }
      //get sum amount from lab for the user     
-        $result = $db->prepare("SELECT sum(amount) AS lab_cash FROM lab_cash WHERE (date >=:a AND date <=:b) AND tendered_by=:c");
+        $result = $db->prepare("SELECT sum(amount) AS lab_cash FROM lab_cash WHERE (date >=:a AND date <=:b)");
         $result->bindParam(':a',$date1);
-        $result->bindParam(':b',$date2);
-        $result->bindParam(':c',$cashier);       
+        $result->bindParam(':b',$date2);       
   $result->execute();
   for($i=0; $row = $result->fetch(); $i++){
      
       $lab_cash = $row['lab_cash'];  
     }
     //get sum amount from fees for the user     
-        $result = $db->prepare("SELECT sum(amount) AS totalfees FROM fees_total WHERE (date >=:a AND date <=:b) AND tendered_by=:c");
+        $result = $db->prepare("SELECT sum(amount) AS totalfees FROM fees_total WHERE (date >=:a AND date <=:b)");
         $result->bindParam(':a',$date1);
-        $result->bindParam(':b',$date2);
-        $result->bindParam(':c',$cashier);       
+        $result->bindParam(':b',$date2);       
   $result->execute();
   for($i=0; $row = $result->fetch(); $i++){     
       $fees_cash = $row['totalfees'];    }
     //get sum amount from pharmacy for the user     
-        $result = $db->prepare("SELECT sum(amount) AS clinicfees FROM clinics_total WHERE (date >=:a AND date <=:b) AND tendered_by=:c");
+        $result = $db->prepare("SELECT sum(amount) AS clinicfees FROM clinics_total WHERE (date >=:a AND date <=:b)");
         $result->bindParam(':a',$date1);
-        $result->bindParam(':b',$date2);
-        $result->bindParam(':c',$cashier);       
+        $result->bindParam(':b',$date2);       
   $result->execute();
   for($i=0; $row = $result->fetch(); $i++){     
       $clinicfees = $row['clinicfees'];
@@ -223,7 +218,7 @@ include('side.php'); ?>
 </hr><div class="container" id="print">
       <center><b>cash report from <?php echo $cashier; ?></b></center>
      <p></p>
-     <center><b>period: <?php echo $date1; ?> - <?php echo $date2; ?> </b></center>
+     <center><b>period: <?php echo $date1; ?> to <?php echo $date2; ?> </b></center>
      <p></p>
      <p></p>
      <div class="container" id="print">
@@ -287,6 +282,45 @@ include('side.php'); ?>
 </thead>
 <tbody>
 </tbody>
+</table>
+<hr align="center" style="width: 70%;">
+<h4 align="center">summary</h4>
+<table class="table" align="center">
+  <head>
+    <tr>
+    <th>payment method</th>
+    <th>amount</th>
+    </tr>
+  </head>
+  <tbody>
+    <?php    
+    $result = $db->prepare("SELECT sum(total) AS amount, type AS name FROM receipts WHERE (date >=:a AND date <=:b) GROUP BY type");
+        $result->bindParam(':a',$date1);
+        $result->bindParam(':b',$date2);      
+  $result->execute();
+  for($i=0; $row = $result->fetch(); $i++){     
+      $amount = $row['amount'];
+      $name = $row['name'];
+ ?>
+  <tr> 
+  <td><?php
+  if ($name==1) {
+     $payment_method="cash";
+   } 
+   if ($name==2) {
+     $payment_method="Mpesa";
+   } 
+   if ($name==3) {
+     $payment_method="insurance";
+   } 
+   if ($name==4) {
+     $payment_method="bank";
+   } 
+   echo $payment_method; ?></td>
+  <td><?php echo $amount; ?></td>   
+  </tr>
+<?php } ?>
+  </tbody>  
 </table>
 </div>
 </div>
