@@ -4,8 +4,7 @@ require_once('../main/auth.php');
  
  <!DOCTYPE html>
 <html>
-<title>book clinic</title>
-
+<title>patients served </title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link href='../pharmacy/src/vendor/normalize.css/normalize.css' rel='stylesheet'>
   <link href='../pharmacy/src/vendor/fontawesome/css/font-awesome.min.css' rel='stylesheet'>
@@ -17,18 +16,7 @@ require_once('../main/auth.php');
   <script src="../js/jquery.min.js"></script>
   <script src="../js/bootstrap.min.js"></script>
   <script src="../pharmacy/dist/js/bootstrap-select.js"></script>
-  <link href="../src/facebox.css" media="screen" rel="stylesheet" type="text/css" />  
-<script src="../src/facebox.js" type="text/javascript"></script>
-<script type="text/javascript">
-  jQuery(document).ready(function($) {
-    $('a[rel*=facebox]').facebox({
-      loadingImage : '../src/loading.gif',
-      closeImage   : '../src/closelabel.png'
-    })
-  })
-</script>
-
-   <style type="text/css">
+  <style type="text/css">
     table.resultstable {
   border: 1px solid #1C6EA4;
   background-color: #EEEEEE;
@@ -156,13 +144,21 @@ background-repeat:no-repeat;
   </header><?php include('side.php'); ?>
   <div class="content-wrapper">   
       <div class="jumbotron" style="background: #95CAFC;">         
-<form action="booked.php" method="GET">
   <link rel="stylesheet" href="../main/jquery-ui.css">
   <script src="../main/jquery-1.12.4.js"></script>
   <script src="../main/jquery-ui.js"></script>
   <script>
   $( function() {
-    $( "#mydate" ).datepicker({
+    $( "#date_one" ).datepicker({
+      changeMonth: true,
+      changeYear: true
+    });
+  } );
+
+  </script>
+  <script>
+  $( function() {
+    $( "#date_two" ).datepicker({
       changeMonth: true,
       changeYear: true
     });
@@ -171,72 +167,112 @@ background-repeat:no-repeat;
   </script>
   
 </head>
-  <span><form action="booked.php?" method="GET">
-    <input type="text" id="mydate" required="required" name="date" placeholder="pick date" autocomplete="off"><select id="clinic" name="clinic" class="selectpicker" data-live-search="true" title="select clinic..." required="required" >
-<option value="" disabled>-- Select clinic--</option><?php 
- include ('../connect.php');
-$result = $db->prepare("SELECT * FROM clinics");
-        $result->execute();
-        for($i=0; $row = $result->fetch(); $i++){
-           echo "<option value=".$row['clinic_id'].">".$row['clinic_name']."</option>";
-         }
-        
-        ?>      
-</select>
-</select> <button class="btn btn-success"><i class="icon icon-save icon-large"></i>submit</button>
+<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="index.php?search= &response=0">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">patients served</li>
+    <li class="breadcrumb-item active" aria-current="page" style="float: right;"><a href="visits.php"> visits for period</a></li>
+    <li class="breadcrumb-item active" aria-current="page" style="float: right;"><a href="patients.php"> patients for period</a></li>
+    </ol>
+  <span><form action="patients.php?" method="GET">
+    <input type="text" id="date_one" required="required" name="date_one" placeholder="pick start date" autocomplete="off">
+    <input type="text" id="date_two" required="required" name="date_two" placeholder="pick end date" autocomplete="off">    <button class="btn btn-success"><i class="icon icon-save icon-large"></i>submit</button>
   </form>
-   <?php
-  include('../connect.php');
-       $date=date("Y-m-d", strtotime($_GET['date']));
-       $clinic= $_GET['clinic'];
-  $result = $db->prepare("SELECT name,clinic_name,opno,bookings.date AS date FROM bookings RIGHT OUTER JOIN clinics ON bookings.clinic_id=clinics.clinic_id LEFT OUTER JOIN patients ON patients.opno=bookings.patient WHERE bookings.date='$date' AND bookings.clinic_id='$clinic'");
-        $result->execute();
-        $rowcount = $result->rowcount();
-        
-        
+  <?php if (isset($_GET['date_one'])) {
+    # code...
    ?>
-   <?php 
-   if ($rowcount<1) {
-     
-    ?>
-    <script>
-$(document).ready(function(){
-    $("#hide").click(function(){
-        $("button").hide();
-    });
-});
-</script>
-    <div class="alert-warning" style="width: 40%;" >no clinic booked </div><?php } ?>
-     <?php 
-   if ($rowcount>0) {
-     
-    ?>
-  
-   <table class="resultstable" >
+   <div class="container" id="content">
+   <div class="container">
+    <p>&nbsp;</p>
+   <center>showing patients'  from: <?php echo date("d-m-Y", strtotime($_GET['date_one']))  ?> to <?php echo date("d-m-Y", strtotime($_GET['date_two']))  ?></center>
+   <p>&nbsp;</p>
+   </div>
+   <table class="table" >
 <thead>
-<tr>
+<tr>  <th>date</th>
       <th>patient name</th>
       <th>number</th>
-      <th>clinic</th>
-      <th>date</th>
-    </tr>
+      <th>age</th>
+       </tr>
 </thead>
  <tbody>
   <?php
   include('../connect.php');
-       $date=date("Y-m-d", strtotime($_GET['date']));
-       $clinic= $_GET['clinic'];
-  $result = $db->prepare("SELECT name,clinic_name,opno,bookings.date AS date FROM bookings RIGHT OUTER JOIN clinics ON bookings.clinic_id=clinics.clinic_id LEFT OUTER JOIN patients ON patients.opno=bookings.patient WHERE bookings.date='$date' AND bookings.clinic_id='$clinic'");
+  $a=date("Y-m-d", strtotime($_GET['date_one']));
+  $b=date("Y-m-d", strtotime($_GET['date_two']));      
+  $result = $db->prepare("SELECT name,opno,age,date  FROM  patients   WHERE date(date)>=:a AND date(date)<=:b ");
+  $result->bindParam(':a',$a);
+  $result->bindParam(':b',$b);
   $result->execute();
        for($i=0; $row = $result->fetch(); $i++){       
         
    ?>
-<tr> <td><?php echo $row['name']; ?>:&nbsp;</td>
+<tr> <td><?php echo $row['date']; ?>:&nbsp;</td>
+  <td><?php echo $row['name']; ?>:&nbsp;</td>
       <td> &nbsp;<?php echo $row['opno']; ?>
-         <td> &nbsp;<?php echo $row['clinic_name']; ?>
-           <td> &nbsp;<?php echo $row['date']; ?>
-            </td><?php } } ?></tbody>
+         <td> &nbsp;<?php
+         $now = time('Y/m/d');
+$dob = strtotime($row['age']);
+$datediff = $now - $dob;
+$agee=round($datediff / (60 * 60 * 24))/365; 
+$age = number_format($agee, 2, '.', '');
+
+if ($age>=1) {
+  echo $age."years";
+   # code...
+ }
+ if ($age<1) {
+  echo $age*12; echo "&nbsp;"."Months";
+    # code...
+  } ?> </td>
+            </td><?php }  ?></tbody>
 </table>
+ <table class="table" >
+<thead>
+<tr>  <th>&nbsp;</th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+       </tr>
+</thead>
+ <tbody>
+  <?php     
+  $result = $db->prepare("SELECT count(opno) AS total FROM patients WHERE date(date)>=:a AND date(date)<=:b");
+  $result->bindParam(':a',$a);
+  $result->bindParam(':b',$b);
+  $result->execute();
+       for($i=0; $row = $result->fetch(); $i++){       
+        
+   ?>
+<tr> <td>total</td>
+  <td>&nbsp;</td>
+      <td> &nbsp;</td>
+         <td> &nbsp;<?php echo $row['total']; ?>
+            </td><?php }  ?></tbody>
+</table>
+<?php } ?>
+ </div>
+ <script type="text/javascript">
+   function printDiv(content) {
+            //Get the HTML of div
+            var divElements = document.getElementById(content).innerHTML;
+            //Get the HTML of whole page
+            var oldPage = document.body.innerHTML;
+
+            //Reset the page's HTML with div's HTML only
+            document.body.innerHTML = 
+              "<html><head><title></title></head><body>" + 
+              divElements + "</body>";
+
+            //Print Page
+            window.print();
+
+            //Restore orignal HTML
+            document.body.innerHTML = oldPage;          
+        }
+
+
+</script>
+      <button class="btn btn-success btn-large" style="margin-left: 45%;" value="content" id="goback" onclick="javascript:printDiv('content')" >print report</button>
 <script src="../pharmacy/dist/vertical-responsive-menu.min.js"></script>
 </body>
 </html>

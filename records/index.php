@@ -64,7 +64,9 @@ $result = $db->prepare("SELECT * FROM patients");
           $a=$_GET['attempt'];
           if ($a==0) { echo "";
          ?>
-           <?php } ?>
+           <?php
+           $end = date('Y-m-d', strtotime('-5 years'));
+           echo $end; } ?>
           <h3>register patient</h3>
           <style type="text/css">
             #register{
