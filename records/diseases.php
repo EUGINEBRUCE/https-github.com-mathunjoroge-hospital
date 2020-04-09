@@ -173,7 +173,7 @@ background-repeat:no-repeat;
     <li class="breadcrumb-item active" aria-current="page" style="float: right;"><a href="diseases.php"> diagnoses for period</a></li>
     <li class="breadcrumb-item active" aria-current="page" style="float: right;"><a href="differential.php"> differential diagnoses for period</a></li>
     </ol>
-  <span><form action="differential.php" method="GET">
+  <span><form action="diseases.php" method="GET">
     <input type="text" id="date_one" required="required" name="date_one" placeholder="pick start date" autocomplete="off">
     <input type="text" id="date_two" required="required" name="date_two" placeholder="pick end date" autocomplete="off">    <button class="btn btn-success"><i class="icon icon-save icon-large"></i>submit</button>
   </form>
@@ -198,7 +198,7 @@ background-repeat:no-repeat;
   include('../connect.php');
   $a=date("Y-m-d", strtotime($_GET['date_one']));
   $b=date("Y-m-d", strtotime($_GET['date_two']));      
-  $result = $db->prepare("SELECT disease,title,count(disease) AS total FROM dx RIGHT OUTER JOIN  icd_second_level_codes ON dx.disease=icd_second_level_codes.code  WHERE date(date)>=:a AND date(date)<=:b");
+  $result = $db->prepare("SELECT disease,title,count(disease) AS total FROM dx RIGHT OUTER JOIN  icd_second_level_codes ON dx.disease=icd_second_level_codes.code  WHERE date(date)>=:a AND date(date)<=:b GROUP BY disease");
   $result->bindParam(':a',$a);
   $result->bindParam(':b',$b);
   $result->execute();
