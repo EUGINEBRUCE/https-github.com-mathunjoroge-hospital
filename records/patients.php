@@ -180,6 +180,7 @@ background-repeat:no-repeat;
   <?php if (isset($_GET['date_one'])) {
     # code...
    ?>
+   <div class="container">
    <div class="container" id="content">
    <div class="container">
     <p>&nbsp;</p>
@@ -206,8 +207,8 @@ background-repeat:no-repeat;
        for($i=0; $row = $result->fetch(); $i++){       
         
    ?>
-<tr> <td><?php echo $row['date']; ?>:&nbsp;</td>
-  <td><?php echo $row['name']; ?>:&nbsp;</td>
+<tr> <td><?php echo date("d-M, Y", strtotime($row['date'])); ?>&nbsp;</td>
+  <td><?php echo $row['name']; ?>&nbsp;</td>
       <td> &nbsp;<?php echo $row['opno']; ?>
          <td> &nbsp;<?php
          $now = time('Y/m/d');
@@ -249,6 +250,7 @@ if ($age>=1) {
          <td> &nbsp;<?php echo $row['total']; ?>
             </td><?php }  ?></tbody>
 </table>
+<button class="btn btn-success btn-large" style="margin-left: 45%;" value="content" id="goback" onclick="javascript:printDiv('content')" >print report</button>
 <?php } ?>
  </div>
  <script type="text/javascript">
@@ -272,7 +274,6 @@ if ($age>=1) {
 
 
 </script>
-      <button class="btn btn-success btn-large" style="margin-left: 45%;" value="content" id="goback" onclick="javascript:printDiv('content')" >print report</button>
 <script src="../pharmacy/dist/vertical-responsive-menu.min.js"></script>
 </body>
 </html>
