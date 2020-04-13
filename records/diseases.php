@@ -187,8 +187,9 @@ background-repeat:no-repeat;
    <p>&nbsp;</p>
    </div>
    <table class="table" >
-<thead>
-<tr>  <th>disease code</th>
+<thead>xqp137
+  1525709372
+<tr>  <th>disease code</th> 
       <th>disease name</th>
       <th> number of dx</th>
        </tr>

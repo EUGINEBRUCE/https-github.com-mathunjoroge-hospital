@@ -86,24 +86,24 @@ function suggest(inputString){
         if(inputString.length == 0) {
             $('#suggestions').fadeOut();
         } else {
-        $('#country').addClass('load');
+        $('#patient').addClass('load');
             $.post("autosuggestname.php", {queryString: ""+inputString+""}, function(data){
                 if(data.length >0) {
                     $('#suggestions').fadeIn();
                     $('#suggestionsList').html(data);
-                    $('#country').removeClass('load');
+                    $('#patient').removeClass('load');
                 }
             });
         }
     }
 
     function fill(thisValue) {
-        $('#country').val(thisValue);
+        $('#patient').val(thisValue);
         setTimeout("$('#suggestions').fadeOut();", 600);
     }
 
 </script>
-</head><body onLoad="document.getElementById('country').focus();">
+</head><body onLoad="document.getElementById('patient').focus();">
   <header class="header clearfix" style="background-color: #3786d6;;">
     <button type="button" id="toggleMenu" class="toggle_menu">
       <i class="fa fa-bars"></i>
@@ -114,7 +114,8 @@ function suggest(inputString){
   </header><?php include('side.php'); ?>
   <div class="content-wrapper">   
       <div class="jumbotron" style="background: #95CAFC;">
-         <body onLoad="document.getElementById('country').focus();">
+        <div class="container"> 
+          <div class="container"> 
          	<div>
             <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="index.php?search= &response=0">Home</a></li>
@@ -148,10 +149,15 @@ if ($age>=1) {
   echo $age*12; echo "&nbsp;"." Months";
     # code...
   } ?> &nbsp; sex: <?php echo $c; ?> </caption></li><?php } ?>
+  <?php
+  if (isset($_GET['edit'])) {
+    ?>
+  <li>editing lab details</li>
+  <?php } ?>
 </nav>  
 </div>
 <form action="index.php?" method="GET">
-  <span><input type="text" size="25" value="" name="search" id="country" onkeyup="suggest(this.value);" onblur="fill();" class="" autocomplete="off" placeholder="Enter patient Name or number" style="width: 40%; height:30px;" />
+  <span><input type="text" size="25" value="" name="search" id="patient" onkeyup="suggest(this.value);" onblur="fill();" class="" autocomplete="off" placeholder="Enter patient Name or number" style="width: 40%; height:30px;" />
   <input type="hidden" name="response" value="0"> <button class="btn btn-success"><i class="icon icon-save icon-large"></i>submit</button></span>     
       <div class="suggestionsBox" id="suggestions" style="display: none;">
         <div class="suggestionList" id="suggestionsList"> &nbsp; </div></div>
@@ -246,9 +252,18 @@ table.blueTable tfoot .links a{
       </style>
       <p>&nbsp;</p>
   <?php } ?>
- <?php 
+ <?php
+ if (isset($_GET['edit'])) {
+  $served=1;
+  }
+  else{
+    $served=0;
+
+  } 
 $patient=$_GET['search'];
-$result = $db->prepare("SELECT name, template, test,opn,reqby,lab_tests.cost FROM lab RIGHT OUTER JOIN lab_tests ON lab.test=lab_tests.id WHERE opn='$patient' AND served=0");
+$result = $db->prepare("SELECT name, template, test,opn,reqby,lab_tests.cost FROM lab RIGHT OUTER JOIN lab_tests ON lab.test=lab_tests.id WHERE opn=:a AND lab.served=:b");
+$result->bindParam(':a',$patient);
+$result->bindParam(':b',$served);
         $result->execute();
         $rowcountt = $result->rowcount();
   
@@ -269,8 +284,10 @@ $result = $db->prepare("SELECT name, template, test,opn,reqby,lab_tests.cost FRO
 </thead>
 <?php
        $patient=$_GET['search'];
-        $result = $db->prepare("SELECT  lab.id AS id,lab_tests.id AS test_id,name, test,opn,reqby,template,lab_tests.cost FROM lab RIGHT OUTER JOIN lab_tests ON lab.test=lab_tests.id WHERE opn='$patient' AND served=0");
-  $result->execute();
+        $result = $db->prepare("SELECT  lab.id AS id,lab_tests.id AS test_id,name, test,opn,reqby,template,lab_tests.cost,comments FROM lab RIGHT OUTER JOIN lab_tests ON lab.test=lab_tests.id WHERE opn=:a AND lab.served=:b");
+$result->bindParam(':a',$patient);
+$result->bindParam(':b',$served);
+        $result->execute();$result->execute();
   for($i=0; $row = $result->fetch(); $i++){
      
       $name = $row['name'];
@@ -279,7 +296,8 @@ $result = $db->prepare("SELECT name, template, test,opn,reqby,lab_tests.cost FRO
       $reqby = $row['reqby'];
       $cost= $row['cost'];
       $template= $row['template'];
-
+      $comments= $row['comments'];
+      
          ?>
 <tbody>
 <tr>
@@ -287,7 +305,13 @@ $result = $db->prepare("SELECT name, template, test,opn,reqby,lab_tests.cost FRO
 <td><?php echo $reqby; ?></td>
 <td><?php echo $cost; ?></td>
 <td><form action="save.php" method="POST"><input type="checkbox"  name="lab_id[]" value="<?php echo $lab_id; ?>"></td>
-  <td><input type="text"  name="comment[]" ></td>
+  <td><input type="text"  name="comment[]" value="<?php
+ if (isset($_GET['edit'])) {
+  echo $row['comments'];
+  }
+  else{
+    echo "";
+  } ?>" ></td>
   <td><?php if (empty($template)){ ?>no template<?php } ?>
   <?php if (!empty($template)) {
     # code...
@@ -405,6 +429,7 @@ $result = $db->prepare("SELECT name, template, test,opn,reqby,lab_tests.cost FRO
       <div class="alert alert-success" style="width: 50%;margin-left: 10%;"><p> patient data saved successifully</p></div>        
       <?php } ?><?php } ?>
 </div></div></div></div>
+</div></div>
 
 </body>
 </html>

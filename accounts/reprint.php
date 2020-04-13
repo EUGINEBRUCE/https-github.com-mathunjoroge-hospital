@@ -213,7 +213,7 @@ $d1=$_GET['d1']." 00:00:00";
   <tr>
 
 <?php 
-$result = $db->prepare("SELECT * FROM receipts RIGHT OUTER JOIN patients ON receipts.patient=patients.opno  WHERE (date>=:a AND date<=:b)");
+$result = $db->prepare("SELECT name,opno,receipt_no,receipts.date AS date,total,type FROM receipts RIGHT OUTER JOIN patients ON receipts.patient=patients.opno  WHERE (receipts.date>=:a AND receipts.date<=:b)");
         $result->bindParam(':a',$date1);
         $result->bindParam(':b',$date2);
         $result->execute(); 
@@ -223,11 +223,12 @@ $result = $db->prepare("SELECT * FROM receipts RIGHT OUTER JOIN patients ON rece
            $receipt_number=$row['receipt_no'];
            $date=$row['date'];
            $amount=$row['total'];
+           $type=$row['type'];
                 
         ?>
         <td><?php echo $name; ?></td>
         <td><?php echo $ip_no; ?></td>
-        <td><a href="receipt_copy.php?receipt=<?php echo $receipt_number; ?>&insurance=<?php  if (isset($company)) { echo $company; 
+        <td><a href="receipt_copy.php?receipt=<?php echo $receipt_number; ?>&mode=<?php echo $type; ?>&insurance=<?php  if (isset($company)) { echo $company; 
                      # code...
                    } 
                    else{

@@ -259,7 +259,7 @@ table.blueTable tfoot .links a{
 </tr>
 </thead>
 <?php
-$a =0;
+$a =1;
 $result = $db->prepare("SELECT DISTINCT(opno),age,sex,name FROM patients RIGHT OUTER JOIN lab ON lab.opn=patients.opno WHERE lab.served=:a");
 $result->bindParam(':a',$a);
   $result->execute();
@@ -274,7 +274,7 @@ $result->bindParam(':a',$a);
         
 <tbody>
 <tr>
-<td><a  href="details.php?search=<?php echo $number ?>&response=<?php echo '0'; ?>"><?php echo $name; ?></a></td>
+<td><a  href="details.php?search=<?php echo $number ?>&response=<?php echo '0'; ?>&edit=1"><?php echo $name; ?></a></td>
 <td><?php echo $sex; ?></td>
 <td>  <?php 
   $now = time('Y/m/d');

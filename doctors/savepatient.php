@@ -4,8 +4,8 @@ session_start();
 $a = date('Y-m-d');
 $doctor =$_SESSION['SESS_FIRST_NAME'];
 $j = $_POST['pn'];
-$emergency= $_POST['emergency'];
 if (isset($_POST['emergency'])) {
+  $emergency= $_POST['emergency'];
     $a = date('Y-m-d H:i:s');
 $sql = "INSERT INTO patient_notes (created_at,patient,notes,posted_by) VALUES (:a,:b,:c,:d)";
 $q = $db->prepare($sql);
@@ -67,7 +67,7 @@ $q->execute(array(':a'=>$a,':b'=>$b,':c'=>$c,':d'=>$d,':e'=>$e,':g'=>$g,':j'=>$j
     $reset=0;
     $sql = "UPDATE patients
         SET  served=?
-		WHERE opno=?";
+    WHERE opno=?";
 $q = $db->prepare($sql);
 $q->execute(array($reset,$j)); 
 
@@ -105,7 +105,7 @@ if (isset($_POST['dx'])) {
 if (isset($_POST['image'])){
 $images = $_POST['image'];
    foreach ($images as $image) {
-    $sql = "INSERT INTO `req_images` (`test`,`opn`,`reqby) VALUES ('$lab', '$image', '$doctor')";
+    $sql = "INSERT INTO `req_images` (`test`,`opn`,`reqby`) VALUES ('$lab', '$image', '$doctor')";
       $q = $db->prepare($sql);
       $q->execute();
     }
@@ -114,8 +114,8 @@ $images = $_POST['image'];
 $reset=0;
 $sql = "UPDATE patients
         SET  served=?
-		WHERE opno=?";
-		$q = $db->prepare($sql);
+    WHERE opno=?";
+    $q = $db->prepare($sql);
         $q->execute(array($reset,$j)); 
          ?>
          <?php
@@ -128,4 +128,5 @@ $sql = "UPDATE patients
         $code=rand();
     
     header("location: newprescription.php?search=$j&response=0&code=$code"); 
-     } ?>
+     } 
+     ?>
