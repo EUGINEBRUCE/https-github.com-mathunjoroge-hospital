@@ -363,9 +363,51 @@ if (isset($_GET["d1"])) {
               <td><b><?php echo ( $clinicfees+$fees_cash+$lab_cash+$pharmacy_cash)-($total_expenses+$total_salaries); ?></b></td>              
             </tr>
           </table>
+          <hr align="center" style="width: 70%;">
+<h4 align="center">summary of cash collections</h4>
+<table class="table" align="center">
+  <head>
+    <tr>
+    <th>payment method</th>
+    <th>amount</th>
+    </tr>
+  </head>
+  <tbody>
+    <?php    
+    $result = $db->prepare("SELECT sum(total) AS amount, type AS name FROM receipts WHERE (date >=:a AND date <=:b) GROUP BY type");
+        $result->bindParam(':a',$date1);
+        $result->bindParam(':b',$date2);      
+  $result->execute();
+  for($i=0; $row = $result->fetch(); $i++){     
+      $amount = $row['amount'];
+      $name = $row['name'];
+ ?>
+  <tr> 
+  <td><?php
+  if ($name==1) {
+     $payment_method="cash";
+   } 
+   if ($name==2) {
+     $payment_method="Mpesa";
+   } 
+   if ($name==3) {
+     $payment_method="insurance";
+   } 
+   if ($name==4) {
+     $payment_method="bank";
+   } 
+   echo $payment_method; ?></td>
+  <td><?php echo $amount; ?></td>   
+  </tr>
+<?php } ?>
+  </tbody>  
+</table>
 </div>
 </div>
 <button class="btn btn-success btn-large" style="width: 46%;margin-left: 27%;" id="print" align="center" onclick="printContent('print');">print report</button>
+</div>
+</div>
+
 </div>
 <?php } ?>
 </body>

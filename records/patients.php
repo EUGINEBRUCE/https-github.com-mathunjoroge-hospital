@@ -218,7 +218,7 @@ $agee=round($datediff / (60 * 60 * 24))/365;
 $age = number_format($agee, 2, '.', '');
 
 if ($age>=1) {
-  echo $age."years";
+  echo $age." years";
    # code...
  }
  if ($age<1) {
