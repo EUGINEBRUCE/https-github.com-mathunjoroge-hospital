@@ -156,7 +156,7 @@ if ($age>=1) {
   <?php } ?>
 </nav>  
 </div>
-<form action="index.php?" method="GET">
+<form action="details.php?" method="GET">
   <span><input type="text" size="25" value="" name="search" id="patient" onkeyup="suggest(this.value);" onblur="fill();" class="" autocomplete="off" placeholder="Enter patient Name or number" style="width: 40%; height:30px;" />
   <input type="hidden" name="response" value="0"> <button class="btn btn-success"><i class="icon icon-save icon-large"></i>submit</button></span>     
       <div class="suggestionsBox" id="suggestions" style="display: none;">
@@ -312,10 +312,12 @@ $result->bindParam(':b',$served);
   else{
     echo "";
   } ?>" ></td>
-  <td><?php if (empty($template)){ ?>no template<?php } ?>
-  <?php if (!empty($template)) {
+  <td><?php if ($template==0){ ?>no details template<?php } ?>
+  <?php if (($template==1)) {
     # code...
-   ?><a rel="facebox" href="template.php?test_id=<?php echo $test_id; ?>&patient=<?php echo $search; ?>&lab_id=<?php echo $lab_id; ?>">view template</a><?php } ?>
+   ?><a rel="facebox" href="template.php?test_id=<?php echo $test_id; ?>&patient=<?php echo $search; ?>&sex=<?php if($c=="male"){
+    echo 1;
+   } else{ echo 2;}  ?>">view details</a><?php } ?>
    </td>
 
 <?php }?>

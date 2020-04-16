@@ -167,7 +167,6 @@ background-repeat:no-repeat;
 
     });
   } );
-
   </script>
   <script>
 function suggest(inputString){

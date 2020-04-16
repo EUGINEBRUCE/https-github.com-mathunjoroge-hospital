@@ -13,7 +13,7 @@ $date=date('Y-m-d H:i:s');
         exit();
     }
 foreach (array_combine($labs, $comments) as $lab => $comment){
-    echo $lab."-".$comment."</br>";
+   
     
     $sql ="UPDATE lab
         SET  served=?,

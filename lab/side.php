@@ -159,6 +159,7 @@
    <li>&nbsp;&nbsp;<a href='orders.php?req=<?php echo $code;  ?>&response=0'>order for reagents</a></li>
    <li>&nbsp;&nbsp;<a href='bincard.php?d1=0&d2=0&drug=0'>bincard</a></li>
    <li>&nbsp;&nbsp;<a href='record.php?search=<?php echo $code.rand();  ?>&response=0'>record consumption</a></li>
+   <li>&nbsp;&nbsp;<a href='list.php'>test list</a></li>
  </ul>   
     </div>
 </div>
