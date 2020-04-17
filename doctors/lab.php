@@ -222,9 +222,12 @@ if ($age>=1) {
     <?php
 //checking if there were any lab tests requested for and if the patient has been served at lab 
 $patient=$_GET['search'];
-$result = $db->prepare("SELECT opn FROM lab  WHERE served=1  AND opn='$patient'");
-        $result->execute();
-        $rowcount = $result->rowcount();
+$served=1;
+$result = $db->prepare("SELECT opn FROM lab  WHERE served=:a  AND opn=:b");
+$result->BindParam(':a',$served);
+$result->BindParam(':b',$patient);
+$result->execute();
+$rowcount = $result->rowcount();
  
     if($rowcount>0) {
 ?>
@@ -241,8 +244,10 @@ $result = $db->prepare("SELECT opn FROM lab  WHERE served=1  AND opn='$patient'"
 </thead>
 <?php
 //if true for lab request, get the results
-       $patient=$_GET['search'];
-        $result = $db->prepare("SELECT  lab.id AS id,lab_template,name, test,opn,reqby,comments,created_at FROM lab RIGHT OUTER JOIN lab_tests ON lab.test=lab_tests.id WHERE (lab.served=1)  AND opn='$patient' ");
+      
+        $result = $db->prepare("SELECT  lab.id AS id,lab_template,name, test,opn,reqby,comments,created_at FROM lab RIGHT OUTER JOIN lab_tests ON lab.test=lab_tests.id WHERE (lab.served=:a)  AND opn=:b");
+        $result->BindParam(':a',$served);
+$result->BindParam(':b',$patient);
   $result->execute();
   for($i=0; $row = $result->fetch(); $i++){
       $date = $row['created_at'];
@@ -495,7 +500,7 @@ $result->BindParam(':o', $search);
 <?php
 //if true for lab request, get the results
        $patient=$_GET['search'];
-        $result = $db->prepare("SELECT  lab.id AS id,lab_template,name, test,opn,reqby,comments,created_at FROM lab RIGHT OUTER JOIN lab_tests ON lab.test=lab_tests.id WHERE opn='$patient' ");
+        $result = $db->prepare("SELECT  lab.id AS id,template,name, test,opn,reqby,comments,created_at FROM lab RIGHT OUTER JOIN lab_tests ON lab.test=lab_tests.id WHERE opn='$patient' ");
   $result->execute();
   for($i=0; $row = $result->fetch(); $i++){
       $date = $row['created_at'];
@@ -503,7 +508,7 @@ $result->BindParam(':o', $search);
       $lab_id = $row['id'];
       $reqby = $row['reqby'];
       $comments= $row['comments'];
-      $template= $row['lab_template'];
+      $template= $row['template'];
 
          ?>
 <tbody>
@@ -512,13 +517,23 @@ $result->BindParam(':o', $search);
 <td><?php echo $name; ?></td>
 <td><?php echo $reqby; ?></td>
 <td><?php echo $comments; ?></td>
-<td><?php
-// check if a template for the lab results is not empty
- if (empty($template)){ ?>no details<?php } ?> 
-  <?php if (!empty($template)) {
-    # code...
-   ?><a rel="facebox" href="template.php?lab_id=<?php echo $lab_id; ?>&patient=<?php echo $search; ?>&name=<?php echo $a; ?>&sex=<?php echo $c; ?>&test_done=<?php echo $name; ?>&age=<?php echo $agee; ?>">view details</a><?php } ?>
-   </td>
+    <td><?php
+   if ($template == 0) {
+  ?>no details template<?php
+   }
+  ?>
+   <?php
+   if (($template == 1)) {
+                   # code...
+  ?><a rel="facebox" href="../lab/template.php?request_id=<?php  echo $lab_id; ?>&view=true&sex=<?php
+                   if ($c == "male") {
+                                   echo 1;
+                   } else {
+                                   echo 2;
+                   }
+  ?>">view details</a><?php
+   }
+  ?></td>
 <?php }?>
 </tr>
 
