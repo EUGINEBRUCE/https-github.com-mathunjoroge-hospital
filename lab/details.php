@@ -342,7 +342,7 @@
    <?php
    if (($template == 1)) {
                    # code...
-  ?><a rel="facebox" href="template.php?test_id=<?php echo $test_id; ?>&patient=<?php  echo $search; ?>&request_id=<?php  echo $request_id; ?>&sex=<?php
+  ?><a rel="facebox" href="template.php?test_id=<?php echo $test_id; ?>&data_input=true&patient=<?php  echo $search; ?>&request_id=<?php  echo $request_id; ?>&sex=<?php
                    if ($c == "male") {
                                    echo 1;
                    } else {

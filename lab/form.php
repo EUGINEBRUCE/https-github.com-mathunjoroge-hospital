@@ -12,13 +12,13 @@ $shownav=0; ?>
   <link href='../pharmacy/src/vendor/fontawesome/css/font-awesome.min.css' rel='stylesheet'>
   <link href="../pharmacy/dist/vertical-responsive-menu.min.css" rel="stylesheet">
   <link href="../pharmacy/demo.css" rel="stylesheet">        
- <link href="http://demos.codexworld.com/includes/css/bootstrap.css" rel="stylesheet">
+ <link rel="stylesheet" href="../css/bootstrap.min.css">
         <!-- Add custom CSS here -->
- <link href="http://demos.codexworld.com/includes/css/style.css" rel="stylesheet">
+ <link href="../pharmacy/form/css/style.css" rel="stylesheet">
 </head>
 <body>
     <body>
-        <div class="navbar-header" style="margin-top: -6%;position: absolute;float: top;">
+        <div class="navbar-header" style="margin-top: -6%;position: fixed;z-index:1;">
                         
   <?php include('../main/nav.php'); ?> 
   
@@ -31,7 +31,7 @@ $shownav=0; ?>
         <div class="col-lg-12">
             <div class="container">
                 <h4>add parameters for <?php echo $_GET['test']; ?></h4>
-                <form name="codexworld_frm" action="save_params.php" method="POST">
+                <form name="form-control" action="save_params.php" method="POST">
                     <input type="hidden" name="test_id" value="<?php echo $_GET['id']; ?>">
 
                     <select class="form-control" name="sex" style="width: 37%;" title="select sex"  required/><option value=""></option>
@@ -44,7 +44,7 @@ $shownav=0; ?>
 						<a href="javascript:void(0);" class="add_button" title="Add field"><button class="btn-success"> add field</button></a><br>&nbsp;
                     </div>
                 </div>
-                <input type="submit" class="btn btn-primary" style="width: 37%;" name="submit" value="SUBMIT"/>
+                <input type="submit" class="btn btn-primary" style="width: 37%;" name="submit" value="save"/>
                 </form> 
             </div>
         </div>
@@ -52,10 +52,10 @@ $shownav=0; ?>
 
 </div>
    	<!-- JavaScript -->
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-     	        <script src="http://demos.codexworld.com/includes/js/bootstrap.js"></script>
+		<script src="../pharmacy/form/js/jquery.min.js"></script>
+     	        <script src="../pharmacy/form/js/bootstrap.js"></script>
         <!-- Place this tag in your head or just before your close body tag. -->
-        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <script src="../pharmacy/form/js/platform.js" async defer></script>
     	<script type="text/javascript">
 $(document).ready(function(){
 	var maxField = 20; //Input fields increment limitation
