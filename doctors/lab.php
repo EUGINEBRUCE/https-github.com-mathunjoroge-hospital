@@ -269,7 +269,7 @@ $template= $row['template'];
 if (empty($template)){ ?>no details<?php } ?> 
 <?php if (!empty($template)) {
 # code...
-?><a rel="facebox" href="template.php?lab_id=<?php echo $lab_id; ?>&patient=<?php echo $search; ?>&name=<?php echo $a; ?>&sex=<?php echo $c; ?>&test_done=<?php echo $name; ?>&age=<?php echo $agee; ?>">view details</a><?php } ?>
+?><a rel="facebox" href="../lab/template.php?request_id=<?php echo $lab_id; ?>&patient=<?php echo $search; ?>&name=<?php echo $a; ?>&name=<?php echo $name; ?>&test_done=<?php echo $name; ?>&age=<?php echo $agee; ?>&view=true">view details</a><?php } ?>
 </td>
 <?php }?>
 </tr>
@@ -525,13 +525,7 @@ if ($template == 0) {
 <?php
 if (($template == 1)) {
 # code...
-?><a rel="facebox" href="../lab/template.php?request_id=<?php  echo $lab_id; ?>&view=true&sex=<?php
-if ($c == "male") {
-echo 1;
-} else {
-echo 2;
-}
-?>">view details</a><?php
+?><a rel="facebox" href="../lab/template.php?request_id=<?php  echo $lab_id; ?>&view=true&name=<?php echo $name; ?>">view details</a><?php
 }
 ?></td>
 <?php }?>
