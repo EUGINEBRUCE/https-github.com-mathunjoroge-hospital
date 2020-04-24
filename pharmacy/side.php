@@ -164,6 +164,7 @@
    <li>&nbsp;&nbsp;<a href='pending.php'>pending orders</a></li>
    <li>&nbsp;&nbsp;<a href='return.php?search=0&response=0'>return inwards</a></li>
    <li>&nbsp;&nbsp;<a href='../drugbank/index.php'>drugs ref</a></li>
+   <li>&nbsp;&nbsp;<a href='cancer.php'>cancer drugs</a></li>
  </ul>   
     </div>
 </div>
