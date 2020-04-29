@@ -148,7 +148,8 @@ $result->BindParam(':search', $search);
 $result->execute();
 for($i=0; $row = $result->fetch(); $i++){
 $regimen_name=$row['Name'];
-$regimen_drugs=str_replace(",","|",$row['Drugs']);
+$regimen_drug=str_replace(", ","|",$row['Drugs']);
+$regimen_drugs=str_replace(' ','',$regimen_drug);
 }
 
 if (isset($regimen_drugs)) {
@@ -158,7 +159,8 @@ $expression="REGEXP";
 $regimen_drugs="%".$search."%";
 $expression="LIKE";
 }
-$result = $db->prepare("SELECT id,Name,Category,Primary_Site,Do_not_code FROM cancer_drugs WHERE Name $expression '$regimen_drugs'");
+$result = $db->prepare("SELECT id,Name,Category,Primary_Site,Do_not_code FROM cancer_drugs WHERE Name $expression :a");
+$result->BindParam(':a',$regimen_drugs);
 $result->execute();
 for($i=0; $row = $result->fetch(); $i++){
 $drug_name=$row['Name'];

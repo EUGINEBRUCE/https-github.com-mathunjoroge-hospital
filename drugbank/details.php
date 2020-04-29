@@ -7,6 +7,7 @@ include('db_connect.php');
 <title>drugs reference</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link href='../pharmacy/googleapis.css' rel='stylesheet'>
+<script src="smiles/dist/smiles-drawer.min.js"></script>
   <link href='../pharmacy/src/vendor/normalize.css/normalize.css' rel='stylesheet'>
   <link href='../pharmacy/src/vendor/fontawesome/css/font-awesome.min.css' rel='stylesheet'>
   <link href="../pharmacy/dist/vertical-responsive-menu.min.css" rel="stylesheet">
@@ -14,6 +15,9 @@ include('db_connect.php');
   <link rel="stylesheet" href="../css/bootstrap.min.css">
   <script src="../js/jquery.min.js"></script>
   <script src="../js/bootstrap.min.js"></script>
+  <style>
+            canvas { margin: 5px; }
+        </style>
 </head>
 <body>
   <header class="header clearfix" style="background-color: #3786d6;">
@@ -43,10 +47,15 @@ include('db_connect.php');
     ?>
   <label>mechanism of action</label></br>
   <?php echo $row->mrdef; ?></br><?php } ?>
-  <?php if (isset($row->smiles)) {
+  <?php if (isset($row->cd_formula)) {
     ?>
   <label>chemical formula</label></br>
-  <?php echo $row->inchi; ?></br>
+  <?php echo $row->cd_formula; ?></br>
+  <?php } ?>
+  <?php if (isset($row->smiles)) {
+    ?>
+    <label><a href="structure.php?structure=<?php echo $row->smiles; ?>&drug=<?php echo $_GET['search_q']; ?>"> chemical structure</label></a></br>
+               
   <?php } ?>
   <?php 
   $query = "SELECT * FROM drugbank.public.active_ingredient WHERE active_moiety_name ILIKE '%$search%' LIMIT 1";
@@ -182,17 +191,18 @@ $bootstrapColWidth = 12 / $numOfCols;
 ?>
 <div class="container">
 <div class="row">
-<?php
-foreach ($adverses as $adverse){
-?>  
+ 
         <div class="col-md-<?php echo $bootstrapColWidth; ?>">
             <div class="row">
+            	<?php
+foreach ($adverses as $adverse){
+?> 
                 <?php echo $adverse; ?>
             </div>
         </div>
 <?php
     $rowCount++;
-    if($rowCount % $numOfCols == 0) echo '</div><div class="row">';
+    if($rowCount % $numOfCols == 0) echo '<div class="row"></div>';
 }
 ?>
 
@@ -200,5 +210,33 @@ foreach ($adverses as $adverse){
 <?php } ?>
 <p><a href="<?php echo $source;  ?>">external reference</a></p>
 </div>
-<?php }} ?></body>
+<?php }} ?>
+<script type="text/javascript">
+            let drugbank = ['<?php echo $_GET['structure']; ?>'];
+        </script>
+<script>
+            let options = { width: 500, height: 500 };
+            
+            // Initialize the drawer
+            let smilesDrawer = new SmilesDrawer.Drawer(options);
+            
+            for (let i = 0; i < drugbank.length; i += 3) {
+                try {
+                    let canvas = document.createElement('canvas');
+                    canvas.setAttribute('id', 'canvas' + i);
+                    canvas.setAttribute('alt', drugbank[i]);
+                    document.body.appendChild(canvas);
+
+                    SmilesDrawer.parse(drugbank[i], function(tree) {
+                        smilesDrawer.draw(tree, 'canvas' + i, 'light', false); 
+                    }, function(err) {
+                        console.log(err);
+                    });
+
+                    // if (td > 1000) console.log(schembl[i]);
+                } catch (exception) {
+
+                }
+            }
+        </script></body>
 </html>
