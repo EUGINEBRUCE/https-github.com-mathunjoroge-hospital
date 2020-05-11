@@ -163,7 +163,7 @@ float: right;
 <li>&nbsp;&nbsp;<a href='theatre.php'>theatre list</a></li>
 <li>&nbsp;&nbsp;<a href='../icd/index.php'>diseases ref</a></li>
 <li>&nbsp;&nbsp;<a href='emergency.php?search=%20&response=0'>emergency</a></li>
-<li>&nbsp;&nbsp;<a href='oncology/index.php'>oncology</a></li>
+<li>&nbsp;&nbsp;<a href='oncology.php?code=<?php echo rand(); ?>'>oncology</a></li>
 </ul>   
 </div>
 </div>
