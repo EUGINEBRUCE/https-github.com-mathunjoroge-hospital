@@ -17,60 +17,6 @@ include ('../connect.php');
 <script src="../main/sticky.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 <script src="dist/js/bootstrap-select.js"></script>
-<link href="../src/facebox.css" media="screen" rel="stylesheet" type="text/css" />
-<script src="../src/facebox.js" type="text/javascript"></script>
-
-<style type="text/css">
-table.resultstable {
-border: 1px solid #1C6EA4;
-background-color: #EEEEEE;
-width: 100%;
-text-align: left;
-border-collapse: collapse;
-}
-table.resultstable td, table.resultstable th {
-border: 1px solid #AAAAAA;
-padding: 3px 2px;
-}
-table.resultstable tbody td {
-font-size: 13px;
-}
-table.resultstable tr:nth-child(even) {
-background: #D0E4F5;
-}
-table.resultstable thead {
-background: #1C6EA4;
-background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
-background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
-background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
-border-bottom: 2px solid #444444;
-}
-table.resultstable thead th {
-font-size: 15px;
-font-weight: bold;
-color: #FFFFFF;
-border-left: 2px solid #D0E4F5;
-}
-table.resultstable thead th:first-child {
-border-left: none;
-}
-
-table.resultstable tfoot td {
-font-size: 14px;
-}
-table.resultstable tfoot .links {
-text-align: right;
-}
-table.resultstable tfoot .links a{
-display: inline-block;
-background: #1C6EA4;
-color: #FFFFFF;
-padding: 2px 8px;
-border-radius: 5px;
-}
-</style>
-
-
 </head>
 
 <body>
@@ -97,7 +43,7 @@ include ('../connect.php');
 <li class="breadcrumb-item active" aria-current="page"><?php print $_GET['search_query']; ?></li><?php } ?></ol>
 </nav>
 <form action="cancer.php?" method="GET">
-<span><input type="text" size="25" value="" name="search_query" placeholder="drug or regimen name" class="form-control" style="width:50%;" />
+<span><input type="text" style="  border-radius: 5px;width:70%;" value="" name="search_query" placeholder="drug or regimen name" minlength="2" class="form-input"  />
 <button class="btn btn-success"><i class="icon icon-save icon-large"></i>submit</button></span>     
 </form>
 <?php

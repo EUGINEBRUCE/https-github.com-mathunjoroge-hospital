@@ -4,22 +4,26 @@ include('../connect.php');
 ?>
 <!DOCTYPE html>
 <html>
-<title>doctors</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<link href='../pharmacy/src/vendor/normalize.css/normalize.css' rel='stylesheet'>
-<link href="../pharmacy/demo.css" rel="stylesheet">
-<link rel="stylesheet" href="../css/bootstrap.min.css">
-<link rel="stylesheet" href="dist/css/bootstrap-select.css">
-<script src="../js/jquery.min.js"></script>
-<link href="../src/facebox.css" media="screen" rel="stylesheet" type="text/css" />
+<title>pharmacy</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='../pharmacy/src/vendor/normalize.css/normalize.css' rel='stylesheet'>
+  <link href='../pharmacy/src/vendor/fontawesome/css/font-awesome.min.css' rel='stylesheet'>
+  <link href="../pharmacy/dist/vertical-responsive-menu.min.css" rel="stylesheet">
+  <link href="../pharmacy/demo.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="dist/css/bootstrap-select.css">
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="dist/js/bootstrap-select.js"></script>
+  <link href="../src/facebox.css" media="screen" rel="stylesheet" type="text/css" />
 <script src="../src/facebox.js" type="text/javascript"></script>
 <script type="text/javascript">
-jQuery(document).ready(function($) {
-$('a[rel*=facebox]').facebox({
-loadingImage : '../src/loading.gif',
-closeImage   : '../src/closelabel.png'
-})
-})
+  jQuery(document).ready(function($) {
+    $('a[rel*=facebox]').facebox({
+      loadingImage : '../src/loading.gif',
+      closeImage   : '../src/closelabel.png'
+    })
+  })
 </script>
 <!-- select2 css -->
 <link href='select2/dist/css/select2.min.css' rel='stylesheet' type='text/css'>
@@ -32,8 +36,10 @@ $(document).ready(function() { $("#anticancer").select2(); });
 <script src="dist/js/bootstrap-select.js"></script>
 </head>
 <body>
-<header class="header clearfix" style="background-color: #3786d6;">
-</button>
+<header class="header clearfix" style="background-color: blue;">
+    <button type="button" id="toggleMenu" class="toggle_menu">
+      <i class="fa fa-bars"></i>
+    </button>
 <?php include('../main/nav.php'); ?>   
 </header><?php include('side.php'); ?>
 <div class="content-wrapper" style=" background-image: url('../images/doctor.jpg');">

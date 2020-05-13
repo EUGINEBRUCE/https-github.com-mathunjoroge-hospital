@@ -174,6 +174,17 @@ background-repeat:no-repeat;
   img#logo {
     display: none;
   }
+
+}
+@media screen and (max-width: 600px) {
+  #nav_lable {
+    visibility: hidden;
+    display: none;
+  }
+  #view_as{
+    margin-top: 8%;
+
+  }
 }
 </style>
 
@@ -181,12 +192,13 @@ background-repeat:no-repeat;
     <p>&nbsp;</p>
     <p>&nbsp;</p>
     <?php
+    $position=$_SESSION['SESS_LAST_NAME'];
     if (isset($_GET['page'])) {
        $_SESSION['view_as']=$_SESSION['SESS_LAST_NAME'];
     }
      ?>
     <?php
-    $position=$_SESSION['SESS_LAST_NAME'];
+    
     if ($position=="doctor") {
         # code...
     
@@ -202,7 +214,6 @@ background-repeat:no-repeat;
         </style>
  <?php }?>
   <?php
-    $position=$_SESSION['SESS_LAST_NAME'];
     if ($position=="pharmacist") {
         # code...
     
@@ -218,8 +229,7 @@ background-repeat:no-repeat;
         </style>
  <?php }?>
    <?php
-    $position=$_SESSION['SESS_LAST_NAME'];
-    if ($position=="lab") {
+        if ($position=="lab") {
         # code...
     
      ?>
@@ -234,15 +244,14 @@ background-repeat:no-repeat;
         </style>
  <?php }?>
     <?php
-    $position=$_SESSION['SESS_LAST_NAME'];
-    if ($position=="admin") {
+       if ($position=="admin") {
         # code...
     
      ?>
     <div id="view_as" style="float: right">
     <p>
     <form action="../redirect.php" method="POST">
-                    <label> <?php echo $_SESSION["view_as"]; ?>'s view, change to: </label>
+                    <label id="nav_lable"> <?php echo $_SESSION["view_as"]; ?>'s view, change to: </label>
                     <script type="text/javascript">
                         function getval(sel)
                     {

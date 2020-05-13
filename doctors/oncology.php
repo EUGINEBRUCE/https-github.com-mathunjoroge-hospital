@@ -4,58 +4,37 @@ include('../connect.php');
 ?>
 <!DOCTYPE html>
 <html>
-<title>doctors</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.8.3.min.js"></script>
-<script type="text/javascript" src="https://code.jquery.com/ui/1.9.2/jquery-ui.min.js"></script>
-<link href='../pharmacy/src/vendor/normalize.css/normalize.css' rel='stylesheet'>
-<link href="../pharmacy/demo.css" rel="stylesheet">
-<link rel="stylesheet" href="../css/bootstrap.min.css">
-<link rel="stylesheet" href="dist/css/bootstrap-select.css">
-<script src="../js/jquery.min.js"></script>
-<link href="../src/facebox.css" media="screen" rel="stylesheet" type="text/css" />
+<title>oncology</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='../pharmacy/src/vendor/normalize.css/normalize.css' rel='stylesheet'>
+  <link href='../pharmacy/src/vendor/fontawesome/css/font-awesome.min.css' rel='stylesheet'>
+  <link href="../pharmacy/dist/vertical-responsive-menu.min.css" rel="stylesheet">
+  <link href="../pharmacy/demo.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="dist/css/bootstrap-select.css">
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="dist/js/bootstrap-select.js"></script>
+  <link href="../src/facebox.css" media="screen" rel="stylesheet" type="text/css" />
 <script src="../src/facebox.js" type="text/javascript"></script>
 <script type="text/javascript">
-jQuery(document).ready(function($) {
-$('a[rel*=facebox]').facebox({
-loadingImage : '../src/loading.gif',
-closeImage   : '../src/closelabel.png'
-})
-})
+  jQuery(document).ready(function($) {
+    $('a[rel*=facebox]').facebox({
+      loadingImage : '../src/loading.gif',
+      closeImage   : '../src/closelabel.png'
+    })
+  })
 </script>
 <!-- select2 css -->
 <link href='select2/dist/css/select2.min.css' rel='stylesheet' type='text/css'>
 <!-- select2 script -->
 <script src='select2/dist/js/select2.min.js'></script>
 <script>
+$(document).ready(function() { $("#disease").select2(); });
+</script>
+<script>
 $(document).ready(function() { $("#anticancer").select2(); });
 </script>
-<script src="../js/bootstrap.min.js"></script>
-<script src="dist/js/bootstrap-select.js"></script>
-<script>
-function suggestPatientName(inputString){
-if(inputString.length == 0) {
-$('#suggestions').fadeOut();
-} else {
-$('#patient').addClass('load');
-$.post("autosuggestname.php", {queryString: ""+inputString+""}, function(data){
-if(data.length >0) {
-$('#suggestions').fadeIn();
-$('#suggestionsList').html(data);
-$('#patient').removeClass('load');
-}
-});
-}
-}
-
-function fillPatientName(thisValue) {
-$('#patient').val(thisValue);
-setTimeout("$('#suggestions').fadeOut();", 600);
-}
-
-</script>
-
-
 <style type="text/css">
 table.resultstable {
 border: 1px solid #1C6EA4;
