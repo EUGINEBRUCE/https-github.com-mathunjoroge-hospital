@@ -47,7 +47,7 @@ $wards = $result->rowcount();
 <body>
 <?php include("side.php"); ?>
 
-<div id="right-panel" class="right-panel">
+<div id="" class="right-panel">
 <header id="header" class="header">
 
 <div class="header-menu">
@@ -292,10 +292,8 @@ if ($_GET['response']==12) {
 ?>
 
 <div class="content mt-3">
-
 <div class="col-sm-12">
 <div class="alert  alert-warning alert-dismissible fade show" role="alert">
-
 <span class="badge badge-pill badge-warning">exists</span>a imaging method with that name exists. use a different name!
 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 <span aria-hidden="true">&times;</span>
@@ -341,15 +339,10 @@ if ($_GET['response']==14) {
 <?php } ?>
 <?php
 if ($_GET['response']==15) {
-
-
 ?>
-
 <div class="content mt-3">
-
 <div class="col-sm-12">
 <div class="alert  alert-sucess alert-dismissible fade show" role="alert">
-
 <span class="badge badge-pill badge-success">created</span>test creation success!
 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 <span aria-hidden="true">&times;</span>
@@ -357,134 +350,79 @@ if ($_GET['response']==15) {
 </div>
 </div>
 <?php } ?>
-<a href="loggedin.php?response=0"> <div class="col-sm-6 col-lg-4">
-<div class="card text-white bg-flat-color-5">
-<div class="card-body pb-success">
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <div class="card alert alert-success" style="width: 20rem;">
+  <img class="card-img-top" >
+  <div class="card-body">
 
-
-<p class="text-light">users logged in</p>
-<h4>
-<span class="count"><?php echo $rowcount; ?></span>
-</h4>
-
-<div class="chart-wrapper px-0" style="height:1.875em;" height="30">
+  <a href="loggedin.php?response=0" >
+    <h5 class="card-title">users logged in</h5>    
+    <p class="card-text "><?php  echo $rowcount; ?></a>
+  </div>
+</div>
+    </div>
+    <div class="col-sm-4">
+       <div class="card alert alert alert-primary" style="width: 20rem;">
+  <img class="card-img-top" >
+  <div class="card-body">
+    <a href="total.php?response=0"><h5 class="card-title">total users</h5>
+    <p class="card-text"><?php echo $users; ?></p>
+   </a>
+  </div>
+</div>
+    </div>
+    <div class="col-sm-4">
+       <div class="card alert alert-danger" style="width: 20rem;">
+  <img class="card-img-top" >
+  <div class="card-body">
+    <a href="offline.php?response=0"><h5 class="card-title">users offline</h5>
+    <p class="card-text"><?php echo $offline; ?></p>
+   </a>
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card alert alert-info" style="width: 20rem;">
+  <img class="card-img-top" >
+  <div class="card-body">
+  <a href="wards_total.php?response=0">
+    <h5 class="card-title">total number of wards</h5>
+    <p class="card-text"><?php echo $wards; ?></p>
+   </a>
+  </div>
+</div>
+    </div>
+    <div class="col-sm-4">
+       <div class="card alert alert-dark" style="width: 20rem;">
+  <img class="card-img-top" >
+  <div class="card-body">
+    <a href="beds.php?response=0"><h5 class="card-title">total number of beds</h5>
+    <p class="card-text"><?php echo $beds_total; ?></p>
+   </a>
+  </div>
+</div>
+    </div>
+    <div class="col-sm-4">
+       <div class="card alert alert-warning" style="width: 20rem;">
+  <img class="card-img-top" >
+  <div class="card-body">
+    <h5 class="card-title">beds occupied</h5>
+    <p class="card-text"><?php echo $occupied; ?></p>
+   </a>
+  </div>
+</div>
+    </div>
+  </div>
 </div>
 
-</div>
-
-</div>
-</div></a>
-<!--/.col-->
-
-<a href="total.php?response=0"><div class="col-sm-6 col-lg-4">
-<div class="card text-white bg-flat-color-1">
-<div class="card-body pb-primary">
-<div class="dropdown float-right">
-
-<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-<div class="dropdown-menu-content">
-
-</div>
-</div>
-</div>
-<h4 class="mb-0">
-<p class="text-light">total users</p>
-<span class="count"><?php echo $users; ?></span>
-</h4>
-
-
-<div class="chart-wrapper px-0" style="height:1.875em;" height="30">
-<canvas id="widgetChart2"></canvas>
-</div>
-
-</div>
-</div>
-</div></a>
-<!--/.col-->
-<a href="offline.php?response=0">
-<div class="col-sm-6 col-lg-4">
-<div class="card text-white bg-flat-color-4">
-<div class="card-body pb-success">
-<div class="dropdown float-right">
-<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-<div class="dropdown-menu-content">
-</div>
-</div>
-</div>
-<h4 class="mb-0">
-<span class="count"><?php echo $offline; ?></span>
-</h4>
-<p class="text-light">
-users offline</p>
-</div>
-<div class="chart-wrapper px-0" style="height:1.875em;" height="30">
-<canvas id="widgetChart3"></canvas>
-</div>
-</div>
-</div></a>
-<!--/.col-->
-<a href="wards_total.php?response=0">
-<div class="col-sm-6 col-lg-4">
-<div class="card text-white bg-flat-color-5">
-<div class="card-body pb-success">
-<p class="text-light">total number of wards</p>
-<h4>
-<span class="count"><?php echo $wards; ?></span>
-</h4>
-<div class="chart-wrapper px-0" style="height:1.875em;" height="30">
-</div>
-</div>
-</div>
-</div>
 </a>
-<!--/.col-->
-<a href="beds.php?response=0">
-<div class="col-sm-6 col-lg-4">
-<div class="card text-white bg-flat-color-2">
-<div class="card-body pb-primary">
-<div class="dropdown float-right">
-<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-<div class="dropdown-menu-content">
-</div>
-</div>
-</div>
-<h4 class="mb-0">
-<p class="text-light">total beds</p>
-<span class="count"><?php echo $beds_total; ?></span>
-</h4>
-<div class="chart-wrapper px-0" style="height:1.875em;" height="30">
-<canvas id="widgetChart2"></canvas>
-</div>
 
-</div>
-</div>
-</div></a>
-<!--/.col-->
-<a href="#">
-
-<div class="col-sm-6 col-lg-4">
-<div class="card text-white bg-flat-color-5">
-<div class="card-body pb-success">
-<div class="dropdown float-right">
-<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-<div class="dropdown-menu-content">
-</div>
-</div>
-</div>
-<h4 class="mb-0">
-<span class="count"><?php echo $occupied; ?></span>
-</h4>
-<p class="text-light">
-beds occupied</p>
-
-</div>
-
-<div class="chart-wrapper px-0" style="height:1.875em;" height="30">
-<canvas id="widgetChart3"></canvas>
-</div>
-</div>
-</div>
-</a>
 <!--/.col-->
 <!-- Right Panel -->
 
@@ -492,8 +430,6 @@ beds occupied</p>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
 <script src="assets/js/plugins.js"></script>
 <script src="assets/js/main.js"></script>
-
-
 <script src="assets/js/lib/chart-js/Chart.bundle.js"></script>
 <script src="assets/js/dashboard.js"></script>
 <script src="assets/js/widgets.js"></script>
