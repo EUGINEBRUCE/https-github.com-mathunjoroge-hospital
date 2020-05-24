@@ -7,11 +7,13 @@ include('../connect.php');
 <thead>
 <tr>
 <th>name</th>
+<th>mark up as %</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><input type="text" name="name" style="outline: none;" required/></td>
+<td><input type="number" name="mark_up" style="outline: none;" required/></td>
 </tr>
 </tbody>
 </table>

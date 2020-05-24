@@ -1,5 +1,9 @@
 <?php 
 require_once('../main/auth.php');
+include ('../connect.php');
+$shownav=0; ?>
+<?php 
+require_once('../main/auth.php');
 include('../connect.php');
 $result = $db->prepare("SELECT * FROM user WHERE logged_in=1");
 $result->execute();
@@ -26,34 +30,88 @@ $result->execute();
 $wards = $result->rowcount();
 
 ?>
-<!doctype html>
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>admin dashboard</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="apple-touch-icon" href="apple-icon.png">
-<link rel="shortcut icon" href="favicon.ico">
-<link rel="stylesheet" href="assets/css/normalize.css">
-<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-<link rel="stylesheet" href="assets/css/font-awesome.min.css">
-<link rel="stylesheet" href="assets/css/themify-icons.css">
-<link rel="stylesheet" href="assets/css/flag-icon.min.css">
-<link rel="stylesheet" href="assets/css/cs-skin-elastic.css">    
-<!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
-<link rel="stylesheet" href="assets/scss/style.css">
-<link href="assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet">
-</head>
-<body>
-<div style="z-index: 1;position:relative;">
-<?php include('../main/admin_nav.php'); ?>   
+<!DOCTYPE html>
+<html>
+<title>fees</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<link href='../pharmacy/googleapis.css' rel='stylesheet'>
+<link href='../pharmacy/src/vendor/normalize.css/normalize.css' rel='stylesheet'>
+<link href='../pharmacy/src/vendor/fontawesome/css/font-awesome.min.css' rel='stylesheet'>
+<link href="../pharmacy/dist/vertical-responsive-menu.min.css" rel="stylesheet">
+<link href="../pharmacy/demo.css" rel="stylesheet">
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../pharmacy/dist/js/bootstrap-select.js"></script>
+<link href="../src/facebox.css" media="screen" rel="stylesheet" type="text/css" />
+<script src="../src/facebox.js" type="text/javascript"></script>
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+$('a[rel*=facebox]').facebox({
+loadingImage : '../src/loading.gif',
+closeImage   : '../src/closelabel.png'
+})
+})
+</script>
 
-</div>
-</div>
-</div>
-<?php include('side.php'); ?>
-<div class="container">
-<?php
+<style type="text/css">
+table.resultstable {
+border: 1px solid #1C6EA4;
+background-color: #EEEEEE;
+width: 100%;
+text-align: left;
+border-collapse: collapse;
+}
+table.resultstable td, table.resultstable th {
+border: 1px solid #AAAAAA;
+padding: 3px 2px;
+}
+table.resultstable tbody td {
+font-size: 13px;
+}
+table.resultstable tr:nth-child(even) {
+background: #D0E4F5;
+}
+table.resultstable thead {
+background: #1C6EA4;
+background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+border-bottom: 2px solid #444444;
+}
+table.resultstable thead th {
+font-size: 15px;
+font-weight: bold;
+color: #FFFFFF;
+border-left: 2px solid #D0E4F5;
+}
+table.resultstable thead th:first-child {
+border-left: none;
+}
+
+table.resultstable tfoot td {
+font-size: 14px;
+}
+table.resultstable tfoot .links {
+text-align: right;
+}
+table.resultstable tfoot .links a{
+display: inline-block;
+background: #1C6EA4;
+color: #FFFFFF;
+padding: 2px 8px;
+border-radius: 5px;
+}
+</style>
+</head>
+<body><header class="header clearfix">
+<button type="button" id="toggleMenu" class="toggle_menu">
+</button>
+<?php include('../main/nav.php'); ?>   
+</header><?php include('side.php'); ?>
+<div class="content-wrapper"> 
+<div class="jumbotron" >
+	<?php
 if ($_GET['response']==0) {
 
 
@@ -66,14 +124,16 @@ if ($_GET['response']==1) {
 ?>
 
 <div class="content mt-3">
+
 <div class="col-sm-12">
 <div class="alert  alert-success alert-dismissible fade show" role="alert">
+
 <span class="badge badge-pill badge-success">Success</span> user registered
 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 <span aria-hidden="true">&times;</span>
 </button>
 </div>
-</div></div>
+</div>
 <?php } ?>
 <?php
 if ($_GET['response']==2) {
@@ -90,7 +150,6 @@ if ($_GET['response']==2) {
 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 <span aria-hidden="true">&times;</span>
 </button>
-</div>
 </div>
 </div>
 <?php } ?>
@@ -111,7 +170,6 @@ if ($_GET['response']==3) {
 </button>
 </div>
 </div>
-</div>
 <?php } ?>
 <?php
 if ($_GET['response']==4) {
@@ -125,7 +183,6 @@ if ($_GET['response']==4) {
 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 <span aria-hidden="true">&times;</span>
 </button>
-</div>
 </div>
 </div>
 <?php } ?>
@@ -144,7 +201,6 @@ if ($_GET['response']==5) {
 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 <span aria-hidden="true">&times;</span>
 </button>
-</div>
 </div>
 </div>
 <?php } ?>
@@ -166,7 +222,6 @@ if ($_GET['response']==6) {
 </button>
 </div>
 </div>
-</div>
 <?php } ?>
 <?php
 if ($_GET['response']==8) {
@@ -183,7 +238,6 @@ if ($_GET['response']==8) {
 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 <span aria-hidden="true">&times;</span>
 </button>
-</div>
 </div>
 </div>
 <?php } ?>
@@ -204,7 +258,6 @@ if ($_GET['response']==9) {
 </button>
 </div>
 </div>
-</div>
 <?php } ?>
 <?php
 if ($_GET['response']==10) {
@@ -216,11 +269,11 @@ if ($_GET['response']==10) {
 
 <div class="col-sm-12">
 <div class="alert  alert-warning alert-dismissible fade show" role="alert">
+
 <span class="badge badge-pill badge-warning">exists</span>a clinic with that name exists. use a different name!
 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 <span aria-hidden="true">&times;</span>
 </button>
-</div>
 </div>
 </div>
 <?php } ?>
@@ -241,7 +294,6 @@ if ($_GET['response']==11) {
 </button>
 </div>
 </div>
-</div>
 <?php } ?>
 <?php
 if ($_GET['response']==12) {
@@ -256,7 +308,6 @@ if ($_GET['response']==12) {
 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 <span aria-hidden="true">&times;</span>
 </button>
-</div>
 </div>
 </div>
 <?php } ?>
@@ -277,7 +328,6 @@ if ($_GET['response']==13) {
 </button>
 </div>
 </div>
-</div>
 <?php } ?>
 <?php
 if ($_GET['response']==14) {
@@ -296,7 +346,6 @@ if ($_GET['response']==14) {
 </button>
 </div>
 </div>
-</div>
 <?php } ?>
 <?php
 if ($_GET['response']==15) {
@@ -310,50 +359,16 @@ if ($_GET['response']==15) {
 </button>
 </div>
 </div>
-</div>
 <?php } ?>
-<div><p>&nbsp;</p></div>
 <div class="container">
-<?php
-if ($position=="admin") {
-# code...
-
-?>
-<div class="container" align="right" id="view" >
-<p>
-&nbsp;
-<form action="../redirect.php" method="POST">
-            <label id="nav_lable"> <?php echo $_SESSION["view_as"]; ?>'s view, change to: </label></br>
-            <script type="text/javascript">
-                function getval(sel)
-            {
-           document.getElementById("submitbtn").click();
-           }
-            </script>
-            <select name="position" title="please select user" onchange="getval(this);" required/>
-            <option></option>
-                <option value="registration">records</option>
-                <option value="cashier">cashier</option>
-                <option value="nurse">nurse</option>
-                <option value="doctor">doctor</option>
-                <option value="pharmacist">pharmacist</option>
-                <option value="stores">store</option>
-                <option value="lab">lab</option>
-                <option value="admin">admin</option>                        
-            </select>
-            <button id="submitbtn" style="display: none;">submit</button>
-        </form></p></div>
-    <?php } ?>
-
 <div class="row">
-<div class="col-sm">
+<div class="col-sm-4">
 <div class="card alert alert-success" style="width: 20rem;">
 <img class="card-img-top" >
 <div class="card-body">
-
 <a href="loggedin.php?response=0" >
 <h5 class="card-title">users logged in</h5>    
-<p class="card-text "><?php  echo $rowcount; ?></p></a>
+<p class="card-text "><?php  echo $rowcount; ?></a>
 </div>
 </div>
 </div>
@@ -412,13 +427,45 @@ if ($position=="admin") {
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-</a>
+
+
+<!--/.col-->
+<!-- Right Panel -->
+
 <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
 <script src="assets/js/plugins.js"></script>
 <script src="assets/js/main.js"></script>
+<script src="assets/js/lib/chart-js/Chart.bundle.js"></script>
+<script src="assets/js/dashboard.js"></script>
+<script src="assets/js/widgets.js"></script>
+<script src="assets/js/lib/vector-map/jquery.vmap.js"></script>
+<script src="assets/js/lib/vector-map/jquery.vmap.min.js"></script>
+<script src="assets/js/lib/vector-map/jquery.vmap.sampledata.js"></script>
+<script src="assets/js/lib/vector-map/country/jquery.vmap.world.js"></script>
+<script>
+( function ( $ ) {
+"use strict";
+
+jQuery( '#vmap' ).vectorMap( {
+map: 'world_en',
+backgroundColor: null,
+color: '#ffffff',
+hoverOpacity: 0.7,
+selectedColor: '#1de9b6',
+enableZoom: true,
+showTooltip: true,
+values: sample_data,
+scaleColors: [ '#1de9b6', '#03a9f5' ],
+normalizeFunction: 'polynomial'
+} );
+} )( jQuery );
+</script>
+</div>
+</div>
+</div>
+</div>
+</div>
+
 </body>
 </html>

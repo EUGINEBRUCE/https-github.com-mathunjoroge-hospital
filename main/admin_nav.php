@@ -173,10 +173,18 @@ background-repeat:no-repeat;
     @media (max-width:629px) {
   img#logo {
     display: none;
+   
+  }
+ #logo_mobile {display: block;}
+
+}
+  @media (min-width:629px) {
+  img#logo_mobile {
+    display: none;
+   
   }
 
 }
-
 @media screen and (max-width: 600px) {
   #nav_lable {
     visibility: hidden;
@@ -189,7 +197,7 @@ background-repeat:no-repeat;
 }
 </style>
 
-    <div class="container" id="top" style="background-color: #3786d6;" ><img id="logo" src="../logo.png" style="height:auto;" alt="M&M Caresoft"><strong style="color: white;float: right;" ><i class="fa fa-user">&nbsp;</i><?php echo $_SESSION['SESS_FIRST_NAME']; ?>&nbsp;<a href="../logout.php"><i style="color: red;" class="fa fa-power-off"></i><font  style="color: white;"> Log out</font></strong></a></li></div> 
+    <div class="container" id="top" style="background-color: #3786d6;width: 100%;" ><img id="logo" src="../logo.png" style="height:auto;" alt="M&M Caresoft"><img id="logo_mobile" src="../mobile-min.JPG"  alt="M&M Caresoft"><strong style="color: white;float: right;" ><i class="fa fa-user">&nbsp;</i><?php echo $_SESSION['SESS_FIRST_NAME']; ?>&nbsp;<a href="../logout.php"><i style="color: red;" class="fa fa-power-off"></i><font  style="color: white;"> Log out</font></strong></a></li></div> 
     <p>&nbsp;</p>
     <p>&nbsp;</p>
     <?php
@@ -244,34 +252,4 @@ background-repeat:no-repeat;
 }
         </style>
  <?php }?>
-    <?php
-       if ($position=="admin") {
-        # code...
-    
-     ?>
-    <div id="view_as" style="float: right">
-    <p>
-    <form action="../redirect.php" method="POST">
-                    <label id="nav_lable"> <?php echo $_SESSION["view_as"]; ?>'s view, change to: </label>
-                    <script type="text/javascript">
-                        function getval(sel)
-                    {
-                   document.getElementById("submitbtn").click();
-                   }
-                    </script>
-                    <select name="position" title="please select user" onchange="getval(this);" required/>
-                    <option></option>
-                        <option value="registration">records</option>
-                        <option value="cashier">cashier</option>
-                        <option value="nurse">nurse</option>
-                        <option value="doctor">doctor</option>
-                        <option value="pharmacist">pharmacist</option>
-                        <option value="stores">store</option>
-                        <option value="lab">lab</option>
-                        <option value="admin">admin</option>                        
-                    </select>
-                    <button id="submitbtn" style="display: none;">submit</button>
-                </form></p></div>
-            <?php } ?>
-
-  
+   
