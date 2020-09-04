@@ -1,15 +1,11 @@
 <aside class="left-panel" >
 <nav class="navbar navbar-expand-sm navbar-default">
-<div class="navbar-header">
+<div class="navbar-header" style="margin-top: 15px;">
 <h4 class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
-<i class="fa fa-bars" style="color: white;"></i>
+<i class="fa fa-bars" style="color: white;margin-top: 16px;"></i>
 </div>
 <div id="main-menu" class="main-menu collapse navbar-collapse">
 <ul class="nav navbar-nav">
-  <li id="spacing">&nbsp;</li>
-  <li id="spacing">&nbsp;</li>
-  <li id="spacing">&nbsp;</li>
-
 <li class="active"><a href="index.php?response=0"> <i class="menu-icon fa fa-home"></i> home </a></li>      
 <li class="active"><button style="width: 80%;">
 <a href="fees.php?response=0&page=charges"><i class="menu-icon fa fa-money"></i>charges</a></button></li>                    

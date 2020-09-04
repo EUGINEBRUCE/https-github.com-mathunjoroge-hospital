@@ -33,7 +33,7 @@ $wards = $result->rowcount();
 <title>admin dashboard</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="apple-touch-icon" href="apple-icon.png">
-<link rel="shortcut icon" href="favicon.ico">
+<link rel="shortcut icon" href="../favicon.ico">
 <link rel="stylesheet" href="assets/css/normalize.css">
 <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 <link rel="stylesheet" href="assets/css/font-awesome.min.css">
@@ -46,11 +46,12 @@ $wards = $result->rowcount();
 </head>
 <body>
 <div style="z-index: 1;position:relative;">
-<?php include('../main/admin_nav.php'); ?>   
+<?php 
+include('../main/admin_nav.php'); ?>   
 
 </div>
 </div>
-</div>
+
 <?php include('side.php'); ?>
 <div class="container">
 <?php
@@ -226,12 +227,9 @@ if ($_GET['response']==10) {
 <?php } ?>
 <?php
 if ($_GET['response']==11) {
-
-
 ?>
 
 <div class="content mt-3">
-
 <div class="col-sm-12">
 <div class="alert  alert-sucess alert-dismissible fade show" role="alert">
 
@@ -323,7 +321,9 @@ if ($position=="admin") {
 <p>
 &nbsp;
 <form action="../redirect.php" method="POST">
-            <label id="nav_lable"> <?php echo $_SESSION["view_as"]; ?>'s view, change to: </label></br>
+            <label id="nav_lable"> <?php echo
+            $_SESSION['view_as']=$_SESSION['SESS_LAST_NAME'];
+             $_SESSION["view_as"]; ?>'s view, change to: </label></br>
             <script type="text/javascript">
                 function getval(sel)
             {

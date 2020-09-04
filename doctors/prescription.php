@@ -24,9 +24,7 @@ require_once('../connect.php');
 </head>
 <body>
   <header class="header clearfix" style="background-color: blue;">
-    <button type="button" id="toggleMenu" class="toggle_menu">
-      <i class="fa fa-bars"></i>
-    </button>
+    
     <?php
 include('../main/nav.php');?>   
   </header><?php include('side.php'); ?>

@@ -197,8 +197,7 @@ background-repeat:no-repeat;
 <body>
 
   <header class="header clearfix" style="background-color: #95CAFC;">
-    <button type="button" id="toggleMenu" class="toggle_menu">
-      <i class="fa fa-bars"></i>
+    
 
     </button>
     <?php include('../main/nav.php');

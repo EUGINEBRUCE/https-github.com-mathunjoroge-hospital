@@ -120,9 +120,7 @@ table.resultstable tfoot .links a{
 
 <body>
   <header class="header clearfix" style="background-color: #3786d6;">
-    <button type="button" id="toggleMenu" class="toggle_menu">
-      <i class="fa fa-bars"></i>
-    </button>
+    
     <?php include('../main/nav.php'); ?>   
   </header><?php include('side.php'); ?>
   <div class="content-wrapper">    

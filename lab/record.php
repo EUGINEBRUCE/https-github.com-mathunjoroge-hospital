@@ -13,7 +13,7 @@ $result = $db->prepare("SELECT * FROM lab_orders");
 <html>
 <title>lab orders</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
- <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,500' rel='stylesheet'>
+ 
   <link href='../pharmacy/src/vendor/normalize.css/normalize.css' rel='stylesheet'>
   <link href='../pharmacy/src/vendor/fontawesome/css/font-awesome.min.css' rel='stylesheet'>
   <link href="../pharmacy/dist/vertical-responsive-menu.min.css" rel="stylesheet">
@@ -176,8 +176,7 @@ function showDrug(str) {
 </script>
 </head><body onLoad="document.getElementById('country').focus();">
   <header class="header clearfix" style="background-color: #3786d6;;">
-    <button type="button" id="toggleMenu" class="toggle_menu">
-      <i class="fa fa-bars"></i>
+    
 
     </button>
     <?php include('../main/nav.php'); ?>

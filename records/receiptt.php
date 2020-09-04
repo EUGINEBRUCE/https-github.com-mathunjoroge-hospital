@@ -9,7 +9,7 @@ require_once('../main/auth.php');
 <html>
 <title>receipt</title>
 <head>
-  <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,500' rel='stylesheet'>
+  
   <link href='../pharmacy/src/vendor/normalize.css/normalize.css' rel='stylesheet'>
   <link href='../pharmacy/src/vendor/fontawesome/css/font-awesome.min.css' rel='stylesheet'>
   <link href="../pharmacy/dist/vertical-responsive-menu.min.css" rel="stylesheet">

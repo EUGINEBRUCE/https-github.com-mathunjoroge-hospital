@@ -105,8 +105,7 @@ border-radius: 5px;
 </style>
 </head>
 <body><header class="header clearfix">
-<button type="button" id="toggleMenu" class="toggle_menu">
-</button>
+
 <?php include('../main/nav.php'); ?>   
 </header><?php include('side.php'); ?>
 <div class="content-wrapper"> 

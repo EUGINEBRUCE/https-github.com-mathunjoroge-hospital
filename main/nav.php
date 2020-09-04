@@ -1,7 +1,37 @@
+<link rel="shortcut icon" href="../favicon.ico">
 <style type="text/css">
+       @media (max-width:629px) {
+  img#logo {
+    display: none;
+   
+  }
+ #logo_mobile {
+    display: block;
+ }
+
+}
+  @media (min-width:629px) {
+  img#logo_mobile {
+    display: none;
+   
+  }
+
+}
+img#logo_mobile{
+    width: 100%;
+object-fit: cover;
+}
     body {
     text-transform: capitalize;
 }
+
+
+}
+@media screen and (max-width: 600px) {
+  #nav_lable {
+    visibility: hidden;
+    display: none;
+  }
 #top{ 
     position: fixed;
     width: 100%;
@@ -189,7 +219,7 @@ background-repeat:no-repeat;
 }
 </style>
 
-    <div class="container" id="top" style="background-color: #3786d6;" ><img id="logo" src="../logo.png" style="height:auto;" alt="M&M Caresoft"><strong style="color: white;float: right;" ><i class="fa fa-user">&nbsp;</i><?php echo $_SESSION['SESS_FIRST_NAME']; ?>&nbsp;<a href="../logout.php"><i style="color: red;" class="fa fa-power-off"></i><font  style="color: white;"> Log out</font></strong></a></li></div> 
+    <div class="container" id="top" style="background-color: #3786d6;" ><img id="logo" src="../logo.png" style="height:auto;" alt="M&M Caresoft"><img id="logo_mobile" src="../mobile-min.JPG"  alt="M&M Caresoft"><strong style="color: white;float: right;" ><i class="fa fa-user">&nbsp;</i><?php echo $_SESSION['SESS_FIRST_NAME']; ?>&nbsp;<a href="../logout.php"><i style="color: red;" class="fa fa-power-off"></i><font  style="color: white;"> Log out</font></strong></a></li></div> 
     <p>&nbsp;</p>
     <p>&nbsp;</p>
     <?php

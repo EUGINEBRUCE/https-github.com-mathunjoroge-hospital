@@ -2,6 +2,13 @@
     body {
     text-transform: capitalize;
 }
+img#logo{
+    width: 100%;
+object-fit: cover;
+height:auto;
+width: auto;
+margin-right: 0px;
+}
 #top{ 
     position: fixed;
     width: 100%;
@@ -13,33 +20,7 @@
 }
 </style>
 <style>
-#result {
-    height:20px;
-    font-size:16px;
-    font-family:Arial, Helvetica, sans-serif;
-    color:#333;
-    padding:5px;
-    margin-bottom:10px;
-    background-color:#FFFF99;
-}
-#country{
-    border: 1px solid #999;
-    background: #EEEEEE;
-    padding: 5px 10px;
-    box-shadow:0 1px 2px #ddd;
-    -moz-box-shadow:0 1px 2px #ddd;
-    -webkit-box-shadow:0 1px 2px #ddd;
-}
-.suggestionsBox {
-    position: absolute;
-    left: 21.2%;
-    margin: 0;
-    width: 268px;
-    top: 32%;
-    padding:0px;
-    background-color: blue;
-    color: #fff;
-}
+
 @media (max-width: 480px) {
   .suggestionsBox {
     position: absolute;
@@ -170,12 +151,17 @@ background-repeat:no-repeat;
 
 </style> 
 <style type="text/css">
+    #close_bars{
+        margin-top: 16px;
+    }
     @media (max-width:629px) {
   img#logo {
     display: none;
    
   }
- #logo_mobile {display: block;}
+ #logo_mobile {
+    display: block;
+ }
 
 }
   @media (min-width:629px) {
@@ -196,8 +182,7 @@ background-repeat:no-repeat;
   }
 }
 </style>
-
-    <div class="container" id="top" style="background-color: #3786d6;width: 100%;" ><img id="logo" src="../logo.png" style="height:auto;" alt="M&M Caresoft"><img id="logo_mobile" src="../mobile-min.JPG"  alt="M&M Caresoft"><strong style="color: white;float: right;" ><i class="fa fa-user">&nbsp;</i><?php echo $_SESSION['SESS_FIRST_NAME']; ?>&nbsp;<a href="../logout.php"><i style="color: red;" class="fa fa-power-off"></i><font  style="color: white;"> Log out</font></strong></a></li></div> 
+    <div class="container" id="top" style="background-color: #3786d6;width: 100%;" ><img id="logo" src="../logo.png" style="" alt="M&M Caresoft"><img id="logo_mobile" src="../mobile-min.JPG"  alt="M&M Caresoft"><strong style="color: white;float: right;" ><i class="fa fa-user">&nbsp;</i><?php echo $_SESSION['SESS_FIRST_NAME']; ?>&nbsp;<a href="../logout.php"><i style="color: red;" class="fa fa-power-off"></i><font  style="color: white;"> Log out</font></strong></a></li></div> </div></div></div>
     <p>&nbsp;</p>
     <p>&nbsp;</p>
     <?php

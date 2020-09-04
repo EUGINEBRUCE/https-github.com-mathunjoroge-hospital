@@ -12,7 +12,7 @@ $result = $db->prepare("SELECT * FROM orders");
 <html>
 <title>stores</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-   <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,500' rel='stylesheet'>
+   
   <link href='src/vendor/normalize.css/normalize.css' rel='stylesheet'>
   <link href='src/vendor/fontawesome/css/font-awesome.min.css' rel='stylesheet'>
   <link href="dist/vertical-responsive-menu.min.css" rel="stylesheet">
@@ -153,8 +153,7 @@ background-repeat:no-repeat;
 
 <body>
   <header class="header clearfix" style="background-color: #3786d6;">
-    <button type="button" id="toggleMenu" class="toggle_menu">
-      <i class="fa fa-bars"></i>
+    
 
     </button>
     <?php include('../main/nav.php'); 
