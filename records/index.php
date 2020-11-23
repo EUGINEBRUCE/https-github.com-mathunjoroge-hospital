@@ -6,6 +6,7 @@ $result = $db->prepare("SELECT * FROM patients");
         $rowcountt = $result->rowcount();
         $rowcount = $rowcountt+1;
         $code=$rowcount.date("/Y");
+        include "../header.php";
  ?>
  <!DOCTYPE html>
 <html>
@@ -34,7 +35,7 @@ $result = $db->prepare("SELECT * FROM patients");
 </script>
 
 </head>
-  <body onLoad="document.getElementById('country').focus();">
+ 
   <header class="header clearfix" style="background-color: #3786d6;;">
     
 
@@ -45,8 +46,7 @@ $result = $db->prepare("SELECT * FROM patients");
   <div class="content-wrapper">      
       <div class="jumbotron" style="background: #95CAFC;">
         <link rel="stylesheet" href="../main/jquery-ui.css">
-  <script src="../main/jquery-1.12.4.js"></script>
-  <script src="../main/jquery-ui.js"></script>
+
   <script>
   $( function() {
     $( "#mydate" ).datepicker({

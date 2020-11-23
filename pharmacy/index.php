@@ -5,41 +5,16 @@ include('../connect.php');
 <!DOCTYPE html>
 <html>
 <title>pharmacy</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href='../pharmacy/src/vendor/normalize.css/normalize.css' rel='stylesheet'>
-  <link href='../pharmacy/src/vendor/fontawesome/css/font-awesome.min.css' rel='stylesheet'>
-  <link href="../pharmacy/dist/vertical-responsive-menu.min.css" rel="stylesheet">
-  <link href="../pharmacy/demo.css" rel="stylesheet">
-  <link rel="stylesheet" href="../css/bootstrap.min.css">
-  <link rel="stylesheet" href="dist/css/bootstrap-select.css">
-  <script src="../js/jquery.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
-  <script src="dist/js/bootstrap-select.js"></script>
-  <link href="../src/facebox.css" media="screen" rel="stylesheet" type="text/css" />
-<script src="../src/facebox.js" type="text/javascript"></script>
-<script type="text/javascript">
-  jQuery(document).ready(function($) {
-    $('a[rel*=facebox]').facebox({
-      loadingImage : '../src/loading.gif',
-      closeImage   : '../src/closelabel.png'
-    })
-  })
-</script>
-<!-- select2 css -->
-<link href='select2/dist/css/select2.min.css' rel='stylesheet' type='text/css'>
-<!-- select2 script -->
-<script src='select2/dist/js/select2.min.js'></script>
-<script>
-$(document).ready(function() { $("#anticancer").select2(); });
-</script>
-<script src="../js/bootstrap.min.js"></script>
-<script src="dist/js/bootstrap-select.js"></script>
+<?php
+  include "../header.php";
+  ?>
 </head>
 <body>
-<header class="header clearfix" style="background-color: blue;">
+<header class="header clearfix" style="background-color: #3786d6;">
     
 <?php include('../main/nav.php'); ?>   
-</header><?php include('side.php'); ?>
+</header>
+<?php include('side.php'); ?>
 <div class="content-wrapper" style=" background-image: url('../images/doctor.jpg');">
 <div class="jumbotron" style="background: #95CAFC;">
 <?php 
@@ -70,9 +45,9 @@ $a=$row['name'];
 <li class="breadcrumb-item active" aria-current="page"><?php echo $a; ?></li><?php } ?></ol>
 <form action="index.php?" method="GET">
 <input type="hidden" name="token" value="<?php echo $_GET["token"]; ?>">
-<span><select id='patient' style='width: 40%;'  name="search" data-live-search="true"  required/>
-<option value='0' ></option>
-</select> 
+<span><?php
+  include "../pharmacy/patient_search.php";
+  ?> 
 <input type="hidden" name="response" value="0"> <button class="btn btn-success"><i class="icon icon-save icon-large"></i>submit</button></span>     
 </form>
 
@@ -273,8 +248,7 @@ echo $frequency;
 <input type="hidden" name="token" value="<?php echo $_GET["token"]; ?>">
 <input type="hidden" name="pn" value="<?php echo $pn; ?>">
 <input type="hidden" name="adm" value="<?php echo $admitted; ?>">       
-<select id="medicine" name="med" class="selectpicker" data-live-search="true" title="Please select a medicine..." onchange="showDrug(this.value)" required="true">
-
+<select id="medicine" name="med"  data-live-search="true" class="selectpicker" data-live-search="true" title="Please select a medicine..." onchange="showDrug(this.value)" >
 <?php 
 include ('../connect.php');
 $result = $db->prepare("SELECT * FROM drugs");
@@ -285,7 +259,7 @@ for($i=0; $row = $result->fetch(); $i++){
 
 ?>      
 </select>
-<b><span id="texxtHint"></b><button class="btn btn-success btn-large">add</button></form></span></div>      
+<b><span id="med"></b><button class="btn btn-success btn-large">add</button></form></span></div>      
 <div class="container" id="results" > <label>selected meds</label></br> 
 <?php
 $patient=$_GET['search'];
@@ -386,6 +360,23 @@ cache: true
 }
 });
 });
+</script>
+<script>
+function showDrug(str) {
+  if (str == "") {
+    document.getElementById("med").innerHTML = "";
+    return;
+  } else {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("med").innerHTML = this.responseText;
+      }
+    };
+    xmlhttp.open("GET","get_drug.php?q="+str,true);
+    xmlhttp.send();
+  }
+}
 </script>
 </body>
 </html>

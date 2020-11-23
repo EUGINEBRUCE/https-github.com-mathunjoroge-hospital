@@ -1,9 +1,11 @@
 <?php
+include('sys_config.php');
+
 /* Database config */
 $db_host		= 'localhost';
-$db_user		= 'root';
-$db_pass		= '';
-$db_database	= 'hospital'; 
+$db_user		= 'healthte';
+$db_pass		= '5#5)xMY1Y2Myyi';
+$db_database	= 'healthte_hospital'; 
 
 /* End config */
 

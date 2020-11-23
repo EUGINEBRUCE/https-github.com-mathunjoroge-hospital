@@ -12,185 +12,67 @@ $result = $db->prepare("SELECT * FROM user WHERE logged_in=1");
  <!doctype html>
  <html class="no-js" lang=""> <!--<![endif]-->
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>admin dashboard</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="apple-touch-icon" href="apple-icon.png">
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" href="assets/css/normalize.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/themify-icons.css">
-    <link rel="stylesheet" href="assets/css/flag-icon.min.css">
-    <link rel="stylesheet" href="assets/css/cs-skin-elastic.css">
-    
-    <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
-    <link rel="stylesheet" href="assets/scss/style.css">
-    <link href="assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet">
-    <link href="facebox.css" media="screen" rel="stylesheet" type="text/css" />
-<script src="facebox.js" type="text/javascript"></script>
-<script type="text/javascript">
-  jQuery(document).ready(function($) {
-    $('a[rel*=facebox]').facebox({
-      loadingImage : 'loading.gif',
-      closeImage   : 'closelabel.png'
-    })
-  })
-</script>
+  <?php 
+require_once('../main/auth.php');
+include ('../connect.php');
+$shownav=0; ?>
+<!DOCTYPE html>
+<html>
+<title>wards</title>
+<?php
+include "../header.php";
+?>
+
 </head>
-<body><?php include('side.php'); ?>
-<div id="right-panel" class="right-panel">
-        <header id="header" class="header">
 
-            <div class="header-menu">
+<header class="header clearfix" style="background-color: #3786d6;">
+<?php include('../main/nav.php'); ?>   
+</header><?php include('sidee.php'); ?>
+<div class="content-wrapper"> <div class="jumbotron" style="background: #95CAFC;">
+<body ><div class="container">
+<?php
+if ($_GET['response']==3) {
 
-                <div class="col-sm-5">
-                    <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
-                    <div class="header-left">
-                    <div  style="float: right;margin-right: -130%;">
-                        <p>
-                           <?php echo $_SESSION['SESS_FIRST_NAME']; ?>
-                        
-                        <a  href="../logout.php"> <i class="fa fa-power-off" style="color: red;"></i>&nbsp;Logout</a></p>                        
-            </div>    
 
-        </header><!-- /header -->
-        <!-- Header-->
-        
+?>
 
-        <div class="breadcrumbs">
-            <div class="col-sm-4">
-                <div class="page-header float-left">
-                    
-                </div>
-            </div>
-            <div class="col-sm-8">
-                <div class="page-header float-right">
-                    <div class="page-title">
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-         <?php
-                if ($_GET['response']==0) {
-                  
-                 
-                 ?>
-             <?php } ?>
-         <?php
-                if ($_GET['response']==1) {
-                  
-                 
-                 ?>
 
-        <div class="content mt-3">
+<div class="alert  alert-danger " >
 
-            <div class="col-sm-12">
-                <div class="alert  alert-success alert-dismissible fade show" role="alert">
-                   
-                  <span class="badge badge-pill badge-success">Success</span> user registered
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            </div>
-        <?php } ?>
-        <?php
-                if ($_GET['response']==2) {
-                  
-                 
-                 ?>
+ user deleted!
 
-        <div class="content mt-3">
+</div>
+<?php } ?>
+<?php
+if ($_GET['response']==1) {
 
-            <div class="col-sm-12">
-                <div class="alert  alert-success alert-dismissible fade show" role="alert">
-                   
-                  <span class="badge badge-pill badge-success">Success</span> user details updated!
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            </div>
-        <?php } ?>
-        <?php
-                if ($_GET['response']==3) {
-                  
-                 
-                 ?>
 
-        <div class="content mt-3">
+?>
 
-            <div class="col-sm-12">
-                <div class="alert  alert-danger alert-dismissible fade show" role="alert">
-                   
-                  <span class="badge badge-pill badge-danger">deleted</span> user deleted!
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            </div>
-        <?php } ?>
-        <?php
-                if ($_GET['response']==4) {
-                   ?>
 
-        <div class="content mt-3">
-            <div class="col-sm-12">
-                <div class="alert  alert-success alert-dismissible fade show" role="alert">
-                   
-                  <span class="badge badge-pill badge-success">created</span> user ward has been creted successifully!
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            </div>
-        <?php } ?>
-        <?php
-                if ($_GET['response']==5) {
-                  
-                 
-                 ?>
+<div class="alert  alert-primary " >
 
-        <div class="content mt-3">
+ user added!
 
-            <div class="col-sm-12">
-                <div class="alert  alert-danger alert-dismissible fade show" role="alert">
-                   
-                  <span class="badge badge-pill badge-danger">exists</span> that ward already exists. use a different name!
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            </div>
-        <?php } ?>
-        
-        <?php
-                if ($_GET['response']==6) {
-                  
-                 
-                 ?>
+</div>
+<?php } ?>
+<?php
+if ($_GET['response']==2) {
 
-        <div class="content mt-3">
 
-            <div class="col-sm-12">
-                <div class="alert  alert-success alert-dismissible fade show" role="alert">
-                   
-                  <span class="badge badge-pill badge-primary">edited</span>ward edited success!
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            </div>
-        <?php } ?>
-           <div class="container">
-                <div class="card text-white bg-flat-color-5">
-                    <div class="card-body pb-success">
+?>
 
-          <table border="1" cellpadding="1" cellspacing="1" class="table table-dark" id="notes" style="width:100%">
-  <thead>
+
+<div class="alert  alert-success " >
+
+ user updated and priviledges adjusted!
+
+</div>
+<?php } ?>
+
+ <table  class="table table-bordered">
+     <caption align="center">wards</caption>
+  <thead class="bg-primary">
     <tr>
       <th scope="col">ward name</th>
       <th scope="col">number of beds</th>

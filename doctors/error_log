@@ -1,0 +1,117 @@
+[04-Sep-2020 06:06:45 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[04-Sep-2020 06:08:29 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/diseases.php on line 24
+[04-Sep-2020 06:08:36 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/diseases.php on line 24
+[04-Sep-2020 06:36:03 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[04-Sep-2020 06:36:09 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[10-Sep-2020 01:24:14 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[11-Sep-2020 11:36:54 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[12-Sep-2020 01:48:36 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[12-Sep-2020 01:49:11 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[12-Sep-2020 01:49:22 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[12-Sep-2020 01:49:35 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[12-Sep-2020 01:57:43 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[12-Sep-2020 10:50:02 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[18-Sep-2020 00:37:31 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[18-Sep-2020 00:46:42 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[18-Sep-2020 00:49:22 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[18-Sep-2020 04:01:02 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[25-Sep-2020 14:25:36 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[25-Sep-2020 14:25:56 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[25-Sep-2020 14:27:53 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[25-Sep-2020 14:35:15 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[03-Oct-2020 04:29:39 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/healthte/public_html/hospital/doctors/emergency.php on line 507
+[03-Oct-2020 04:29:39 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/healthte/public_html/hospital/doctors/emergency.php on line 508
+[03-Oct-2020 04:29:39 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/healthte/public_html/hospital/doctors/emergency.php on line 508
+[03-Oct-2020 04:29:39 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/healthte/public_html/hospital/doctors/emergency.php on line 515
+[03-Oct-2020 04:29:39 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/healthte/public_html/hospital/doctors/emergency.php on line 508
+[03-Oct-2020 04:29:39 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/healthte/public_html/hospital/doctors/emergency.php on line 515
+[03-Oct-2020 04:30:17 America/Chicago] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'description' cannot be null in /home2/healthte/public_html/hospital/doctors/savepatient.php:13
+Stack trace:
+#0 /home2/healthte/public_html/hospital/doctors/savepatient.php(13): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home2/healthte/public_html/hospital/doctors/savepatient.php on line 13
+[03-Oct-2020 04:52:40 America/Chicago] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'posted_by' cannot be null in /home2/healthte/public_html/hospital/doctors/savepatient.php:26
+Stack trace:
+#0 /home2/healthte/public_html/hospital/doctors/savepatient.php(26): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home2/healthte/public_html/hospital/doctors/savepatient.php on line 26
+[03-Oct-2020 05:06:06 America/Chicago] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /home2/healthte/public_html/hospital/doctors/savepatient.php on line 77
+[03-Oct-2020 05:09:14 America/Chicago] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'reqby' cannot be null in /home2/healthte/public_html/hospital/doctors/savepatient.php:71
+Stack trace:
+#0 /home2/healthte/public_html/hospital/doctors/savepatient.php(71): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home2/healthte/public_html/hospital/doctors/savepatient.php on line 71
+[26-Oct-2020 03:45:11 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[26-Oct-2020 04:52:18 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[26-Oct-2020 04:53:19 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[26-Oct-2020 05:14:50 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[26-Oct-2020 05:21:03 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[27-Oct-2020 06:01:48 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[27-Oct-2020 06:04:57 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[27-Oct-2020 06:05:31 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[27-Oct-2020 06:05:47 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[27-Oct-2020 06:25:08 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[27-Oct-2020 06:26:54 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[31-Oct-2020 07:22:12 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[31-Oct-2020 08:01:06 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[31-Oct-2020 08:02:41 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[31-Oct-2020 08:04:56 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[31-Oct-2020 08:09:42 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[31-Oct-2020 08:23:21 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[31-Oct-2020 08:33:11 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[31-Oct-2020 08:37:51 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[31-Oct-2020 09:03:45 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[31-Oct-2020 09:23:38 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[31-Oct-2020 09:23:58 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/anticancer.php on line 24
+[31-Oct-2020 09:29:20 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/anticancer.php on line 24
+[31-Oct-2020 09:30:03 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/anticancer.php on line 24
+[31-Oct-2020 09:38:22 America/Chicago] PHP Warning:  include(../doctors/patient_search.php): failed to open stream: No such file or directory in /home2/healthte/public_html/hospital/doctors/oncology.php on line 79
+[31-Oct-2020 09:38:22 America/Chicago] PHP Warning:  include(../doctors/patient_search.php): failed to open stream: No such file or directory in /home2/healthte/public_html/hospital/doctors/oncology.php on line 79
+[31-Oct-2020 09:38:22 America/Chicago] PHP Warning:  include(): Failed opening '../doctors/patient_search.php' for inclusion (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home2/healthte/public_html/hospital/doctors/oncology.php on line 79
+[31-Oct-2020 09:40:08 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[31-Oct-2020 09:40:17 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/anticancer.php on line 24
+[31-Oct-2020 09:41:46 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[31-Oct-2020 09:43:34 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[31-Oct-2020 09:44:47 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[31-Oct-2020 09:47:24 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[31-Oct-2020 09:48:35 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[31-Oct-2020 10:08:01 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[31-Oct-2020 10:33:51 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[01-Nov-2020 10:05:32 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[01-Nov-2020 10:05:34 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[01-Nov-2020 10:11:11 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[01-Nov-2020 10:14:14 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[01-Nov-2020 10:21:22 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[01-Nov-2020 10:35:06 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[01-Nov-2020 12:41:16 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[03-Nov-2020 09:00:44 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[03-Nov-2020 09:22:21 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[03-Nov-2020 09:27:22 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[03-Nov-2020 09:43:38 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[04-Nov-2020 08:20:00 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[06-Nov-2020 02:53:04 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[06-Nov-2020 02:55:22 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[06-Nov-2020 11:50:29 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[06-Nov-2020 11:50:43 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[06-Nov-2020 11:51:36 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[10-Nov-2020 09:29:49 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[10-Nov-2020 09:31:19 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[14-Nov-2020 10:48:22 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[14-Nov-2020 10:49:07 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[14-Nov-2020 13:11:07 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[16-Nov-2020 01:51:15 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[16-Nov-2020 01:52:34 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/anticancer.php on line 24
+[22-Nov-2020 01:41:55 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[22-Nov-2020 02:08:16 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[22-Nov-2020 02:26:28 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[22-Nov-2020 02:29:22 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[22-Nov-2020 02:29:30 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[22-Nov-2020 07:51:38 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[22-Nov-2020 07:52:40 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[22-Nov-2020 08:10:03 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[22-Nov-2020 10:21:27 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[23-Nov-2020 00:33:55 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[23-Nov-2020 00:34:40 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[23-Nov-2020 00:39:20 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[23-Nov-2020 00:41:37 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25
+[23-Nov-2020 00:41:54 America/Chicago] PHP Warning:  Invalid argument supplied for foreach() in /home2/healthte/public_html/hospital/doctors/patient.php on line 25

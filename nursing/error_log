@@ -1,0 +1,2 @@
+[22-Sep-2020 03:24:27 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/nursing/admitpt.php:9) in /home2/healthte/public_html/hospital/nursing/admitpt.php on line 17
+[22-Sep-2020 04:14:05 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/nursing/admit2.php:1) in /home2/healthte/public_html/hospital/nursing/admit2.php on line 24

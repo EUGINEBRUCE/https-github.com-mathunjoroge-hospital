@@ -1,4 +1,4 @@
-  <?php
+<?php
   require_once('../main/auth.php');
   include('../connect.php');
   $result = $db->prepare("SELECT * FROM lab_orders");

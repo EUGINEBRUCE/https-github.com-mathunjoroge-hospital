@@ -5,49 +5,9 @@ require_once('../main/auth.php');
 <html>
 <title>Procedure fees</title>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link href='../pharmacy/src/vendor/normalize.css/normalize.css' rel='stylesheet'>
-  <link href='../pharmacy/src/vendor/fontawesome/css/font-awesome.min.css' rel='stylesheet'>
-  <link href="../pharmacy/dist/vertical-responsive-menu.min.css" rel="stylesheet">
-  <link href="../pharmacy/demo.css" rel="stylesheet">
-  <link rel="stylesheet" href="../css/bootstrap.min.css">
-  <link rel="stylesheet" href="dist/css/bootstrap-select.css">
-  <script src="../js/jquery.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
-  <script src="dist/js/bootstrap-select.js"></script>
-  <link href="../src/facebox.css" media="screen" rel="stylesheet" type="text/css" />
-<script src="../src/facebox.js" type="text/javascript"></script>
-<script type="text/javascript">
-  jQuery(document).ready(function($) {
-    $('a[rel*=facebox]').facebox({
-      loadingImage : '../src/loading.gif',
-      closeImage   : '../src/closelabel.png'
-    })
-  })
-</script>
-<script>
-function suggestPatientName(inputString){
-        if(inputString.length == 0) {
-            $('#suggestions').fadeOut();
-        } else {
-        $('#patient').addClass('load');
-            $.post("autosuggestname.php", {queryString: ""+inputString+""}, function(data){
-                if(data.length >0) {
-                    $('#suggestions').fadeIn();
-                    $('#suggestionsList').html(data);
-                    $('#patient').removeClass('load');
-                }
-            });
-        }
-    }
-
-    function fillPatientName(thisValue) {
-        $('#patient').val(thisValue);
-        setTimeout("$('#suggestions').fadeOut();", 600);
-    }
-
-</script>
+  <?php
+  include "../header.php";
+  ?>
 </head>
 <body>
   <header class="header clearfix" style="background-color: #3786d6;;">
@@ -86,7 +46,7 @@ $agee=round($datediff / (60 * 60 * 24))/365;
 $age = number_format($agee, 2, '.', '');
 
 if ($age>=1) {
-  echo $age."Years";
+  echo $age." Years";
    # code...
  }
  if ($age<1) {
@@ -94,9 +54,10 @@ if ($age>=1) {
     # code...
   } ?></li><?php }} ?>
 </nav>  
-   <body onLoad="document.getElementById('country').focus();">
-<form action="procedure.php?&response=0" method="GET">
-  <span><input type="text" size="25" value="" name="search" id="patient" onkeyup="suggestPatientName(this.value);" onblur="fillPatientName();" class="" autocomplete="off" placeholder="Enter patient Name" style="width: 40%; height:30px;" />
+  <form action="procedure.php?&response=0" method="GET">
+  <span><?php
+  include "../pharmacy/patient_search.php";
+  ?>
   <input type="hidden" name="response" value="0"> <button class="btn btn-success"><i class="icon icon-save icon-large"></i>submit</button></span>     
       <div class="suggestionsBox" id="suggestions" style="display: none;">
         <div class="suggestionList" id="suggestionsList"> &nbsp; </div>

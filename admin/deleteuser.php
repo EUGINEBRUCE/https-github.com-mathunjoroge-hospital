@@ -2,10 +2,10 @@
 session_start();
 
 include('../connect.php');
-$a=$_POST['user'];
+$a=$_GET['id'];
 $sql = "DELETE FROM `user` WHERE `user`.`id` = $a";
 $q = $db->prepare($sql);
 $q->execute();
-	header("location: index.php?response=3");
+	header("location: total.php?response=3");
 
 ?>

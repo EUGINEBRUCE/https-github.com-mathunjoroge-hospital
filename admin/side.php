@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-sm navbar-default">
 <div class="navbar-header" style="margin-top: 15px;">
 <h4 class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
-<i class="fa fa-bars" style="color: white;margin-top: 16px;"></i>
+<i class="fa fa-bars" id="close_bars" style="color:white;"></i>
 </div>
 <div id="main-menu" class="main-menu collapse navbar-collapse">
 <ul class="nav navbar-nav">

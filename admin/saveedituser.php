@@ -5,7 +5,7 @@ include('../connect.php');
     $b=$_POST['username'];
     $x=md5($_POST['password']);
     $c=md5($x);
-    $d=$_POST['name'];
+    $d=$_POST['other'];
     $e=$_POST['usertype'];    
 $sql = "UPDATE user
         SET  username=?,
@@ -15,7 +15,7 @@ $sql = "UPDATE user
 		WHERE id=?";
 $q = $db->prepare($sql);
 $q->execute(array($b,$c,$d,$e,$a)); 
-header("location: index.php?response=2");
+header("location:total.php?response=2");
 
  ?>
  

@@ -3,27 +3,10 @@ require_once('../main/auth.php');
 include ('../connect.php'); ?>
 <!DOCTYPE html>
 <html>
-<title>insurance</title><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<link href='../pharmacy/googleapis.css' rel='stylesheet'>
-<link href='../pharmacy/src/vendor/normalize.css/normalize.css' rel='stylesheet'>
-<link href='../pharmacy/src/vendor/fontawesome/css/font-awesome.min.css' rel='stylesheet'>
-<link href="../pharmacy/dist/vertical-responsive-menu.min.css" rel="stylesheet">
-<link href="../pharmacy/demo.css" rel="stylesheet">
-<link rel="stylesheet" href="../css/bootstrap.min.css">
-<script src="../js/jquery.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<script src="../pharmacy/dist/js/bootstrap-select.js"></script>
-<link href="../src/facebox.css" media="screen" rel="stylesheet" type="text/css" />
-<script src="../src/facebox.js" type="text/javascript"></script>
-<script type="text/javascript">
-jQuery(document).ready(function($) {
-$('a[rel*=facebox]').facebox({
-loadingImage : '../src/loading.gif',
-closeImage   : '../src/closelabel.png'
-})
-})
-</script>
-
+<title>insurance</title>
+<?php
+include "../header.php";
+?>
 </head>
 <body><header class="header clearfix" style="background-color: #3786d6;">
 <?php include('../main/nav.php'); ?>   
@@ -42,10 +25,11 @@ closeImage   : '../src/closelabel.png'
 <p class="alert alert-success"><?php echo $_GET['name']; ?> insurance company created</p>
 <?php } ?>
 
-<h3>insurance companies</h3><span>
+
 <a rel="facebox" href="add_insurance.php"> <button class="btn-success" style=""  >add insurance company</button></a></span></br><p></p> 
 <table class="table table-bordered table-striped"  style="width:auto;">
-<thead>
+    <caption>insurance companies</caption>
+<thead class="bg-primary">
 <tr>
 <th>insuarce comapany name</th>
 <th>mark up</th>

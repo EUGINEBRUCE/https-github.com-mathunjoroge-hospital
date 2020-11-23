@@ -10,6 +10,6 @@ $d = $_POST['usertype'];
 $sql = "INSERT INTO user (username,password,name,position) VALUES (:a,:b,:c,:d)";
 $q = $db->prepare($sql);
 $q->execute(array(':a'=>$a,':b'=>$b,':c'=>$c,':d'=>$d));
-header("location: index.php?response=1"); 
+header("location:total.php?response=1"); 
 ?>
 

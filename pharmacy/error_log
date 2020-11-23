@@ -1,0 +1,55 @@
+[18-Sep-2020 01:07:56 America/Chicago] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'date' in where clause is ambiguous in /home2/healthte/public_html/hospital/pharmacy/unpaid.php:243
+Stack trace:
+#0 /home2/healthte/public_html/hospital/pharmacy/unpaid.php(243): PDOStatement->execute()
+#1 {main}
+  thrown in /home2/healthte/public_html/hospital/pharmacy/unpaid.php on line 243
+[18-Sep-2020 01:08:02 America/Chicago] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'date' in where clause is ambiguous in /home2/healthte/public_html/hospital/pharmacy/paid.php:240
+Stack trace:
+#0 /home2/healthte/public_html/hospital/pharmacy/paid.php(240): PDOStatement->execute()
+#1 {main}
+  thrown in /home2/healthte/public_html/hospital/pharmacy/paid.php on line 240
+[01-Nov-2020 12:14:44 America/Chicago] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'date' in where clause is ambiguous in /home2/healthte/public_html/hospital/pharmacy/paid.php:240
+Stack trace:
+#0 /home2/healthte/public_html/hospital/pharmacy/paid.php(240): PDOStatement->execute()
+#1 {main}
+  thrown in /home2/healthte/public_html/hospital/pharmacy/paid.php on line 240
+[01-Nov-2020 12:17:10 America/Chicago] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'date' in where clause is ambiguous in /home2/healthte/public_html/hospital/pharmacy/paid.php:44
+Stack trace:
+#0 /home2/healthte/public_html/hospital/pharmacy/paid.php(44): PDOStatement->execute()
+#1 {main}
+  thrown in /home2/healthte/public_html/hospital/pharmacy/paid.php on line 44
+[01-Nov-2020 12:18:08 America/Chicago] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'date' in where clause is ambiguous in /home2/healthte/public_html/hospital/pharmacy/paid.php:44
+Stack trace:
+#0 /home2/healthte/public_html/hospital/pharmacy/paid.php(44): PDOStatement->execute()
+#1 {main}
+  thrown in /home2/healthte/public_html/hospital/pharmacy/paid.php on line 44
+[01-Nov-2020 12:20:33 America/Chicago] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'date' in where clause is ambiguous in /home2/healthte/public_html/hospital/pharmacy/unpaid.php:243
+Stack trace:
+#0 /home2/healthte/public_html/hospital/pharmacy/unpaid.php(243): PDOStatement->execute()
+#1 {main}
+  thrown in /home2/healthte/public_html/hospital/pharmacy/unpaid.php on line 243
+[01-Nov-2020 12:24:56 America/Chicago] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'date' in where clause is ambiguous in /home2/healthte/public_html/hospital/pharmacy/unpaid.php:45
+Stack trace:
+#0 /home2/healthte/public_html/hospital/pharmacy/unpaid.php(45): PDOStatement->execute()
+#1 {main}
+  thrown in /home2/healthte/public_html/hospital/pharmacy/unpaid.php on line 45
+[22-Nov-2020 04:51:34 America/Chicago] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'date' in where clause is ambiguous in /home2/healthte/public_html/hospital/pharmacy/paid.php:44
+Stack trace:
+#0 /home2/healthte/public_html/hospital/pharmacy/paid.php(44): PDOStatement->execute()
+#1 {main}
+  thrown in /home2/healthte/public_html/hospital/pharmacy/paid.php on line 44
+[22-Nov-2020 04:54:56 America/Chicago] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'date' in where clause is ambiguous in /home2/healthte/public_html/hospital/pharmacy/paid.php:44
+Stack trace:
+#0 /home2/healthte/public_html/hospital/pharmacy/paid.php(44): PDOStatement->execute()
+#1 {main}
+  thrown in /home2/healthte/public_html/hospital/pharmacy/paid.php on line 44
+[22-Nov-2020 04:55:48 America/Chicago] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'date' in where clause is ambiguous in /home2/healthte/public_html/hospital/pharmacy/unpaid.php:45
+Stack trace:
+#0 /home2/healthte/public_html/hospital/pharmacy/unpaid.php(45): PDOStatement->execute()
+#1 {main}
+  thrown in /home2/healthte/public_html/hospital/pharmacy/unpaid.php on line 45
+[22-Nov-2020 05:01:08 America/Chicago] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'date' in where clause is ambiguous in /home2/healthte/public_html/hospital/pharmacy/unpaid.php:45
+Stack trace:
+#0 /home2/healthte/public_html/hospital/pharmacy/unpaid.php(45): PDOStatement->execute()
+#1 {main}
+  thrown in /home2/healthte/public_html/hospital/pharmacy/unpaid.php on line 45
