@@ -34,7 +34,6 @@
 [27-Oct-2020 05:55:01 America/Chicago] PHP Warning:  include(): Failed opening '../pharmacy/patient_search.php' for inclusion (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home2/healthte/public_html/hospital/accounts/index.php on line 73
 [23-Nov-2020 00:44:07 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/accounts/savepay.php:89) in /home2/healthte/public_html/hospital/accounts/savepay.php on line 178
 [23-Nov-2020 00:45:05 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/accounts/savepay.php:89) in /home2/healthte/public_html/hospital/accounts/savepay.php on line 178
-<<<<<<< HEAD
 [24-Nov-2020 13:05:12 America/Chicago] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1040] Too many connections in /home2/healthte/public_html/hospital/connect.php:12
 Stack trace:
 #0 /home2/healthte/public_html/hospital/connect.php(12): PDO->__construct('mysql:host=loca...', 'healthte', '5#5)xMY1Y2Myyi')
@@ -47,5 +46,3 @@ Stack trace:
 #1 /home2/healthte/public_html/hospital/accounts/index.php(51): include('/home2/healthte...')
 #2 {main}
   thrown in /home2/healthte/public_html/hospital/connect.php on line 12
-=======
->>>>>>> d6494f18a9c43fc885690af91712f2f1873da227

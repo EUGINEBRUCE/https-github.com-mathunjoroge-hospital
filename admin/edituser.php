@@ -28,10 +28,7 @@ user-type:<select placeholder="select" name="usertype"><option disabled>select u
 <option>cashier</option>
 <option>doctor</option>
 <option>lab</option>
-<<<<<<< HEAD
 <option>imaging</option>
-=======
->>>>>>> d6494f18a9c43fc885690af91712f2f1873da227
 <option>nurse</option>
 <option>pharmacist</option>        
 <option>registration</option>

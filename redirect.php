@@ -40,12 +40,9 @@ else if($position=='registration') {
 else if($position=='stores') { 
 	header("location:stores/index.php");
 	}
-<<<<<<< HEAD
 	else if($position=='imaging') { 
 	header("location:imaging/index.php");
 	}
-=======
->>>>>>> d6494f18a9c43fc885690af91712f2f1873da227
 
 else { 
 	header("location:admin/index.php?response=0");

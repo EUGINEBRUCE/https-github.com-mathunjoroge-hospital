@@ -24,7 +24,6 @@ include "../header.php";
 ?>
 
 </head>
-<<<<<<< HEAD
 
 <header class="header clearfix" style="background-color: #3786d6;">
 <?php include('../main/nav.php'); ?>   
@@ -46,38 +45,18 @@ if ($_GET['response']==3) {
 <?php } ?>
 <?php
 if ($_GET['response']==1) {
-=======
-
-<header class="header clearfix" style="background-color: #3786d6;">
-<?php include('../main/nav.php'); ?>   
-</header><?php include('sidee.php'); ?>
-<div class="content-wrapper"> <div class="jumbotron" style="background: #95CAFC;">
-<body ><div class="container">
-<?php
-if ($_GET['response']==3) {
 
 
-?>
-
->>>>>>> d6494f18a9c43fc885690af91712f2f1873da227
-
-<div class="alert  alert-danger " >
-
-<<<<<<< HEAD
 ?>
 
 
 <div class="alert  alert-primary " >
 
  user added!
-=======
- user deleted!
->>>>>>> d6494f18a9c43fc885690af91712f2f1873da227
 
 </div>
 <?php } ?>
 <?php
-<<<<<<< HEAD
 if ($_GET['response']==2) {
 
 
@@ -92,36 +71,14 @@ if ($_GET['response']==2) {
 <?php } ?>
 <?php
 if ($_GET['response']==4) {
-=======
-if ($_GET['response']==1) {
 
 
 ?>
 
 
-<div class="alert  alert-primary " >
-
- user added!
-
-</div>
-<?php } ?>
-<?php
-if ($_GET['response']==2) {
->>>>>>> d6494f18a9c43fc885690af91712f2f1873da227
-
-
-?>
-
-
-<<<<<<< HEAD
 <div class="alert  alert-danger" >
 
  user exists, kindly use a different username!
-=======
-<div class="alert  alert-success " >
-
- user updated and priviledges adjusted!
->>>>>>> d6494f18a9c43fc885690af91712f2f1873da227
 
 </div>
 <?php } ?>

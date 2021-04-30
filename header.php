@@ -139,8 +139,4 @@ background-repeat:no-repeat;
   border:1px #CCC solid;
 }
 
-<<<<<<< HEAD
 </style>
-=======
-</style>
->>>>>>> d6494f18a9c43fc885690af91712f2f1873da227

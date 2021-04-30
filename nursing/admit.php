@@ -49,16 +49,6 @@ include '../doctors/age.php';
 ?>
 <?php } ?>
 </nav>  
-<<<<<<< HEAD
-=======
-
-<form action="admit.php?&response=0" method="GET">
-  <?php
-  include "../pharmacy/patient_search.php";
-  ?><input class="form-control" type="hidden" name="response" value="0"> <button class="btn btn-success"><i class="icon icon-save icon-large"></i>submit</button></span>     
-      <div class="suggestionsBox" id="suggestions" style="display: none;">
-        <div class="suggestionList" id="suggestionsList"> &nbsp; </div>
->>>>>>> d6494f18a9c43fc885690af91712f2f1873da227
 
 <form action="admit.php?&response=0" method="GET">
   <?php

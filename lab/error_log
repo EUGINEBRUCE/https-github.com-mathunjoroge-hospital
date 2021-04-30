@@ -3,7 +3,6 @@
 [31-Oct-2020 10:06:24 America/Chicago] PHP Warning:  include(../pharmacy/search_patient.php): failed to open stream: No such file or directory in /home2/healthte/public_html/hospital/lab/search.php on line 31
 [31-Oct-2020 10:06:24 America/Chicago] PHP Warning:  include(../pharmacy/search_patient.php): failed to open stream: No such file or directory in /home2/healthte/public_html/hospital/lab/search.php on line 31
 [31-Oct-2020 10:06:24 America/Chicago] PHP Warning:  include(): Failed opening '../pharmacy/search_patient.php' for inclusion (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home2/healthte/public_html/hospital/lab/search.php on line 31
-<<<<<<< HEAD
 [11-Dec-2020 21:34:15 America/Chicago] PHP Warning:  time() expects exactly 0 parameters, 1 given in /home2/healthte/public_html/hospital/lab/index.php on line 73
 [11-Dec-2020 21:34:15 America/Chicago] PHP Warning:  time() expects exactly 0 parameters, 1 given in /home2/healthte/public_html/hospital/lab/index.php on line 73
 [11-Dec-2020 21:34:15 America/Chicago] PHP Warning:  time() expects exactly 0 parameters, 1 given in /home2/healthte/public_html/hospital/lab/index.php on line 73
@@ -301,5 +300,3 @@ Stack trace:
 #0 /home2/healthte/public_html/hospital/lab/details.php(53): include()
 #1 {main}
   thrown in /home2/healthte/public_html/hospital/doctors/age.php on line 10
-=======
->>>>>>> d6494f18a9c43fc885690af91712f2f1873da227
