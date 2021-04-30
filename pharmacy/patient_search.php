@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
     /* Input field */
 #patient + .select2 .select2-selection__rendered {  background-color: yellow; }
@@ -20,6 +21,9 @@
 .select2-search input { background-color: pink; }
 </style>
 <select id='patient' style='width: 40%;'  name="search" data-live-search="true"  required/>
+=======
+<select id='patient' style='width: 40%;'  name="search" style="color:black;" data-live-search="true"  required/>
+>>>>>>> d6494f18a9c43fc885690af91712f2f1873da227
 <option value='0' ></option>
 </select> 
 <script>

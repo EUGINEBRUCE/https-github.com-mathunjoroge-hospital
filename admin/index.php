@@ -59,6 +59,7 @@ include "../header.php";
 <body >
 
 <header class="header clearfix" style="background-color: #3786d6;">
+<<<<<<< HEAD
 <?php include('../main/nav.php'); ?>
 <?php 
 $result = $db->prepare("SELECT * FROM settings");
@@ -69,6 +70,9 @@ $result = $db->prepare("SELECT * FROM settings");
 				
 				if (isset($hospname)) { 
 ?>
+=======
+<?php include('../main/nav.php'); ?>   
+>>>>>>> d6494f18a9c43fc885690af91712f2f1873da227
 </header><?php include('sidee.php'); ?>
 <div class="content-wrapper"> <div class="jumbotron" style="height:100%;background: white;text-align:center;background-image: url(../main/bgg.jpeg);background-repeat:no-repeat;background-size: cover;">
 
@@ -163,6 +167,7 @@ if (!isset($hospname)) {
     <select class="form-control" name="p_from" style="width:50%;" required><option value="1">FDA DrugsList</option>
 <option value="0">my drugs list</option></select>
 </div>
+<<<<<<< HEAD
   <div class="form-group">
       <button class="btn btn-success" style="width:50%;">save</button>
       </div>
@@ -173,6 +178,8 @@ if (!isset($hospname)) {
 ?>
 
 </div>
+=======
+>>>>>>> d6494f18a9c43fc885690af91712f2f1873da227
 
 </body>
 </html>

@@ -1,13 +1,26 @@
 <?php 
 require_once('../main/auth.php');
+<<<<<<< HEAD
 ?>
 <!DOCTYPE html>
+=======
+include ('../connect.php');
+$result = $db->prepare("SELECT * FROM patients");
+        $result->execute();
+        $rowcountt = $result->rowcount();
+        $rowcount = $rowcountt+1;
+        $code=$rowcount.date("/Y");
+        include "../header.php";
+ ?>
+ <!DOCTYPE html>
+>>>>>>> d6494f18a9c43fc885690af91712f2f1873da227
 <html>
 <title>register patient</title>
 <?php 
 include('../header.php');
 ?>
 </head>
+<<<<<<< HEAD
 <header class="header clearfix" style="background-color: #3786d6;">
 </button>
 <?php include('../main/nav.php'); ?>   
@@ -23,6 +36,28 @@ changeMonth: true,
 changeYear: true
 });
 } );
+=======
+ 
+  <header class="header clearfix" style="background-color: #3786d6;;">
+    
+
+    </button>
+    <?php include('../main/nav.php'); ?>
+   
+  </header><?php include('side.php'); ?>
+  <div class="content-wrapper">      
+      <div class="jumbotron" style="background: #95CAFC;">
+        <link rel="stylesheet" href="../main/jquery-ui.css">
+
+  <script>
+  $( function() {
+    $( "#mydate" ).datepicker({
+    	yearRange: "-100:+0",
+      changeMonth: true,
+      changeYear: true
+    });
+  } );
+>>>>>>> d6494f18a9c43fc885690af91712f2f1873da227
 
 </script>
 <div class="wrapper">  

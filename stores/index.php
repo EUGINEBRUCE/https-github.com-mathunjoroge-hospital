@@ -39,6 +39,7 @@ $result->BindParam(':o', $search);
      ?>
      <li class="breadcrumb-item active" aria-current="page"><?php echo $a; ?></li><?php } ?>
    </ol><span></span></br> 
+<<<<<<< HEAD
    <?php
    if($_GET['response']==1)
    {
@@ -51,6 +52,10 @@ $result->BindParam(':o', $search);
    <?php } ?>
      <table class="table table-bordered" >
 <thead class="bg-primary">
+=======
+     <table class="table table-bordered" >
+<thead>
+>>>>>>> d6494f18a9c43fc885690af91712f2f1873da227
 <tr>
 <th>odered by</th>
 <th>date and time</th>

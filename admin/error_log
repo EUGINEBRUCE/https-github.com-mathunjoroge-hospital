@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [08-Feb-2021 08:13:41 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/healthte/public_html/hospitals/admin/saveuser.php:10
 Stack trace:
 #0 {main}
@@ -7,3 +8,67 @@ Stack trace:
 #0 /home2/healthte/public_html/hospitals/admin/saveuser.php(12): PDOStatement->execute()
 #1 {main}
   thrown in /home2/healthte/public_html/hospitals/admin/saveuser.php on line 12
+=======
+[20-Nov-2020 13:57:30 America/Chicago] PHP Parse error:  syntax error, unexpected end of file in /home2/healthte/public_html/hospital/admin/edituser.php on line 56
+[20-Nov-2020 13:57:44 America/Chicago] PHP Parse error:  syntax error, unexpected end of file in /home2/healthte/public_html/hospital/admin/edituser.php on line 56
+[20-Nov-2020 13:58:28 America/Chicago] PHP Parse error:  syntax error, unexpected end of file in /home2/healthte/public_html/hospital/admin/edituser.php on line 56
+[20-Nov-2020 13:58:30 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/healthte/public_html/hospital/admin/edituser.php:4
+Stack trace:
+#0 {main}
+  thrown in /home2/healthte/public_html/hospital/admin/edituser.php on line 4
+[21-Nov-2020 00:18:18 America/Chicago] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 in /home2/healthte/public_html/hospital/admin/deleteuser.php:8
+Stack trace:
+#0 /home2/healthte/public_html/hospital/admin/deleteuser.php(8): PDOStatement->execute()
+#1 {main}
+  thrown in /home2/healthte/public_html/hospital/admin/deleteuser.php on line 8
+[21-Nov-2020 00:45:33 America/Chicago] PHP Parse error:  syntax error, unexpected end of file in /home2/healthte/public_html/hospital/admin/total.php on line 91
+[21-Nov-2020 02:40:12 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/healthte/public_html/hospital/admin/edituser.php:9
+Stack trace:
+#0 {main}
+  thrown in /home2/healthte/public_html/hospital/admin/edituser.php on line 9
+[21-Nov-2020 02:44:21 America/Chicago] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /home2/healthte/public_html/hospital/admin/edituser.php on line 47
+[21-Nov-2020 02:46:47 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/healthte/public_html/hospital/admin/edituser.php:9
+Stack trace:
+#0 {main}
+  thrown in /home2/healthte/public_html/hospital/admin/edituser.php on line 9
+[21-Nov-2020 02:48:22 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/healthte/public_html/hospital/admin/edituser.php:9
+Stack trace:
+#0 {main}
+  thrown in /home2/healthte/public_html/hospital/admin/edituser.php on line 9
+[21-Nov-2020 02:51:00 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/healthte/public_html/hospital/admin/edituser.php:4
+Stack trace:
+#0 {main}
+  thrown in /home2/healthte/public_html/hospital/admin/edituser.php on line 4
+[21-Nov-2020 02:51:36 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/healthte/public_html/hospital/admin/edituser.php:4
+Stack trace:
+#0 {main}
+  thrown in /home2/healthte/public_html/hospital/admin/edituser.php on line 4
+[21-Nov-2020 02:53:41 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/healthte/public_html/hospital/admin/edituser.php:4
+Stack trace:
+#0 {main}
+  thrown in /home2/healthte/public_html/hospital/admin/edituser.php on line 4
+[21-Nov-2020 02:53:47 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/healthte/public_html/hospital/admin/edituser.php:4
+Stack trace:
+#0 {main}
+  thrown in /home2/healthte/public_html/hospital/admin/edituser.php on line 4
+[21-Nov-2020 02:54:35 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/healthte/public_html/hospital/admin/edituser.php:7
+Stack trace:
+#0 {main}
+  thrown in /home2/healthte/public_html/hospital/admin/edituser.php on line 7
+[21-Nov-2020 02:58:49 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/healthte/public_html/hospital/admin/edituser.php:7
+Stack trace:
+#0 {main}
+  thrown in /home2/healthte/public_html/hospital/admin/edituser.php on line 7
+[21-Nov-2020 03:02:31 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/healthte/public_html/hospital/admin/edituser.php:7
+Stack trace:
+#0 {main}
+  thrown in /home2/healthte/public_html/hospital/admin/edituser.php on line 7
+[21-Nov-2020 03:03:30 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/healthte/public_html/hospital/admin/edituser.php:7
+Stack trace:
+#0 {main}
+  thrown in /home2/healthte/public_html/hospital/admin/edituser.php on line 7
+[21-Nov-2020 03:04:23 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/healthte/public_html/hospital/admin/edituser.php:7
+Stack trace:
+#0 {main}
+  thrown in /home2/healthte/public_html/hospital/admin/edituser.php on line 7
+>>>>>>> d6494f18a9c43fc885690af91712f2f1873da227

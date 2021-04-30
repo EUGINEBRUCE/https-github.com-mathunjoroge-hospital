@@ -149,11 +149,19 @@ float: right;
 
 </style>
 <div class="nav-side-menu">
+<<<<<<< HEAD
 <div class="brand">&nbsp;</div>
  <i class="fa fa-bars fa-2x toggle-btn" id="close_bars" data-toggle="collapse" data-target="#menu-content"></i>
 <div class="menu-list">
 <ul id="menu-content" class="menu-content collapse out">
    <li>&nbsp;&nbsp;<a href='index.php?search=%20&response=0'>Home</a></li>
+=======
+    <div class="brand">&nbsp;</div>
+     <i class="fa fa-bars fa-2x toggle-btn" id="close_bars" data-toggle="collapse" data-target="#menu-content"></i>
+    <div class="menu-list">
+    <ul id="menu-content" class="menu-content collapse out">
+   <li>&nbsp;&nbsp;<a href='index.php?attempt=0'>Home</a></li>
+>>>>>>> d6494f18a9c43fc885690af91712f2f1873da227
    <li>&nbsp;&nbsp;<a href='walk_in.php?search=&response=0'>walk in patient</a></li>
    <li>&nbsp;&nbsp;<a href='returning.php?response=0'>returning patient </a></li>
    <li>&nbsp;&nbsp;<a href='book.php?search=&response=0'>book clinic</a></li>

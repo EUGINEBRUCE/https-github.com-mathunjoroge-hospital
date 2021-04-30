@@ -1,5 +1,6 @@
 [22-Sep-2020 03:24:27 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/nursing/admitpt.php:9) in /home2/healthte/public_html/hospital/nursing/admitpt.php on line 17
 [22-Sep-2020 04:14:05 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/nursing/admit2.php:1) in /home2/healthte/public_html/hospital/nursing/admit2.php on line 24
+<<<<<<< HEAD
 [11-Dec-2020 06:40:42 America/Chicago] PHP Warning:  time() expects exactly 0 parameters, 1 given in /home2/healthte/public_html/hospital/nursing/index.php on line 41
 [13-Dec-2020 12:10:35 America/Chicago] PHP Warning:  time() expects exactly 0 parameters, 1 given in /home2/healthte/public_html/hospital/nursing/index.php on line 41
 [13-Dec-2020 13:22:36 America/Chicago] PHP Warning:  time() expects exactly 0 parameters, 1 given in /home2/healthte/public_html/hospital/nursing/index.php on line 41
@@ -11,3 +12,5 @@
 [13-Dec-2020 13:31:26 America/Chicago] PHP Warning:  time() expects exactly 0 parameters, 1 given in /home2/healthte/public_html/hospital/doctors/age.php on line 3
 [13-Dec-2020 13:31:26 America/Chicago] PHP Warning:  time() expects exactly 0 parameters, 1 given in /home2/healthte/public_html/hospital/nursing/admit.php on line 80
 [13-Dec-2020 13:32:32 America/Chicago] PHP Warning:  time() expects exactly 0 parameters, 1 given in /home2/healthte/public_html/hospital/doctors/age.php on line 3
+=======
+>>>>>>> d6494f18a9c43fc885690af91712f2f1873da227

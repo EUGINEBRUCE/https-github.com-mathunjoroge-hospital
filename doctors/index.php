@@ -8,6 +8,7 @@ require_once('../main/auth.php');
 include "../header.php";
 ?>
 </head>
+<<<<<<< HEAD
 
 <body>
     <style>
@@ -58,6 +59,8 @@ include "../header.php";
 /* Search field */
 .select2-search input { background-color: pink; }
 </style>
+=======
+>>>>>>> d6494f18a9c43fc885690af91712f2f1873da227
 
 <header class="header clearfix" style="background-color: #3786d6;">
 </button>

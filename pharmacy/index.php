@@ -12,6 +12,10 @@ $token=$_GET['token'];
 </head>
 <body>
 <header class="header clearfix" style="background-color: #3786d6;">
+<<<<<<< HEAD
+=======
+    
+>>>>>>> d6494f18a9c43fc885690af91712f2f1873da227
 <?php include('../main/nav.php'); ?>   
 </header>
 <?php include('side.php'); ?>
@@ -255,7 +259,11 @@ echo $frequency;
 <input type="hidden" name="token" value="<?php echo $_GET["token"]; ?>">
 <input type="hidden" name="pn" value="<?php echo $pn; ?>">
 <input type="hidden" name="adm" value="<?php echo $admitted; ?>">       
+<<<<<<< HEAD
 <select id="medicine" name="med"  data-live-search="true" class="selectpicker" data-live-search="true" title="Please select a medicine..." onchange="showDrug(this.value)" style="width:20rem;" >
+=======
+<select id="medicine" name="med"  data-live-search="true" class="selectpicker" data-live-search="true" title="Please select a medicine..." onchange="showDrug(this.value)" >
+>>>>>>> d6494f18a9c43fc885690af91712f2f1873da227
 <?php 
 
 $result = $db->prepare("SELECT * FROM drugs");

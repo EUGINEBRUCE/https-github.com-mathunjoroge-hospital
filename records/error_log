@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [11-Dec-2020 04:55:53 America/Chicago] PHP Parse error:  syntax error, unexpected '$req' (T_VARIABLE), expecting '(' in /home2/healthte/public_html/hospital/records/index.php on line 47
 [11-Dec-2020 05:16:43 America/Chicago] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''%/2020%' at line 1 in /home2/healthte/public_html/hospital/records/index.php:50
 Stack trace:
@@ -9,3 +10,16 @@ Stack trace:
 #0 /home2/healthte/public_html/hospital/records/index.php(50): PDOStatement->execute()
 #1 {main}
   thrown in /home2/healthte/public_html/hospital/records/index.php on line 50
+=======
+[18-Sep-2020 00:49:01 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/records/savepatient.php:21) in /home2/healthte/public_html/hospital/records/savepatient.php on line 41
+[18-Sep-2020 00:49:01 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/records/savepatient.php:21) in /home2/healthte/public_html/hospital/records/savepatient.php on line 41
+[21-Sep-2020 04:47:10 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/records/savepatient.php:21) in /home2/healthte/public_html/hospital/records/savepatient.php on line 41
+[21-Sep-2020 04:51:44 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/records/savepatient.php:21) in /home2/healthte/public_html/hospital/records/savepatient.php on line 41
+[03-Nov-2020 09:05:31 America/Chicago] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/healthte/public_html/hospital/main/auth.php on line 3
+[03-Nov-2020 09:05:31 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/records/walk_in.php:1) in /home2/healthte/public_html/hospital/main/auth.php on line 7
+[03-Nov-2020 09:05:35 America/Chicago] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/healthte/public_html/hospital/main/auth.php on line 3
+[03-Nov-2020 09:05:35 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/records/walk_in.php:1) in /home2/healthte/public_html/hospital/main/auth.php on line 7
+[03-Nov-2020 09:26:23 America/Chicago] PHP Warning:  include(../head.php): failed to open stream: No such file or directory in /home2/healthte/public_html/hospital/records/pclinics.php on line 9
+[03-Nov-2020 09:26:23 America/Chicago] PHP Warning:  include(../head.php): failed to open stream: No such file or directory in /home2/healthte/public_html/hospital/records/pclinics.php on line 9
+[03-Nov-2020 09:26:23 America/Chicago] PHP Warning:  include(): Failed opening '../head.php' for inclusion (include_path='.:/opt/cpanel/ea-php72/root/usr/share/pear') in /home2/healthte/public_html/hospital/records/pclinics.php on line 9
+>>>>>>> d6494f18a9c43fc885690af91712f2f1873da227
