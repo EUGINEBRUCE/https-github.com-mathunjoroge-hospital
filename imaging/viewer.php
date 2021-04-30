@@ -1,0 +1,1 @@
+<p><iframe style="border: 0;" src="http://197.248.98.14:8080/micia/page/patient_manager.jsp#" width="600" height="450" allowfullscreen="allowfullscreen"></iframe></p>

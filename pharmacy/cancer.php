@@ -4,24 +4,14 @@ include ('../connect.php');
 ?> 
 <!DOCTYPE html>
 <html>
-<title>pharmacy</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<link href='../pharmacy/googleapis.css' rel='stylesheet'>
-<link href='src/vendor/normalize.css/normalize.css' rel='stylesheet'>
-<link href='src/vendor/fontawesome/css/font-awesome.min.css' rel='stylesheet'>
-<link href="dist/vertical-responsive-menu.min.css" rel="stylesheet">
-<link href="demo.css" rel="stylesheet">
-<link rel="stylesheet" href="../css/bootstrap.min.css">
-<link rel="stylesheet" href="dist/css/bootstrap-select.css">
-<script src="../js/jquery.min.js"></script>
-<script src="../main/sticky.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<script src="dist/js/bootstrap-select.js"></script>
+<title>anticancer drugs reference</title>
+<?php
+  include "../header.php";
+  ?>
 </head>
 
 <body>
-
-<header class="header clearfix" style="background-color: #95CAFC;">
+ <header class="header clearfix" style="background-color:#3786d6;">
 <button type="button" id="toggleMenu" class="toggle_menu">
 <i class="fa fa-bars"></i>
 </button>
@@ -68,20 +58,20 @@ $regimen_count = $result->rowcount();
 ?>
 
 
-<div class="table-responsive">
+<div class="container">
 
-<table class="table table-dark"> 
-<thead>
+<table class="table table-bordered"> 
+<thead class="bg-primary" >
 <tr>
 
-<th scope="col" class="sort-header">
-<span id="drug-name-indicator"> </span><a class="data-sort" data-sort-key="name" data-sort-type="drug" href="#" tabindex="0" onclick="return false;"> Name</a>
+<th scope="col" class="sort-header" style="color:white">
+<span id="drug-name-indicator"> </span><a class="data-sort" data-sort-key="name" data-sort-type="drug" href="#" tabindex="0" onclick="return false;" style="color:white"> Name</a>
 </th>
 <th scope="col" class="sort-header">
-<span id="drug-do_not_code-indicator"> </span><a class="data-sort" data-sort-key="do_not_code" data-sort-type="drug" href="#" tabindex="0" onclick="return false;">category</a>
+<span id="drug-do_not_code-indicator"> </span><a class="data-sort" data-sort-key="do_not_code" data-sort-type="drug" href="#" tabindex="0" onclick="return false;" style="color:white">category</a>
 </th>
 <th scope="col" class="category sort-header">
-<span id="drug-category-indicator"> </span><a class="data-sort" data-sort-key="category" data-sort-type="drug" href="#" tabindex="0" onclick="return false;"> uses</a>
+<span id="drug-category-indicator"> </span><a class="data-sort" data-sort-key="category" data-sort-type="drug" href="#" tabindex="0" onclick="return false;" style="color:white"> uses</a>
 </th>
 </tr>
 </thead>
@@ -121,7 +111,7 @@ $id=$row['id'];
 </td>
 <td>
 <?php echo $primary_site;  ?></td>
-<td>
+
 </tr>
 <?php }   ?>
 

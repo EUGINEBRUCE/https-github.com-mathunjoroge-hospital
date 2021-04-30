@@ -1,5 +1,19 @@
 <link rel="shortcut icon" href="../favicon.ico">
+<link href='../accounts/src/vendor/fontawesome/css/font-awesome.min.css' rel='stylesheet'>
+ <script>
+$("thead[class='']").addClass("bg-primary");
+
+ </script>
+<script>
+    $("close_bars").click(function() { 
+	// Your code 
+});
+</script>
 <style type="text/css">
+#close_bars{
+    
+      
+    }
        @media (max-width:629px) {
   img#logo {
     display: none;
@@ -7,6 +21,7 @@
   }
  #logo_mobile {
     display: block;
+    max-width: 100%;
  }
 
 }
@@ -15,11 +30,25 @@
     display: none;
    
   }
+  img#logo {
+    float:left;
+    margin-left:-9.2%;
+   
+  }
+  .jumbotron{
+      margin-left:-10%;
+      height:100%;
+  }
+  .body{
+      background-color: #3786d6;
+  }
+  }
 
 }
 img#logo_mobile{
+   
     width: 100%;
-object-fit: cover;
+  
 }
     body {
     text-transform: capitalize;
@@ -111,6 +140,7 @@ background-repeat:no-repeat;
 #view_as {
     position: absolute;
     left: 73.2%;
+     margin-top: -5%;
 }
 .combopopup{
     padding:3px;
@@ -213,13 +243,16 @@ background-repeat:no-repeat;
     display: none;
   }
   #view_as{
-    margin-top: 8%;
+    margin-top: -2%;
 
   }
 }
+#logo {
+    float:left;
+}
 </style>
 
-    <div class="container" id="top" style="background-color: #3786d6;" ><img id="logo" src="../logo.png" style="height:auto;" alt="M&M Caresoft"><img id="logo_mobile" src="../mobile-min.JPG"  alt="M&M Caresoft"><strong style="color: white;float: right;" ><i class="fa fa-user">&nbsp;</i><?php echo $_SESSION['SESS_FIRST_NAME']; ?>&nbsp;<a href="../logout.php"><i style="color: red;" class="fa fa-power-off"></i><font  style="color: white;"> Log out</font></strong></a></li></div> 
+    <div class="container" id="top" style="background-color: #3786d6;" ><img id="logo"  src="../logo.png" style="height:auto;" alt="M&M Caresoft"><img id="logo_mobile" src="../mobile-min.JPG"  alt="M&M Caresoft"><strong style="color: white;float: right;" ><i class="fa fa-user">&nbsp;</i><?php echo $_SESSION['SESS_FIRST_NAME']; ?>&nbsp;<a href="../logout.php"><i style="color: red;" class="fa fa-power-off"></i><font  style="color: white;"> Log out</font></strong></a></li></div> 
     <p>&nbsp;</p>
     <p>&nbsp;</p>
     <?php
@@ -298,6 +331,7 @@ background-repeat:no-repeat;
                         <option value="pharmacist">pharmacist</option>
                         <option value="stores">store</option>
                         <option value="lab">lab</option>
+                        <option value="imaging">imaging</option>
                         <option value="admin">admin</option>                        
                     </select>
                     <button id="submitbtn" style="display: none;">submit</button>

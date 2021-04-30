@@ -3,77 +3,10 @@ require_once('../main/auth.php');
 include ('../connect.php'); ?>
  <!DOCTYPE html>
 <html>
-<title>payroll</title><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<link href='../pharmacy/googleapis.css' rel='stylesheet'>
-  <link href='../pharmacy/src/vendor/normalize.css/normalize.css' rel='stylesheet'>
-  <link href='../pharmacy/src/vendor/fontawesome/css/font-awesome.min.css' rel='stylesheet'>
-  <link href="../pharmacy/dist/vertical-responsive-menu.min.css" rel="stylesheet">
-  <link href="../pharmacy/demo.css" rel="stylesheet">
-  <link rel="stylesheet" href="../css/bootstrap.min.css">
-  <script src="../pharmacy/ckeditor/ckeditor.js"></script>
-  <script src="../js/jquery.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
-  <script src="../pharmacy/dist/js/bootstrap-select.js"></script>
-  <link href="../src/facebox.css" media="screen" rel="stylesheet" type="text/css" />
-<script src="../src/facebox.js" type="text/javascript"></script>
-<script type="text/javascript">
-  jQuery(document).ready(function($) {
-    $('a[rel*=facebox]').facebox({
-      loadingImage : '../src/loading.gif',
-      closeImage   : '../src/closelabel.png'
-    })
-  })
-</script>
-  <style type="text/css">
-    table.resultstable {
-  border: 1px solid #1C6EA4;
-  background-color: #EEEEEE;
-  width: 100%;
-  text-align: left;
-  border-collapse: collapse;
-}
-table.resultstable td, table.resultstable th {
-  border: 1px solid #AAAAAA;
-  padding: 3px 2px;
-}
-table.resultstable tbody td {
-  font-size: 13px;
-}
-table.resultstable tr:nth-child(even) {
-  background: #D0E4F5;
-}
-table.resultstable thead {
-  background: #1C6EA4;
-  background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
-  background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
-  background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
-  border-bottom: 2px solid #444444;
-}
-table.resultstable thead th {
-  font-size: 15px;
-  font-weight: bold;
-  color: #FFFFFF;
-  border-left: 2px solid #D0E4F5;
-}
-table.resultstable thead th:first-child {
-  border-left: none;
-}
-
-table.resultstable tfoot td {
-  font-size: 14px;
-}
-table.resultstable tfoot .links {
-  text-align: right;
-}
-table.resultstable tfoot .links a{
-  display: inline-block;
-  background: #1C6EA4;
-  color: #FFFFFF;
-  padding: 2px 8px;
-  border-radius: 5px;
-}
-  </style>
-  
+<title>payroll</title>
+<?php
+include "../header.php";
+?>
 </head>
 <body><header class="header clearfix" style="background-color: #3786d6;">
     <?php include('../main/nav.php'); ?>   
@@ -118,8 +51,8 @@ table.resultstable tfoot .links a{
    <li><a href="bank.php">payroll bank copy</a></li>
    </ol>    
       <h4>employees</h4>
-     <table class="resultstable" >
-<thead>
+     <table class="table table-bordered" >
+<thead class="bg-primary">
 <tr>
 <th> name</th>
 <th>deployment date</th>
@@ -150,8 +83,8 @@ table.resultstable tfoot .links a{
 </tbody>
 </table>
 <h4>job groups</h4>          
-     <table class="resultstable" >
-<thead>
+      <table class="table table-bordered" >
+<thead class="bg-primary">
 <tr>
 <th>job group</th>
 <th>basic salary</th>
@@ -179,8 +112,9 @@ table.resultstable tfoot .links a{
  </br>
  <h4>allowances</h4>
            
-     <table class="resultstable" >
-<thead>
+      <table class="table table-bordered" >
+<thead class="bg-primary">
+<tr>
 <tr>
 <th>allowance</th>
 <th>amount</th>
@@ -206,8 +140,9 @@ table.resultstable tfoot .links a{
 </table>
 </br>
  <h4>NHIF </h4><span>
-     <table class="resultstable" >
-<thead>
+     <table class="table table-bordered" >
+<thead class="bg-primary">
+<tr>
 <tr>
 <th>gross salary</th>
 <th>amount NHIF payable</th>

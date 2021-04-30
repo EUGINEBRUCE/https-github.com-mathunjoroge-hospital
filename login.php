@@ -49,6 +49,7 @@
 			$_SESSION['SESS_MEMBER_ID'] = $member['id'];
 			$_SESSION['SESS_FIRST_NAME'] = $member['name'];
 			$_SESSION['SESS_LAST_NAME'] = $member['position'];
+			$_SESSION['view_as']=$member['position'];
 			//$_SESSION['SESS_PRO_PIC'] = $member['profImage'];
 			session_write_close();
 			$a=1;

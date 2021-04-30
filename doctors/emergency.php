@@ -3,7 +3,7 @@ require_once('../main/auth.php');
  ?>
  <!DOCTYPE html>
 <html>
-<title>doctors</title>
+<title>emergency </title>
 <style type="text/css">
 #text {
   background:#333 url(../pharmacy/imgs/inflicted.png) repeat; 
@@ -23,116 +23,9 @@ require_once('../main/auth.php');
   background-repeat:repeat-y,background-position:8px -0.9px;
 }
 </style>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <link href='../pharmacy/src/vendor/normalize.css/normalize.css' rel='stylesheet'>
-  <link href="../pharmacy/demo.css" rel="stylesheet">
-  <link rel="stylesheet" href="../css/bootstrap.min.css">
-  <link rel="stylesheet" href="dist/css/bootstrap-select.css">
-  <script src="../js/jquery.min.js"></script>
-<!-- select2 css -->
-        <link href='select2/dist/css/select2.min.css' rel='stylesheet' type='text/css'>
-        <!-- select2 script -->
-        <script src='select2/dist/js/select2.min.js'></script>
-<script>
-        $(document).ready(function() { $("#disease").select2(); });
-    </script>
-  <script src="../js/bootstrap.min.js"></script>
-  <script src="dist/js/bootstrap-select.js"></script>
-<script>
-function suggestPatientName(inputString){
-        if(inputString.length == 0) {
-            $('#suggestions').fadeOut();
-        } else {
-        $('#patient').addClass('load');
-            $.post("autosuggestname.php", {queryString: ""+inputString+""}, function(data){
-                if(data.length >0) {
-                    $('#suggestions').fadeIn();
-                    $('#suggestionsList').html(data);
-                    $('#patient').removeClass('load');
-                }
-            });
-        }
-    }
-
-    function fillPatientName(thisValue) {
-        $('#patient').val(thisValue);
-        setTimeout("$('#suggestions').fadeOut();", 600);
-    }
-
-</script>
-<script>
-function showDisease(str) {
-    if (str == "") {
-        document.getElementById("texxtHint").innerHTML = "";
-        return;
-    } else { 
-        if (window.XMLHttpRequest) {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        } else {
-            // code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("texxtHint").innerHTML = this.responseText;
-            }
-        };
-        xmlhttp.open("GET","get_disease.php?q="+str,true);
-        xmlhttp.send();
-    }
-}
-</script>
-  
-   <style type="text/css">
-    table.resultstable {
-  border: 1px solid #1C6EA4;
-  background-color: #EEEEEE;
-  width: 100%;
-  text-align: left;
-  border-collapse: collapse;
-}
-table.resultstable td, table.resultstable th {
-  border: 1px solid #AAAAAA;
-  padding: 3px 2px;
-}
-table.resultstable tbody td {
-  font-size: 13px;
-}
-table.resultstable tr:nth-child(even) {
-  background: #D0E4F5;
-}
-table.resultstable thead {
-  background: #1C6EA4;
-  background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
-  background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
-  background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
-  border-bottom: 2px solid #444444;
-}
-table.resultstable thead th {
-  font-size: 15px;
-  font-weight: bold;
-  color: #FFFFFF;
-  border-left: 2px solid #D0E4F5;
-}
-table.resultstable thead th:first-child {
-  border-left: none;
-}
-
-table.resultstable tfoot td {
-  font-size: 14px;
-}
-table.resultstable tfoot .links {
-  text-align: right;
-}
-table.resultstable tfoot .links a{
-  display: inline-block;
-  background: #1C6EA4;
-  color: #FFFFFF;
-  padding: 2px 8px;
-  border-radius: 5px;
-}
-  </style>
+<?php
+include "../header.php";
+?>
 </head>
 
 <body>
@@ -147,7 +40,7 @@ table.resultstable tfoot .links a{
             <nav aria-label="breadcrumb" style="width: 90%;">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="index.php?search= &response=0">Home</a></li>
-    <li class="breadcrumb-item active" aria-current="page">out patient</li>
+    <li class="breadcrumb-item active" aria-current="page">emergency</li>
     <?php
     if (!empty($_GET["search"])) {
       $search=$_GET['search'];
@@ -183,7 +76,9 @@ if ($age>=1) {
 </nav>
 <body onLoad="document.getElementById('patient').focus();">
 <form action="emergency.php?" method="GET">
-  <span><input type="text" size="25" value="" name="search" id="patient" onkeyup="suggestPatientName(this.value);" onblur="fillPatientName();" class="" autocomplete="off" placeholder="Enter patient Name" style="width: 40%; height:30px;" />
+  <span><?php
+include "../pharmacy/patient_search.php";
+?>
   <input type="hidden" name="response" value="0"> <button class="btn btn-success"><i class="icon icon-save icon-large"></i>submit</button></span>     
       <div class="suggestionsBox" id="suggestions" style="display: none;">
         <div class="suggestionList" id="suggestionsList"> &nbsp; </div>

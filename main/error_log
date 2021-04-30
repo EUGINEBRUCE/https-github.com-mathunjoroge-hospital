@@ -1,0 +1,2 @@
+[04-Sep-2020 04:56:30 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/main/index.php:4) in /home2/healthte/public_html/hospital/main/index.php on line 50
+[04-Sep-2020 04:56:42 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/main/index.php:4) in /home2/healthte/public_html/hospital/main/index.php on line 50

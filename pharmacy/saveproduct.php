@@ -4,13 +4,13 @@ include('../connect.php');
 
 ?>
 
-?>
+
  <?php
 $b = $_POST['gen'];
 $c = $_POST['brand'];
 $d = $_POST['qty'];
 $e = $_POST['price'];
-$f = $_POST['category'];
+$f = 2;
 $k= $_POST['selling'];
 $g=(($k-$e)/$e)+1;
 $h = $_POST['reorderph'];
@@ -21,3 +21,6 @@ $q = $db->prepare($sql);
 $q->execute(array(':b'=>$b,':c'=>$c,':d'=>$d,':e'=>$e,':f'=>$f,':g'=>$g,':h'=>$h,':j'=>$j));
 header("location: stocks.php");
 ?>
+<script>
+    window.location.replace("http://healthtecq.com/hospitals/pharmacy/stocks.php");
+</script>

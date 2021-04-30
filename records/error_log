@@ -1,0 +1,11 @@
+[11-Dec-2020 04:55:53 America/Chicago] PHP Parse error:  syntax error, unexpected '$req' (T_VARIABLE), expecting '(' in /home2/healthte/public_html/hospital/records/index.php on line 47
+[11-Dec-2020 05:16:43 America/Chicago] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''%/2020%' at line 1 in /home2/healthte/public_html/hospital/records/index.php:50
+Stack trace:
+#0 /home2/healthte/public_html/hospital/records/index.php(50): PDOStatement->execute()
+#1 {main}
+  thrown in /home2/healthte/public_html/hospital/records/index.php on line 50
+[11-Dec-2020 05:17:36 America/Chicago] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''%/2020%' at line 1 in /home2/healthte/public_html/hospital/records/index.php:50
+Stack trace:
+#0 /home2/healthte/public_html/hospital/records/index.php(50): PDOStatement->execute()
+#1 {main}
+  thrown in /home2/healthte/public_html/hospital/records/index.php on line 50

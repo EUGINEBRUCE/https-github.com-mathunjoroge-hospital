@@ -4,131 +4,61 @@ require_once('../main/auth.php');
 <!DOCTYPE html>
 <html>
 <title>doctors</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href='../pharmacy/src/vendor/normalize.css/normalize.css' rel='stylesheet'>
-  <link href='../pharmacy/src/vendor/fontawesome/css/font-awesome.min.css' rel='stylesheet'>
-  <link href="../pharmacy/dist/vertical-responsive-menu.min.css" rel="stylesheet">
-  <link href="../pharmacy/demo.css" rel="stylesheet">
-  <link rel="stylesheet" href="../css/bootstrap.min.css">
-  <link rel="stylesheet" href="dist/css/bootstrap-select.css">
-  <script src="../js/jquery.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
-  <script src="dist/js/bootstrap-select.js"></script>
-  <link href="../src/facebox.css" media="screen" rel="stylesheet" type="text/css" />
-<script src="../src/facebox.js" type="text/javascript"></script>
-<script type="text/javascript">
-  jQuery(document).ready(function($) {
-    $('a[rel*=facebox]').facebox({
-      loadingImage : '../src/loading.gif',
-      closeImage   : '../src/closelabel.png'
-    })
-  })
-</script>
-<!-- select2 css -->
-<link href='select2/dist/css/select2.min.css' rel='stylesheet' type='text/css'>
-<!-- select2 script -->
-<script src='select2/dist/js/select2.min.js'></script>
-<script>
-$(document).ready(function() { $("#disease").select2(); });
-</script>
-<script>
-function suggestPatientName(inputString){
-if(inputString.length == 0) {
-$('#suggestions').fadeOut();
-} else {
-$('#patient').addClass('load');
-$.post("autosuggestname.php", {queryString: ""+inputString+""}, function(data){
-if(data.length >0) {
-$('#suggestions').fadeIn();
-$('#suggestionsList').html(data);
-$('#patient').removeClass('load');
-}
-});
-}
-}
-
-function fillPatientName(thisValue) {
-$('#patient').val(thisValue);
-setTimeout("$('#suggestions').fadeOut();", 600);
-}
-
-</script>
-<script>
-function showDisease(str) {
-if (str == "") {
-document.getElementById("texxtHint").innerHTML = "";
-return;
-} else { 
-if (window.XMLHttpRequest) {
-// code for IE7+, Firefox, Chrome, Opera, Safari
-xmlhttp = new XMLHttpRequest();
-} else {
-// code for IE6, IE5
-xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-}
-xmlhttp.onreadystatechange = function() {
-if (this.readyState == 4 && this.status == 200) {
-document.getElementById("texxtHint").innerHTML = this.responseText;
-}
-};
-xmlhttp.open("GET","get_disease.php?q="+str,true);
-xmlhttp.send();
-}
-}
-</script>
-
-<style type="text/css">
-table.resultstable {
-border: 1px solid #1C6EA4;
-background-color: #EEEEEE;
-width: 100%;
-text-align: left;
-border-collapse: collapse;
-}
-table.resultstable td, table.resultstable th {
-border: 1px solid #AAAAAA;
-padding: 3px 2px;
-}
-table.resultstable tbody td {
-font-size: 13px;
-}
-table.resultstable tr:nth-child(even) {
-background: #D0E4F5;
-}
-table.resultstable thead {
-background: #1C6EA4;
-background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
-background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
-background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
-border-bottom: 2px solid #444444;
-}
-table.resultstable thead th {
-font-size: 15px;
-font-weight: bold;
-color: #FFFFFF;
-border-left: 2px solid #D0E4F5;
-}
-table.resultstable thead th:first-child {
-border-left: none;
-}
-
-table.resultstable tfoot td {
-font-size: 14px;
-}
-table.resultstable tfoot .links {
-text-align: right;
-}
-table.resultstable tfoot .links a{
-display: inline-block;
-background: #1C6EA4;
-color: #FFFFFF;
-padding: 2px 8px;
-border-radius: 5px;
-}
-</style>
+<?php
+include "../header.php";
+?>
 </head>
 
 <body>
+    <style>
+    /* style for background*/
+   #disease + .select2-selection__choice
+{
+	background-color: blue;
+
+}
+    /* Input field */
+#disease + .select2 .select2-selection__rendered {  background-color:black; }
+
+/* Each result */
+#select2-disease-results { background-color: black; }
+
+/* Higlighted (hover) result */
+#select2-disease-results .select2-results__option--highlighted { background-color: #0033cc! important; }
+
+/* Selected option */
+#select2-disease-results .select2-results__option[aria-selected=true] { background-color: blue !important; }
+
+
+// These 2 are special they would require js if you dont want to change the style for each select 2
+/* Around the search field */
+.select2-search { background-color: orange; }
+
+/* Search field */
+.select2-search input { background-color: pink; }
+</style>
+<style>
+    /* Input field */
+#ddx + .select2 .select2-selection__rendered {  background-color:black; }
+
+/* Each result */
+#select2-ddx-results { background-color: black; }
+
+/* Higlighted (hover) result */
+#select2-ddx-results .select2-results__option--highlighted { background-color: #0033cc! important; }
+
+/* Selected option */
+#select2-ddx-results .select2-results__option[aria-selected=true] { background-color: blue !important; }
+
+
+// These 2 are special they would require js if you dont want to change the style for each select 2
+/* Around the search field */
+.select2-search { background-color: orange; }
+
+/* Search field */
+.select2-search input { background-color: pink; }
+</style>
+
 <header class="header clearfix" style="background-color: #3786d6;">
 </button>
 <?php include('../main/nav.php'); ?>   
@@ -156,33 +86,21 @@ $c=$row['sex'];
 $d=$row['opno'];
 
 ?>
-<li class="breadcrumb-item active" aria-current="page"><?php echo $a; ?> age: <?php 
-$now = time('Y/m/d');
-$dob = strtotime($b);
-$datediff = $now - $dob;
-$agee=round($datediff / (60 * 60 * 24))/365; 
-$age = number_format($agee, 2, '.', '');
-
-if ($age>=1) {
-echo $age."years";
-# code...
-}
-if ($age<1) {
-echo $age*12; echo "&nbsp;"."Months";
-# code...
-} ?> &nbsp; sex: <?php echo $c; ?></li>
+<li class="breadcrumb-item active" aria-current="page"><?php echo $a; ?> 
+<?php
+include 'age.php';
+?>
 <?php } ?>
 
 </ol>
 </nav>
 <body onLoad="document.getElementById('patient').focus();">
 <form action="index.php?" method="GET">
-<span><input type="text" size="25" value="" name="search" id="patient" onkeyup="suggestPatientName(this.value);" onblur="fillPatientName();" class="" autocomplete="off" placeholder="Enter patient Name" style="width: 40%; height:30px;" />
+<span><?php
+include "../pharmacy/patient_search.php";
+?> 
 <input type="hidden" name="response" value="0"> <button class="btn btn-success"><i class="icon icon-save icon-large"></i>submit</button></span>     
-<div class="suggestionsBox" id="suggestions" style="display: none;">
-<div class="suggestionList" id="suggestionsList"> &nbsp; </div>
-
-</div></form>
+</form>
 
 <?php
 $search=$_GET['search'];
@@ -244,7 +162,7 @@ if (isset($e)) {
 <th>rate</th>
 <th>comments</th>
 </tr>
-<?php $result = $db->prepare("SELECT * FROM vitals JOIN patients ON vitals.pno=patients.opno WHERE pno=:o");
+<?php $result = $db->prepare("SELECT systolic, diastolic,rate FROM vitals JOIN patients ON vitals.pno=patients.opno WHERE pno=:o AND  systolic > ''");
 $result->BindParam(':o', $search);
 $result->execute();
 for($i=0; $row = $result->fetch(); $i++){
@@ -297,7 +215,7 @@ if (isset($rbs)) {
 <th>rbs</th>
 <th>comments</th>
 </tr>
-<?php $result = $db->prepare("SELECT * FROM vitals JOIN patients ON vitals.pno=patients.opno WHERE pno=:o");
+<?php $result = $db->prepare("SELECT * FROM vitals JOIN patients ON vitals.pno=patients.opno WHERE pno=:o AND  rbs > ''");
 $result->BindParam(':o', $search);
 $result->execute();
 for($i=0; $row = $result->fetch(); $i++){
@@ -337,7 +255,7 @@ if (isset($k)) {
 <th>temperature</th>
 <th>comments</th>
 </tr>
-<?php $result = $db->prepare("SELECT * FROM vitals JOIN patients ON vitals.pno=patients.opno WHERE pno=:o");
+<?php $result = $db->prepare("SELECT * FROM vitals JOIN patients ON vitals.pno=patients.opno WHERE pno=:o AND  temperature > ''");
 $result->BindParam(':o', $search);
 $result->execute();
 for($i=0; $row = $result->fetch(); $i++){
@@ -378,7 +296,7 @@ if (isset($l)) {
 <th>breath rate</th>
 <th>comments</th>
 </tr>
-<?php $result = $db->prepare("SELECT * FROM vitals JOIN patients ON vitals.pno=patients.opno WHERE pno=:o");
+<?php $result = $db->prepare("SELECT * FROM vitals JOIN patients ON vitals.pno=patients.opno WHERE pno=:o AND  breat_rate > ''");
 $result->BindParam(':o', $search);
 $result->execute();
 for($i=0; $row = $result->fetch(); $i++){
@@ -458,9 +376,9 @@ echo $h;  } ?> cm</td>
 </textarea>      
 <label>Physical examination.</label></br> 
 <textarea name="physical_examination" style="width: 105%;height: 10%;" placeholder="patient physical examination" required/></textarea></br>
-<label>differential diagnosis</label></br>
+<label>differential diagnosis</label>
 <select id='ddx' style='width: 105%;' name="ddx[]" data-live-search="true"  multiple>
-<option value='0' ></option>
+
 </select>
 </div>      
 <div class="col-sm-6" > <label>Medication history</label></br> 
@@ -492,9 +410,8 @@ echo "<option value=".$row['imaging_id'].">".$row['imaging_name']."</option>";
 <div class="container">
 <label>diagnosis</label></br>             
 <select id='disease' style='width: 105%;' name="dx[]" data-live-search="true"  multiple>
-<option value='0' ></option>
-</select>
 
+</select>
 <script>
 
 $(document).ready(function(){
@@ -502,12 +419,12 @@ $(document).ready(function(){
 $("#disease").select2({
 placeholder:"find disease",
 minimuminputLength:3,
-theme: "classic",
 ajax: {
 url: "diseases.php?q=term",
 dataType: 'json',
 type: "POST",
 delay: 250,
+
 data: function (params) {
 return {
 q: params.term, // search term
@@ -577,6 +494,32 @@ if ($respose==1) {
 <?php } ?>
 
 </div></div>
+<script>
+$(document).ready(function(){
+$("#patient").select2({
+placeholder:"enter patient name or number",
+minimuminputLength:3,
+theme: "classic",
+ajax: {
+url: "../doctors/patient.php?q=term",
+dataType: 'json',
+type: "POST",
+delay: 250,
+data: function (params) {
+return {
+q: params.term, // search term
+};
+},
+processResults: function (data) {
+return {
+results: data
+};
+},
+cache: true
+}
+});
+});
+</script>
 
 </body>
 </html>

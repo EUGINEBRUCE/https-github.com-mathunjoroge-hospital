@@ -1,0 +1,19 @@
+[26-Nov-2020 04:52:50 America/Chicago] PHP Parse error:  syntax error, unexpected end of file in /home2/healthte/public_html/hospital/imaging/details.php on line 336
+[27-Nov-2020 01:30:27 America/Chicago] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/healthte/public_html/hospital/main/auth.php on line 3
+[27-Nov-2020 01:30:27 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/imaging/viewer.php:1) in /home2/healthte/public_html/hospital/main/auth.php on line 7
+[11-Dec-2020 21:34:40 America/Chicago] PHP Warning:  time() expects exactly 0 parameters, 1 given in /home2/healthte/public_html/hospital/imaging/index.php on line 93
+[11-Dec-2020 21:34:40 America/Chicago] PHP Warning:  time() expects exactly 0 parameters, 1 given in /home2/healthte/public_html/hospital/imaging/index.php on line 93
+[11-Dec-2020 21:34:49 America/Chicago] PHP Warning:  time() expects exactly 0 parameters, 1 given in /home2/healthte/public_html/hospital/imaging/index.php on line 93
+[11-Dec-2020 21:34:49 America/Chicago] PHP Warning:  time() expects exactly 0 parameters, 1 given in /home2/healthte/public_html/hospital/imaging/index.php on line 93
+[11-Dec-2020 21:35:02 America/Chicago] PHP Warning:  time() expects exactly 0 parameters, 1 given in /home2/healthte/public_html/hospital/imaging/index.php on line 93
+[11-Dec-2020 21:35:02 America/Chicago] PHP Warning:  time() expects exactly 0 parameters, 1 given in /home2/healthte/public_html/hospital/imaging/index.php on line 93
+[11-Dec-2020 21:37:03 America/Chicago] PHP Warning:  time() expects exactly 0 parameters, 1 given in /home2/healthte/public_html/hospital/imaging/index.php on line 93
+[11-Dec-2020 21:37:03 America/Chicago] PHP Warning:  time() expects exactly 0 parameters, 1 given in /home2/healthte/public_html/hospital/imaging/index.php on line 93
+[20-Dec-2020 00:12:25 America/Chicago] PHP Warning:  time() expects exactly 0 parameters, 1 given in /home2/healthte/public_html/hospital/imaging/index.php on line 93
+[20-Dec-2020 00:12:25 America/Chicago] PHP Warning:  time() expects exactly 0 parameters, 1 given in /home2/healthte/public_html/hospital/imaging/index.php on line 93
+[20-Dec-2020 00:12:25 America/Chicago] PHP Warning:  time() expects exactly 0 parameters, 1 given in /home2/healthte/public_html/hospital/imaging/index.php on line 93
+[20-Dec-2020 00:12:32 America/Chicago] PHP Warning:  time() expects exactly 0 parameters, 1 given in /home2/healthte/public_html/hospital/imaging/details.php on line 54
+[20-Dec-2020 00:17:25 America/Chicago] PHP Warning:  time() expects exactly 0 parameters, 1 given in /home2/healthte/public_html/hospital/imaging/details.php on line 54
+[20-Dec-2020 00:17:27 America/Chicago] PHP Warning:  time() expects exactly 0 parameters, 1 given in /home2/healthte/public_html/hospital/imaging/index.php on line 93
+[20-Dec-2020 00:17:27 America/Chicago] PHP Warning:  time() expects exactly 0 parameters, 1 given in /home2/healthte/public_html/hospital/imaging/index.php on line 93
+[20-Dec-2020 00:17:27 America/Chicago] PHP Warning:  time() expects exactly 0 parameters, 1 given in /home2/healthte/public_html/hospital/imaging/index.php on line 93

@@ -1,6 +1,5 @@
 <?php 
 include('connect.php');
-
   //Start session
   session_start();
   
@@ -8,6 +7,9 @@ include('connect.php');
   unset($_SESSION['SESS_MEMBER_ID']);
   unset($_SESSION['SESS_FIRST_NAME']);
   unset($_SESSION['SESS_LAST_NAME']);
+  unset($_SESSION['view_as']);
+if(isset($_SESSION['user_db'])){
+ 
 
 ?>
 <!DOCTYPE html>
@@ -23,11 +25,9 @@ include('connect.php');
  ?></div>
 
 <body>
-	
-	
-	<div class="limiter" >
-		<div class="container-login100">
-			<div class="wrap-login100" ;>
+    <div class="limiter" >
+		<div class="container-login100" >
+			<div class="wrap-login100" style='text-align:center;background-image: url(main/bgg.jpeg);background-repeat:no-repeat;background-size: cover;'>
 				<?php if (isset($_GET['response'])) {
 	# code...
  ?>
@@ -40,16 +40,11 @@ include('connect.php');
   60% { opacity: 0.2; }
 }
  </style>
- <span class="login100-form-title" class="blink_me" style="color: red;font-weight: bold;font-size: 1rem;">Please use the correct login credentials</span>
+  <span class="login100-form-title" class="blink_me" style="color: red;font-weight: bold;font-size: 1rem;">Please use the correct login credentials</span>
  <?php } ?>
 
-				<div class="login100-pic js-tilt" data-tilt>
-					<img src="images/img-01.png" alt="IMG">
-
-				</div>
-				 
-
-				<form action="login.php" method="post">
+			<div class="container" style="margin-top:-10%;">
+				<form action="login.php" method="post" style="">
 					<form class="login100-form validate-form" >
 					<span class="login100-form-title">
 
@@ -77,7 +72,7 @@ include('connect.php');
 							Login
 						</button>
 					</div>
-
+</div>
 					<div class="text-center p-t-12">
 						<span class="txt1">
 							&nbsp;
@@ -99,6 +94,14 @@ include('connect.php');
 		})
 	</script>
 	<script src="js/main.js"></script>
+	<?php } 
+	else{
+	?>
+	<script>
+    window.location.replace("http://www.healthtecq.com/signup/index.php");
+</script>
+	<?php } ?>
+	
 
 </body>
 </html>

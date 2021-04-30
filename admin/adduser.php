@@ -1,26 +1,45 @@
-<form action="saveproduct.php" method="POST">
-	<table class="resultstable" >
-<thead>
-<tr>
-<th>generic name</th>
-<th>brand name</th>
-<th>quantity</th>
-<th>price</th>
+<div class="col"> 
+<h5 >edit user</h5>
+<form action="saveuser.php" method="POST">
+<div class="form-group row">  
+<div class="col-10">
+<input class="form-control" type="text" placeholder="user name" id="example-text-input" name="username" autocomplete="false">
+</div>
+</div>
+<div class="form-group row">
+<div class="col-10">
+<input class="form-control" type="password" placeholder="password" id="example-search-input" name="password" autocomplete="false">
+</div>
+</div>
+<div class="form-group row">
+<div class="col-10">
+<input class="form-control" type="text" placeholder="other names" id="example-email-input" name="other" autocomplete="false">
+</div>
+</div>
+<div class="form-group row">
+<div class="col-10">
+<select placeholder="select" name="usertype"><option disabled>select user type</option>
+<option>admin</option>
+<option>cashier</option>
+<option>doctor</option>
+<option>lab</option>
+<option>nurse</option>
+<option>pharmacist</option>        
+<option>registration</option>
+<option>stores</option>
 
-</tr>
-</thead>
+</select>
+</div>
+</div>
+<div class="form-group row">
 
-<tbody>
-<tr>
-<td><input type="text" name="gen" style="
-    outline: none;"></td>
-<td><input type="text" name="brand"></td>
-<td ><input type="text" name="qty"></td>
-<td><input type="text" name="price"></td>
+<div class="col-10">
 
-</tr>
-<tr> 
-</tbody>
-</table>
-<button class="btn btn-success" style="width: 100%;">save</button>
+</div>
+</div>
+<div class="col-10">
+<button class="btn btn-success" style="width: 80%;">save</button>
+</div>
 </form>
+</div>
+</div>

@@ -5,29 +5,7 @@ include('../connect.php');
  <!DOCTYPE html>
 <html>
 <title>expenses</title>
- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <link href='../pharmacy/src/vendor/normalize.css/normalize.css' rel='stylesheet'>
-  <link href='../pharmacy/src/vendor/fontawesome/css/font-awesome.min.css' rel='stylesheet'>
-  <link href="../pharmacy/dist/vertical-responsive-menu.min.css" rel="stylesheet">
-  <link href="../pharmacy/demo.css" rel="stylesheet">
-  <link rel="stylesheet" href="../css/bootstrap.min.css">
-  <link rel="stylesheet" href="../pharmacy/dist/css/bootstrap-select.css">
-  <script src="../js/jquery.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
-  <script src="../pharmacy/dist/js/bootstrap-select.js"></script>
-  <link rel="stylesheet" href="../main/jquery-ui.css">
-  <script src="../main/jquery-1.12.4.js"></script>
-  <script src="../main/jquery-ui.js"></script>
-  <link href="../src/facebox.css" media="screen" rel="stylesheet" type="text/css" />
-<script src="../src/facebox.js" type="text/javascript"></script>
-<script type="text/javascript">
-  jQuery(document).ready(function($) {
-    $('a[rel*=facebox]').facebox({
-      loadingImage : '../src/loading.gif',
-      closeImage   : '../src/closelabel.png'
-    })
-  })
-</script>
+<?php include "../header.php"; ?>
 </head>
 <body>
   <header class="header clearfix" style="background-color: #3786d6;">
@@ -36,27 +14,7 @@ include('../connect.php');
     ?>   
   </header>
   <?php include('side.php'); ?>
-  <div class="content-wrapper"><script>
-function suggest(inputString){
-        if(inputString.length == 0) {
-            $('#suggestions').fadeOut();
-        } else {
-        $('#country').addClass('load');
-            $.post("autosuggestname.php", {queryString: ""+inputString+""}, function(data){
-                if(data.length >0) {
-                    $('#suggestions').fadeIn();
-                    $('#suggestionsList').html(data);
-                    $('#country').removeClass('load');
-                }
-            });
-        }
-    }
-
-    function fill(thisValue) {
-        $('#country').val(thisValue);
-        setTimeout("$('#suggestions').fadeOut();", 600);
-    }
-</script>
+  <div class="content-wrapper">
 <script>
   $( function() {
     $( "#mydate" ).datepicker({

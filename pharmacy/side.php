@@ -1,4 +1,13 @@
-<style type="text/css">
+<?php 
+include ('../connect.php');
+$result = $db->prepare("SELECT * FROM orders ORDER BY dispense_id DESC LIMIT 1");
+        $result->execute();
+        $result->execute();
+  for($i=0; $row = $result->fetch(); $i++){
+      $req= $row['patient']+1;
+  }
+ ?>
+ <style type="text/css">
 .nav-side-menu {
   overflow: auto;
   font-family: verdana;
@@ -150,12 +159,12 @@
 </style>
 <div class="nav-side-menu">
     <div class="brand">&nbsp;</div>
-    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+    <i class="fa fa-bars fa-2x toggle-btn" id="close_bars" data-toggle="collapse" data-target="#menu-content"></i>
     <div class="menu-list">
     <ul id="menu-content" class="menu-content collapse out">
    <li>&nbsp;&nbsp;<a href="index.php?search=%20&response=0&token=<?php echo rand(); ?>">Home</a></li>
    <li>&nbsp;&nbsp;<a href='stocks.php'>stocks</a></li>
-   <li>&nbsp;&nbsp;<a href='orders.php?req=<?php echo $code;  ?>'>order drugs</a></li>
+   <li>&nbsp;&nbsp;<a href='orders.php?req=<?php echo $req;  ?>'>order drugs</a></li>
    <li>&nbsp;&nbsp;<a href='bincard.php?d1=0&d2=0&drug=0'>bincard</a></li>
    <li>&nbsp;&nbsp;<a href='consumption.php'>consumption report</a></li>
    <li>&nbsp;&nbsp;<a href='paid.php'>paid receipts</a></li>
@@ -163,6 +172,7 @@
    <li>&nbsp;&nbsp;<a href='served.php?d1=0&d2=0'>served orders</a></li>
    <li>&nbsp;&nbsp;<a href='pending.php'>pending orders</a></li>
    <li>&nbsp;&nbsp;<a href='return.php?search=0&response=0'>return inwards</a></li>
+   <li>&nbsp;&nbsp;<a href='history.php?search=0'>patient history</a></li>
    <li>&nbsp;&nbsp;<a href='../drugbank/index.php'>drugs ref</a></li>
    <li>&nbsp;&nbsp;<a href='cancer.php'>cancer drugs</a></li>
  </ul>   

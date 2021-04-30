@@ -6,19 +6,9 @@ require_once('../main/auth.php');
 <html>
 <title>cashier</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <link href='src/vendor/normalize.css/normalize.css' rel='stylesheet'>
-  <link href='src/vendor/fontawesome/css/font-awesome.min.css' rel='stylesheet'>
-  <link href="dist/vertical-responsive-menu.min.css" rel="stylesheet">
-  <link href="../stores/demo.css" rel="stylesheet">
-  <link rel="stylesheet" href="../css/bootstrap.min.css">
-  <link rel="stylesheet" href="dist/css/bootstrap-select.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script src="../pharmacy/js/canvas.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
-  <script src="dist/js/bootstrap-select.js"></script>
-  <link href="../src/facebox.css" media="screen" rel="stylesheet" type="text/css" />
-  <script src="../src/facebox.js" type="text/javascript"></script>
-
+  <?php 
+  include "../header.php";
+  ?>
 </head>
 <body>
   <header class="header clearfix" style="background-color: #3786d6;">

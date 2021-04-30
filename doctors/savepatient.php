@@ -4,6 +4,7 @@ session_start();
 $a=date('Y-m-d');
 $doctor = $_SESSION['SESS_FIRST_NAME'];
 $j = $_POST['pn'];
+if(isset($_POST['physical_examination'])){
 $physical = $_POST['physical_examination'];
 //inserting data into physical examinations table
 $sql = "INSERT INTO physicals (patient, description) VALUES (:a, :b)";
@@ -12,6 +13,7 @@ $q->execute(array(
 ':a' => $j,
 ':b' => $physical
 ));
+}
 if (isset($_POST['emergency'])) {
 $emergency = $_POST['emergency'];
 $a = date('Y-m-d H:i:s');
@@ -23,6 +25,7 @@ $q->execute(array(
 ':c' => $emergency,
 ':d' => $doctor
 ));
+}
 if (isset($_POST['lab'])) {
 $labs = $_POST['lab'];
 foreach ($labs as $lab) {
@@ -69,9 +72,7 @@ $q->execute(array(
 ));
 }
 }
-header("location: emergency.php?search=%20&response=0&message=1");
-exit();
-}
+
 $b   = $_POST['hpi'];
 $c   = $_POST['pmh'];
 $d   = $_POST['cc'];

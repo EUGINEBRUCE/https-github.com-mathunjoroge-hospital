@@ -8,8 +8,7 @@ include('../connect.php');
     $dispense_id=$_POST['dispense_id'];
     $quanties=$_POST['qty'];
 foreach (array_combine($drug_ids, $quanties) as $drug_id => $quantity){   
- ?>
-<p><?php
+
 $sql = "UPDATE drugs
         SET  quantity=quantity-$quantity,
          pharm_qty=pharm_qty+$quantity
@@ -17,11 +16,12 @@ $sql = "UPDATE drugs
         $q = $db->prepare($sql);
         $q->execute();
 
- ?>
-</p>
-    <?php
     //values to post order id, dispense id, and quantities
     $quantiess=implode(',', $quanties);
     $ids=implode(',', $dispense_id);
     header("location: resaveorder.php?qty=$quantiess&order_id=$order_id&dispense_id=$ids");
-     } ?>
+    
+     } 
+   
+     
+     ?>

@@ -1,5 +1,5 @@
 <?php
-include 'config.php';
+include '../connect.php';
 
 // Number of records fetch
 $numberofrecords = 20;

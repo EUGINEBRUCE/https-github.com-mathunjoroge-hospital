@@ -149,13 +149,17 @@
   
 </style>
 <div class="nav-side-menu">
-    <div class="brand">&nbsp;</div>
-    <i id="close_bars" class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+    <div class="brand"><p>&nbsp;</p><i id="" class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i></div>
+    
+    <div>
+    </div>
+    
     <div class="menu-list">
     <ul id="menu-content" class="menu-content collapse out">
    <li>&nbsp;&nbsp;<a href='index.php?response=0'><i class="menu-icon fa fa-home"></i>Home</a></li>
    <li>&nbsp;&nbsp;<a href="fees.php?response=0&page=charges"> <i class="menu-icon fa fa-money"></i> charges</a></li>
    <li>&nbsp;&nbsp;<a href="payroll.php?response=0&page=payrol"> <i class="menu-icon fa fa-line-chart "></i> payroll</a></li>
+   <li>&nbsp;&nbsp;<a href="total.php"> <i class="menu-icon fa fa-group "></i> users</a></li>
  </ul>   
     </div>
 </div>

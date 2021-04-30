@@ -9,66 +9,80 @@ $result = $db->prepare("SELECT * FROM patients");
  ?>
  <!DOCTYPE html>
 <html>
-<title>register patient</title>
+<title>admit patient</title>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-  
-  <link href='../pharmacy/src/vendor/normalize.css/normalize.css' rel='stylesheet'>
-  <link href='../pharmacy/src/vendor/fontawesome/css/font-awesome.min.css' rel='stylesheet'>
-  <link href="../pharmacy/dist/vertical-responsive-menu.min.css" rel="stylesheet">
-  <link href="../pharmacy/demo.css" rel="stylesheet">
-  <link rel="stylesheet" href="../css/bootstrap.min.css">
-  <link rel="stylesheet" href="../pharmacy/dist/css/bootstrap-select.css">
-<script type="text/javascript" src="../main/tcal.js"></script>
-  <script src="../js/jquery.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
-  <script src="../pharmacy/dist/js/bootstrap-select.js"></script>
-
+ <?php
+  include "../header.php";
+  ?>
 </head>
   <body onLoad="document.getElementById('country').focus();">
   <header class="header clearfix" style="background-color: #3786d6;">
     
     <?php include('../main/nav.php'); ?>   
   </header>
-  <nav class="vertical_nav">
-    <ul id="js-menu" class="menu">
-     
-    </ul>
-    <button id="collapse_menu" class="collapse_menu">
-      <i class="collapse_menu--icon  fa fa-fw"></i>
-      <span class="collapse_menu--label">hide menu</span>
-    </button>
-  </nav>
-   <div class="wrapper">      
-      <div class="jumbotron" style="background: #95CAFC;">         
-
-  <link rel="stylesheet" href="../main/jquery-ui.css">
-  <script src="../main/jquery-1.12.4.js"></script>
-  <script src="../main/jquery-ui.js"></script>
-  <script>
-  $( function() {
-    $( "#mydate" ).datepicker({
-      changeMonth: true,
-      changeYear: true
-    });
-  } );
-
-  </script>
-
-  <div class="wrapper">
-    
+  <?php include('side.php'); ?>
+  <div class="content-wrapper"> 
+<body onLoad="document.getElementById('country').focus();">   
       <div class="jumbotron" style="background: #95CAFC;">
-          <?php $a=$_GET['name'];
-      if ($a==0) {
-         # code...
-       ?>
+        <div class="container">
+          <?php if (!isset($_GET["wardtrigger"])) {
+  # code...
+ ?>
+          <nav aria-label="breadcrumb" style="width: 90%;">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="index.php?search= &response=0">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">patient</li>
+    <li class="breadcrumb-item active" aria-current="page">search patient</li>
+    <?php
+      $search=$_GET['search'];
+      include ('../connect.php');
+$result = $db->prepare("SELECT * FROM patients WHERE opno=:o");
+$result->BindParam(':o', $search);
+        $result->execute();
+        for($i=0; $row = $result->fetch(); $i++){
+        $a=$row['name'];
+        $b=$row['age'];
+     
+     ?>
+     <li class="breadcrumb-item active" aria-current="page"><?php echo $a; ?><?php
+include '../doctors/age.php';
+?>
+<?php } ?>
+</nav>  
+
+<form action="admit.php?&response=0" method="GET">
+  <?php
+  include "../pharmacy/patient_search.php";
+  ?><input class="form-control" type="hidden" name="response" value="0"> <button class="btn btn-success"><i class="icon icon-save icon-large"></i>submit</button></span>     
+    
+</div></form>
+    <p>&nbsp;</p>
+    <?php
+    $search=$_GET['search'];
+    $nothing="";
+    if ($search!=$nothing) {
+       # code...
+      ?><?php } ?>
+      <?php 
+      $search=$_GET['search'];
+      $response=0;
+      include ('../connect.php');
+$result = $db->prepare("SELECT * FROM patients WHERE opno=:o");
+$result->BindParam(':o', $search);
+        $result->execute();
+        for($i=0; $row = $result->fetch(); $i++){
+        $a=$row['name'];
+        $b=$row['age'];
+        $c=$row['sex'];
+        $d=$row['opno'];
+ ?>
+ <p>
         	<h3>admit patient</h3>
       <div class="container">  
       <form action="admitpt.php" method="post">
       <table class="table table-dark" style="width:50%;">
 <tbody>
-<tr>  
+<tr> 
   <td><select name="ward" style="height: 30px;width: 100%;"><option>--select ward--</option>
   <?php 
         $result = $db->prepare("SELECT * FROM wards");
@@ -92,57 +106,59 @@ $result = $db->prepare("SELECT * FROM patients");
 </tr>
 <tr>
 <td><input type="text" style="height: 30px;width: 100%;" name="nurse" placeholder="receiving nurse" required></td>
-<td><input type="hidden" style="height: 30px;width: 100%;" name="ipd" value="<?php echo $_GET['pt']; ?>"></td>
+<td><input type="hidden" style="height: 30px;width: 100%;" name="ipd" value="<?php echo $_GET['search']; ?>"></td>
 <tr>
 <td><button class="btn btn-primary btn-large" style="width:100%;">save</button></td></form><?php } ?>
+<?php } ?>
 </tr>
 </tbody>
 </table>
-<?php $a=$_GET['name'];
-      if ($a==1) { 
-      
-         # code...
-       ?>
+<?php if (isset($_GET["wardtrigger"])) {
+  # code...
+ ?>
        <div class="container">
-        <h3>allocate bed</h3>
-  <div class="alert alert-success" style="width: 50%;margin-left: 10%;"><p> patient has been admited. allocate bed now</p></div>
-  <div class="jumbotron" style="width: 50%;margin-left: 10%;">
-    <form action="admit2.php" method="POST">
-      <tr>
-      <td><select name="bedno" style="height: 30px;width: 70%;"><option>--select bed number--</option>
-  <?php $d1=$_GET['ward'];
+        <?php $d1=$_GET['ward'];
         $d2=0;
         $result = $db->prepare("SELECT* FROM wards  WHERE id=:a ");
         $result->bindParam(':a', $d1);
         $result->execute();
         for($i=0; $row = $result->fetch(); $i++){
           $ward=$row['name']; 
-          echo $ward;
-                
+                    
       ?>
-      <?php 
-        $d2=0;
-        $result = $db->prepare("SELECT* FROM beds  WHERE ward=:a AND ocuppied=:b");
-        $result->bindParam(':a', $ward);
-        $result->bindParam(':b', $d2);
-        $result->execute();
-        for($i=0; $row = $result->fetch(); $i++){
-                
-      ?><option value="<?php echo $row['bed_no']; ?>"><?php echo $row['bed_no']; ?> 
-</option><?php } ?></select></td>
+  <div class="alert alert-success" style="width: 85%;margin-left: 10%;"><p> patient has been admited to ward <?php echo $ward; ?>. allocate bed now</p></div>
+  <div class="jumbotron" style="width: 50%;margin-left: 10%;">
+    <form action="admit2.php" method="POST">
+      <tr>
+      <td>
+          <?php
+          echo $ward;
+          ?>  <span><select  name="bedno" class="selectpicker" data-live-search="true" title="Please select a bed" >
+<?php 
+           include ('../connect.php');
+          $result = $db->prepare("SELECT * FROM beds WHERE ward LIKE '%$ward%'");
+                  $result->execute();
+                  for($i=0; $row = $result->fetch(); $i++){
+                     echo "<option value=".$row['bed_no'].">".$row['bed_no']."</option>";
+                   }
+                  
+                  ?> 
+</select></td>
 </tr>
 <input type="hidden" name="pt" value="<?php echo $_GET['pt'] ?>">
-<input type="hidden" name="ward" value="<?php echo $_GET['ward'] ?>">
+<input type="hidden" name="ward" value="<?php echo $ward; ?>">
+<p>&nbsp;</p>
     <button class="btn btn-primary btn-large" style="margin-left:2%;width: 65%;">save</button></form>
    
     
   </div>
       </div>
        <?php } ?>
-        <?php } ?>
+       <?php } ?>
+
 </div>
 </div></div></div>                
-</div></div></div>
+</div>
  
   
 </body>

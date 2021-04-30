@@ -150,7 +150,7 @@ float: right;
 </style>
 <div class="nav-side-menu">
 <div class="brand">&nbsp;</div>
-<i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+ <i class="fa fa-bars fa-2x toggle-btn" id="close_bars" data-toggle="collapse" data-target="#menu-content"></i>
 <div class="menu-list">
 <ul id="menu-content" class="menu-content collapse out">
 <li>&nbsp;&nbsp;<a href='index.php?search= &response=0'>Home</a></li>
@@ -161,6 +161,7 @@ float: right;
 <li>&nbsp;&nbsp;<a href='inpatient.php?search= &response=0'>inpatients</a></li>
 <li>&nbsp;&nbsp;<a href='procedure.php'>record procedure</a></li>
 <li>&nbsp;&nbsp;<a href='theatre.php'>theatre list</a></li>
+<li>&nbsp;&nbsp;<a href='summary.php'>surgery summaries</a></li>
 <li>&nbsp;&nbsp;<a href='../icd/index.php'>diseases ref</a></li>
 <li>&nbsp;&nbsp;<a href='emergency.php?search=%20&response=0'>emergency</a></li>
 <li>&nbsp;&nbsp;<a href='oncology.php?code=<?php echo rand(); ?>'>oncology</a></li>

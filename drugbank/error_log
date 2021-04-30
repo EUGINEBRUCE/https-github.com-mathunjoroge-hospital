@@ -1,0 +1,50 @@
+[24-Nov-2020 12:42:01 America/Chicago] PHP Warning:  pg_connect(): Unable to connect to PostgreSQL server: could not connect to server: Connection refused
+	Is the server running on host &quot;localhost&quot; and accepting
+	TCP/IP connections on port 5432?
+could not connect to server: Network is unreachable
+	Is the server running on host &quot;localhost&quot; and accepting
+	TCP/IP connections on port 5432? in /home2/healthte/public_html/hospital/drugbank/db_connect.php on line 2
+[24-Nov-2020 12:42:19 America/Chicago] PHP Warning:  pg_connect(): Unable to connect to PostgreSQL server: could not connect to server: Connection refused
+	Is the server running on host &quot;localhost&quot; and accepting
+	TCP/IP connections on port 5432?
+could not connect to server: Network is unreachable
+	Is the server running on host &quot;localhost&quot; and accepting
+	TCP/IP connections on port 5432? in /home2/healthte/public_html/hospital/drugbank/db_connect.php on line 2
+[24-Nov-2020 12:42:19 America/Chicago] PHP Warning:  pg_query() expects parameter 1 to be resource, boolean given in /home2/healthte/public_html/hospital/drugbank/index.php on line 58
+[24-Nov-2020 12:42:19 America/Chicago] PHP Warning:  pg_fetch_object() expects parameter 1 to be resource, null given in /home2/healthte/public_html/hospital/drugbank/index.php on line 59
+[24-Nov-2020 12:42:28 America/Chicago] PHP Warning:  pg_connect(): Unable to connect to PostgreSQL server: could not connect to server: Connection refused
+	Is the server running on host &quot;localhost&quot; and accepting
+	TCP/IP connections on port 5432?
+could not connect to server: Network is unreachable
+	Is the server running on host &quot;localhost&quot; and accepting
+	TCP/IP connections on port 5432? in /home2/healthte/public_html/hospital/drugbank/db_connect.php on line 2
+[24-Nov-2020 12:43:08 America/Chicago] PHP Warning:  pg_connect(): Unable to connect to PostgreSQL server: could not connect to server: Connection refused
+	Is the server running on host &quot;localhost&quot; and accepting
+	TCP/IP connections on port 5432?
+could not connect to server: Network is unreachable
+	Is the server running on host &quot;localhost&quot; and accepting
+	TCP/IP connections on port 5432? in /home2/healthte/public_html/hospital/drugbank/db_connect.php on line 2
+[24-Nov-2020 12:43:26 America/Chicago] PHP Warning:  pg_connect(): Unable to connect to PostgreSQL server: could not connect to server: Connection refused
+	Is the server running on host &quot;localhost&quot; and accepting
+	TCP/IP connections on port 5432?
+could not connect to server: Network is unreachable
+	Is the server running on host &quot;localhost&quot; and accepting
+	TCP/IP connections on port 5432? in /home2/healthte/public_html/hospital/drugbank/db_connect.php on line 2
+[27-Apr-2021 07:36:02 America/Chicago] PHP Warning:  pg_connect(): Unable to connect to PostgreSQL server: could not connect to server: Connection refused
+	Is the server running on host &quot;localhost&quot; and accepting
+	TCP/IP connections on port 5432?
+could not connect to server: Network is unreachable
+	Is the server running on host &quot;localhost&quot; and accepting
+	TCP/IP connections on port 5432? in /home2/healthte/public_html/hospitals/drugbank/db_connect.php on line 2
+[27-Apr-2021 07:36:37 America/Chicago] PHP Warning:  pg_connect(): Unable to connect to PostgreSQL server: could not connect to server: Connection refused
+	Is the server running on host &quot;localhost&quot; and accepting
+	TCP/IP connections on port 5432?
+could not connect to server: Network is unreachable
+	Is the server running on host &quot;localhost&quot; and accepting
+	TCP/IP connections on port 5432? in /home2/healthte/public_html/hospitals/drugbank/db_connect.php on line 2
+[27-Apr-2021 07:37:02 America/Chicago] PHP Warning:  pg_connect(): Unable to connect to PostgreSQL server: could not connect to server: Connection refused
+	Is the server running on host &quot;localhost&quot; and accepting
+	TCP/IP connections on port 5432?
+could not connect to server: Network is unreachable
+	Is the server running on host &quot;localhost&quot; and accepting
+	TCP/IP connections on port 5432? in /home2/healthte/public_html/hospitals/drugbank/db_connect.php on line 2

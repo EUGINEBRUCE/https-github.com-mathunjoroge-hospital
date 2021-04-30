@@ -6,17 +6,9 @@ include('../connect.php');
 <html>
 <title>receipt</title>
 <head>
-  <link href='../pharmacy/src/vendor/normalize.css/normalize.css' rel='stylesheet'>
-  <link href='../pharmacy/src/vendor/fontawesome/css/font-awesome.min.css' rel='stylesheet'>
-  <link href="../pharmacy/dist/vertical-responsive-menu.min.css" rel="stylesheet">
-  <link href="../pharmacy/demo.css" rel="stylesheet">
-  <link rel="stylesheet" href="../css/bootstrap.min.css">
-  <link rel="stylesheet" href="dist/css/bootstrap-select.css">
-  <script src="../js/jquery.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
-  <script src="dist/js/bootstrap-select.js"></script>
-  <link href="../src/facebox.css" media="screen" rel="stylesheet" type="text/css" />
-  <link href="../pharmacy/src/facebox.css" media="screen" rel="stylesheet" type="text/css" />
+<?php
+include "../header.php";
+?>
 
   <script type="text/javascript">
    function printDiv(content) {
@@ -146,5 +138,5 @@ function Redirect()
 {  
 window.location="index.php?search= &attempt=3&name=<?php echo $a ?>"; 
 }  
-setTimeout('Redirect()', 50000);   
+setTimeout('Redirect()', 500);   
 </script>

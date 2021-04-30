@@ -1,0 +1,152 @@
+[24-Nov-2020 12:46:55 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/healthte/public_html/hospital/stores/vieworder.php on line 270
+[24-Nov-2020 12:47:19 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/saveorder.php:12) in /home2/healthte/public_html/hospital/stores/saveorder.php on line 26
+[24-Nov-2020 12:47:19 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/saveorder.php:12) in /home2/healthte/public_html/hospital/stores/saveorder.php on line 26
+[24-Nov-2020 12:47:19 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/saveorder.php:12) in /home2/healthte/public_html/hospital/stores/saveorder.php on line 26
+[24-Nov-2020 12:47:47 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/saveorder.php:12) in /home2/healthte/public_html/hospital/stores/saveorder.php on line 26
+[24-Nov-2020 12:47:47 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/saveorder.php:12) in /home2/healthte/public_html/hospital/stores/saveorder.php on line 26
+[24-Nov-2020 12:47:47 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/saveorder.php:12) in /home2/healthte/public_html/hospital/stores/saveorder.php on line 26
+[24-Nov-2020 12:48:04 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/healthte/public_html/hospital/stores/vieworder.php on line 270
+[24-Nov-2020 12:48:12 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/saveorder.php:12) in /home2/healthte/public_html/hospital/stores/saveorder.php on line 26
+[24-Nov-2020 12:48:12 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/saveorder.php:12) in /home2/healthte/public_html/hospital/stores/saveorder.php on line 26
+[24-Nov-2020 12:48:12 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/saveorder.php:12) in /home2/healthte/public_html/hospital/stores/saveorder.php on line 26
+[24-Nov-2020 12:49:49 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/saveorder.php:12) in /home2/healthte/public_html/hospital/stores/saveorder.php on line 26
+[24-Nov-2020 12:49:50 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/saveorder.php:12) in /home2/healthte/public_html/hospital/stores/saveorder.php on line 26
+[24-Nov-2020 12:49:50 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/saveorder.php:12) in /home2/healthte/public_html/hospital/stores/saveorder.php on line 26
+[24-Nov-2020 12:49:54 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/saveorder.php:12) in /home2/healthte/public_html/hospital/stores/saveorder.php on line 26
+[24-Nov-2020 12:49:54 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/saveorder.php:12) in /home2/healthte/public_html/hospital/stores/saveorder.php on line 26
+[24-Nov-2020 12:49:54 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/saveorder.php:12) in /home2/healthte/public_html/hospital/stores/saveorder.php on line 26
+[24-Nov-2020 12:50:20 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/healthte/public_html/hospital/stores/vieworder.php on line 270
+[24-Nov-2020 12:53:54 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/healthte/public_html/hospital/stores/vieworder.php on line 270
+[24-Nov-2020 12:54:14 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/saveorder.php:12) in /home2/healthte/public_html/hospital/stores/saveorder.php on line 26
+[24-Nov-2020 12:54:14 America/Chicago] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '
+         pharm_qty=pharm_qty+
+        WHERE drug_id=447' at line 2 in /home2/healthte/public_html/hospital/stores/saveorder.php:18
+Stack trace:
+#0 /home2/healthte/public_html/hospital/stores/saveorder.php(18): PDOStatement->execute()
+#1 {main}
+  thrown in /home2/healthte/public_html/hospital/stores/saveorder.php on line 18
+[24-Nov-2020 12:54:28 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/healthte/public_html/hospital/stores/vieworder.php on line 270
+[24-Nov-2020 12:55:59 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/healthte/public_html/hospital/stores/vieworder.php on line 270
+[24-Nov-2020 13:28:35 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/healthte/public_html/hospital/stores/vieworder.php on line 270
+[24-Nov-2020 13:29:09 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/saveorder.php:12) in /home2/healthte/public_html/hospital/stores/saveorder.php on line 26
+[24-Nov-2020 13:29:09 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/saveorder.php:12) in /home2/healthte/public_html/hospital/stores/saveorder.php on line 26
+[24-Nov-2020 13:29:09 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/saveorder.php:12) in /home2/healthte/public_html/hospital/stores/saveorder.php on line 26
+[25-Nov-2020 01:53:28 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/healthte/public_html/hospital/stores/vieworder.php on line 270
+[25-Nov-2020 01:54:26 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/healthte/public_html/hospital/stores/vieworder.php on line 270
+[25-Nov-2020 01:56:24 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/healthte/public_html/hospital/stores/vieworder.php on line 130
+[25-Nov-2020 01:58:30 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/healthte/public_html/hospital/stores/vieworder.php on line 71
+[25-Nov-2020 03:58:43 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/healthte/public_html/hospital/stores/vieworder.php:45
+Stack trace:
+#0 {main}
+  thrown in /home2/healthte/public_html/hospital/stores/vieworder.php on line 45
+[25-Nov-2020 04:02:07 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/healthte/public_html/hospital/stores/vieworder.php:45
+Stack trace:
+#0 {main}
+  thrown in /home2/healthte/public_html/hospital/stores/vieworder.php on line 45
+[25-Nov-2020 04:03:44 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/healthte/public_html/hospital/stores/vieworder.php:45
+Stack trace:
+#0 {main}
+  thrown in /home2/healthte/public_html/hospital/stores/vieworder.php on line 45
+[25-Nov-2020 04:06:30 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/healthte/public_html/hospital/stores/vieworder.php:45
+Stack trace:
+#0 {main}
+  thrown in /home2/healthte/public_html/hospital/stores/vieworder.php on line 45
+[25-Nov-2020 04:07:22 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/healthte/public_html/hospital/stores/vieworder.php:45
+Stack trace:
+#0 {main}
+  thrown in /home2/healthte/public_html/hospital/stores/vieworder.php on line 45
+[25-Nov-2020 04:10:45 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/healthte/public_html/hospital/stores/vieworder.php:45
+Stack trace:
+#0 {main}
+  thrown in /home2/healthte/public_html/hospital/stores/vieworder.php on line 45
+[25-Nov-2020 04:23:49 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/healthte/public_html/hospital/stores/vieworder.php:45
+Stack trace:
+#0 {main}
+  thrown in /home2/healthte/public_html/hospital/stores/vieworder.php on line 45
+[25-Nov-2020 04:25:24 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/healthte/public_html/hospital/stores/vieworder.php:45
+Stack trace:
+#0 {main}
+  thrown in /home2/healthte/public_html/hospital/stores/vieworder.php on line 45
+[25-Nov-2020 04:25:28 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/healthte/public_html/hospital/stores/vieworder.php:45
+Stack trace:
+#0 {main}
+  thrown in /home2/healthte/public_html/hospital/stores/vieworder.php on line 45
+[25-Nov-2020 04:26:08 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/healthte/public_html/hospital/stores/vieworder.php:46
+Stack trace:
+#0 {main}
+  thrown in /home2/healthte/public_html/hospital/stores/vieworder.php on line 46
+[25-Nov-2020 04:27:10 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/healthte/public_html/hospital/stores/vieworder.php:46
+Stack trace:
+#0 {main}
+  thrown in /home2/healthte/public_html/hospital/stores/vieworder.php on line 46
+[25-Nov-2020 04:28:01 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/healthte/public_html/hospital/stores/vieworder.php:47
+Stack trace:
+#0 {main}
+  thrown in /home2/healthte/public_html/hospital/stores/vieworder.php on line 47
+[25-Nov-2020 04:28:49 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/healthte/public_html/hospital/stores/vieworder.php:46
+Stack trace:
+#0 {main}
+  thrown in /home2/healthte/public_html/hospital/stores/vieworder.php on line 46
+[25-Nov-2020 04:35:43 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/healthte/public_html/hospital/stores/vieworder.php:46
+Stack trace:
+#0 {main}
+  thrown in /home2/healthte/public_html/hospital/stores/vieworder.php on line 46
+[25-Nov-2020 04:42:28 America/Chicago] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in /home2/healthte/public_html/hospital/stores/vieworder.php:45
+Stack trace:
+#0 {main}
+  thrown in /home2/healthte/public_html/hospital/stores/vieworder.php on line 45
+[25-Nov-2020 04:51:29 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/healthte/public_html/hospital/stores/vieworder.php on line 270
+[25-Nov-2020 04:52:54 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/healthte/public_html/hospital/stores/vieworder.php on line 270
+[25-Nov-2020 04:54:07 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/healthte/public_html/hospital/stores/vieworder.php on line 211
+[25-Nov-2020 04:55:13 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/healthte/public_html/hospital/stores/vieworder.php on line 72
+[25-Nov-2020 04:55:19 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/healthte/public_html/hospital/stores/vieworder.php on line 72
+[25-Nov-2020 04:55:58 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/healthte/public_html/hospital/stores/vieworder.php on line 72
+[25-Nov-2020 05:01:37 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/healthte/public_html/hospital/stores/vieworder.php on line 60
+[25-Nov-2020 05:06:29 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/healthte/public_html/hospital/stores/vieworder.php on line 61
+[25-Nov-2020 05:06:46 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/healthte/public_html/hospital/stores/vieworder.php on line 61
+[25-Nov-2020 05:30:32 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/healthte/public_html/hospital/stores/vieworder.php on line 61
+[25-Nov-2020 05:32:03 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/saveorder.php:12) in /home2/healthte/public_html/hospital/stores/saveorder.php on line 26
+[25-Nov-2020 05:32:03 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/saveorder.php:12) in /home2/healthte/public_html/hospital/stores/saveorder.php on line 26
+[25-Nov-2020 05:32:03 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/saveorder.php:12) in /home2/healthte/public_html/hospital/stores/saveorder.php on line 26
+[25-Nov-2020 05:32:03 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/saveorder.php:12) in /home2/healthte/public_html/hospital/stores/saveorder.php on line 28
+[25-Nov-2020 05:32:42 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/saveorder.php:12) in /home2/healthte/public_html/hospital/stores/saveorder.php on line 26
+[25-Nov-2020 05:32:42 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/saveorder.php:12) in /home2/healthte/public_html/hospital/stores/saveorder.php on line 26
+[25-Nov-2020 05:32:42 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/saveorder.php:12) in /home2/healthte/public_html/hospital/stores/saveorder.php on line 26
+[25-Nov-2020 05:32:42 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/saveorder.php:12) in /home2/healthte/public_html/hospital/stores/saveorder.php on line 28
+[25-Nov-2020 05:33:49 America/Chicago] PHP Warning:  A non-numeric value encountered in /home2/healthte/public_html/hospital/stores/vieworder.php on line 61
+[25-Nov-2020 05:35:27 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/saveorder.php:12) in /home2/healthte/public_html/hospital/stores/saveorder.php on line 26
+[25-Nov-2020 05:35:27 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/saveorder.php:12) in /home2/healthte/public_html/hospital/stores/saveorder.php on line 26
+[25-Nov-2020 05:35:27 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/saveorder.php:12) in /home2/healthte/public_html/hospital/stores/saveorder.php on line 26
+[25-Nov-2020 05:35:27 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/saveorder.php:12) in /home2/healthte/public_html/hospital/stores/saveorder.php on line 29
+[25-Nov-2020 05:36:39 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/saveorder.php:21) in /home2/healthte/public_html/hospital/stores/saveorder.php on line 26
+[25-Nov-2020 05:36:39 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/saveorder.php:21) in /home2/healthte/public_html/hospital/stores/saveorder.php on line 27
+[25-Nov-2020 05:36:39 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/saveorder.php:21) in /home2/healthte/public_html/hospital/stores/saveorder.php on line 26
+[25-Nov-2020 05:36:39 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/saveorder.php:21) in /home2/healthte/public_html/hospital/stores/saveorder.php on line 27
+[25-Nov-2020 05:36:39 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/saveorder.php:21) in /home2/healthte/public_html/hospital/stores/saveorder.php on line 26
+[25-Nov-2020 05:36:39 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/saveorder.php:21) in /home2/healthte/public_html/hospital/stores/saveorder.php on line 27
+[25-Nov-2020 05:37:38 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/saveorder.php:21) in /home2/healthte/public_html/hospital/stores/saveorder.php on line 26
+[25-Nov-2020 05:37:38 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/saveorder.php:21) in /home2/healthte/public_html/hospital/stores/saveorder.php on line 26
+[25-Nov-2020 05:37:38 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/saveorder.php:21) in /home2/healthte/public_html/hospital/stores/saveorder.php on line 26
+[25-Nov-2020 05:37:38 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/saveorder.php:21) in /home2/healthte/public_html/hospital/stores/saveorder.php on line 33
+[25-Nov-2020 05:41:21 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/resaveorder.php:7) in /home2/healthte/public_html/hospital/stores/resaveorder.php on line 31
+[25-Nov-2020 05:41:21 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/resaveorder.php:7) in /home2/healthte/public_html/hospital/stores/resaveorder.php on line 31
+[25-Nov-2020 05:41:21 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/resaveorder.php:7) in /home2/healthte/public_html/hospital/stores/resaveorder.php on line 31
+[25-Nov-2020 05:42:00 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/resaveorder.php:10) in /home2/healthte/public_html/hospital/stores/resaveorder.php on line 31
+[25-Nov-2020 05:42:00 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/resaveorder.php:10) in /home2/healthte/public_html/hospital/stores/resaveorder.php on line 31
+[25-Nov-2020 05:42:00 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/resaveorder.php:10) in /home2/healthte/public_html/hospital/stores/resaveorder.php on line 31
+[25-Nov-2020 05:42:06 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/resaveorder.php:10) in /home2/healthte/public_html/hospital/stores/resaveorder.php on line 31
+[25-Nov-2020 05:42:06 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/resaveorder.php:10) in /home2/healthte/public_html/hospital/stores/resaveorder.php on line 31
+[25-Nov-2020 05:42:06 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/resaveorder.php:10) in /home2/healthte/public_html/hospital/stores/resaveorder.php on line 31
+[25-Nov-2020 05:42:37 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/resaveorder.php:10) in /home2/healthte/public_html/hospital/stores/resaveorder.php on line 31
+[25-Nov-2020 05:42:37 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/resaveorder.php:10) in /home2/healthte/public_html/hospital/stores/resaveorder.php on line 31
+[25-Nov-2020 05:42:37 America/Chicago] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/healthte/public_html/hospital/stores/resaveorder.php:10) in /home2/healthte/public_html/hospital/stores/resaveorder.php on line 31
+[27-Apr-2021 07:34:29 America/Chicago] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'category' cannot be null in /home2/healthte/public_html/hospitals/stores/saveproduct.php:16
+Stack trace:
+#0 /home2/healthte/public_html/hospitals/stores/saveproduct.php(16): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home2/healthte/public_html/hospitals/stores/saveproduct.php on line 16
+[27-Apr-2021 07:35:18 America/Chicago] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'category' cannot be null in /home2/healthte/public_html/hospitals/stores/saveproduct.php:16
+Stack trace:
+#0 /home2/healthte/public_html/hospitals/stores/saveproduct.php(16): PDOStatement->execute(Array)
+#1 {main}
+  thrown in /home2/healthte/public_html/hospitals/stores/saveproduct.php on line 16

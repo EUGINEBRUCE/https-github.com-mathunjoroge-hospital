@@ -4,143 +4,21 @@ include ('../connect.php');
 $shownav=0; ?>
 <!DOCTYPE html>
 <html>
-<title>fees</title><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<link href='../pharmacy/googleapis.css' rel='stylesheet'>
-<link href='../pharmacy/src/vendor/normalize.css/normalize.css' rel='stylesheet'>
-<link href='../pharmacy/src/vendor/fontawesome/css/font-awesome.min.css' rel='stylesheet'>
-<link href="../pharmacy/dist/vertical-responsive-menu.min.css" rel="stylesheet">
-<link href="../pharmacy/demo.css" rel="stylesheet">
-<link rel="stylesheet" href="../css/bootstrap.min.css">
-<script src="../pharmacy/ckeditor/ckeditor.js"></script>
-<script src="../js/jquery.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<script src="../pharmacy/dist/js/bootstrap-select.js"></script>
-<link href="../src/facebox.css" media="screen" rel="stylesheet" type="text/css" />
-<script src="../src/facebox.js" type="text/javascript"></script>
-<script type="text/javascript">
-jQuery(document).ready(function($) {
-$('a[rel*=facebox]').facebox({
-loadingImage : '../src/loading.gif',
-closeImage   : '../src/closelabel.png'
-})
-})
-</script>
-
-<style type="text/css">
-table.resultstable {
-border: 1px solid #1C6EA4;
-background-color: #EEEEEE;
-width: 100%;
-text-align: left;
-border-collapse: collapse;
-}
-table.resultstable td, table.resultstable th {
-border: 1px solid #AAAAAA;
-padding: 3px 2px;
-}
-table.resultstable tbody td {
-font-size: 13px;
-}
-table.resultstable tr:nth-child(even) {
-background: #D0E4F5;
-}
-table.resultstable thead {
-background: #1C6EA4;
-background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
-background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
-background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
-border-bottom: 2px solid #444444;
-}
-table.resultstable thead th {
-font-size: 15px;
-font-weight: bold;
-color: #FFFFFF;
-border-left: 2px solid #D0E4F5;
-}
-table.resultstable thead th:first-child {
-border-left: none;
-}
-
-table.resultstable tfoot td {
-font-size: 14px;
-}
-table.resultstable tfoot .links {
-text-align: right;
-}
-table.resultstable tfoot .links a{
-display: inline-block;
-background: #1C6EA4;
-color: #FFFFFF;
-padding: 2px 8px;
-border-radius: 5px;
-}
-</style>
+<title>fees</title>
+<?php
+include "../header.php";
+?>
 
 </head>
+ <script>
+$("head[class='']").addClass("bg-primary");
+
+ </script>
 <body><header class="header clearfix" style="background-color: #3786d6;">
 <?php include('../main/nav.php'); ?>   
 </header><?php include('sidee.php'); ?>
 <div class="content-wrapper"> <div class="jumbotron" style="background: #95CAFC;">
-<body >
-<style type="text/css">
-table.blueTable {
-border: 1px solid #1C6EA4;
-background-color: #EEEEEE;
-width: 70%;
-text-align: left;
-border-collapse: collapse;
-}
-table.blueTable td, table.blueTable th {
-border: 1px solid #AAAAAA;
-padding: 3px 2px;
-}
-table.blueTable tbody td {
-font-size: 13px;
-}
-table.blueTable tr:nth-child(even) {
-background: #D0E4F5;
-}
-table.blueTable thead {
-background: #1C6EA4;
-background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 105%);
-background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 105%);
-background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 105%);
-border-bottom: 2px solid #444444;
-}
-table.blueTable thead th {
-font-size: 15px;
-font-weight: bold;
-color: #FFFFFF;
-border-left: 2px solid #D0E4F5;
-}
-table.blueTable thead th:first-child {
-border-left: none;
-}
-
-table.blueTable tfoot td {
-font-size: 14px;
-}
-table.blueTable tfoot .links {
-text-align: right;
-}
-table.blueTable tfoot .links a{
-display: inline-block;
-background: #1C6EA4;
-color: #FFFFFF;
-padding: 2px 8px;
-border-radius: 5px;
-}.column {
-float: left;
-width: 50%;
-}
-
-/* Clear floats after the columns */
-.row:after {
-content: "";
-display: table;
-clear: both;
-}
-</style><div class="container">
+<body ><div class="container">
 
 <h3>standard charges</h3><span>
 <a rel="facebox" href="addcharge.php"> <button class="btn-success" style=""  >add charges</button></a></span></br><p></p> 
@@ -151,9 +29,9 @@ if ($_GET["response"]=1) {
 if ($_GET["response"]=2) {
 ?>
 <?php } ?><?php } ?> 
-<table class="resultstable" >
-<thead>
-<tr>
+<table class="table table-bordered" >
+<thead class="bg-primary">
+<tr >
 <th> name</th>
 <th>amount</th>
 <th>payable before</th>
@@ -194,9 +72,9 @@ if ($_GET["response"]=1) {
 if ($_GET["response"]=2) {
 ?>
 <?php } ?><?php } ?> 
-<table class="resultstable" >
+<table class="table table-bordered" >
 <thead>
-<tr>
+<tr class="primary">
 <th> name</th>
 <th>amount</th>
 <th>payable before</th>
@@ -237,7 +115,7 @@ if ($_GET["response"]=1) {
 if ($_GET["response"]=2) {
 ?>
 <?php } ?><?php } ?> 
-<table class="resultstable" >
+<table class="table table-bordered" >
 <thead>
 <tr>
 <th> name</th>
@@ -283,7 +161,7 @@ if ($_GET["response"]=2) {
 ?>
 
 <?php } ?><?php } ?> 
-<table class="resultstable" >
+<table class="table table-bordered" >
 <thead>
 <tr>
 <th> name</th>
@@ -330,7 +208,7 @@ if ($_GET["response"]==4) {
 if ($_GET["response"]==5) {
 ?>
 <p class="alert alert success">imaging method created success!</p><?php } ?>
-<table class="resultstable" >
+<table class="table table-bordered" >
 <thead>
 <tr>
 <th>imaging name</th>
@@ -367,7 +245,7 @@ echo "YES";
 </br>
 <h3>clinics</h3><span>
 <a rel="facebox" href="addclinic.php"> <button class="btn-success" style=""  >add clinic</button></a></span></br><p></p>
-<table class="resultstable" >
+<table class="table table-bordered" >
 <thead>
 <tr>
 <th>clinic name</th>
@@ -411,7 +289,7 @@ if ($_GET["response"]=2) {
 ?>
 
 <?php } ?><?php } ?> 
-<table class="resultstable" >
+<table class="table table-bordered" >
 <thead>
 <tr>
 <th> name</th>
@@ -453,7 +331,7 @@ if ($_GET['response']==11) {
 <?php } ?>
 <h3>expenses</h3><span> 
 <a rel="facebox" href="add_expense.php"> <button class="btn-success" style=""  >add expense</button></a></span></br><p></p>
-<table class="resultstable" >
+<table class="table table-bordered" >
 <thead>
 <tr>
 <th>expense name</th>

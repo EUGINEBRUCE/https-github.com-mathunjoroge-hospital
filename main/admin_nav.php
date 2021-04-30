@@ -1,4 +1,7 @@
-<style type="text/css">
+ <script>
+$("thead[class='']").addClass("bg-primary");
+
+ </script><style type="text/css">
     body {
     text-transform: capitalize;
 }
